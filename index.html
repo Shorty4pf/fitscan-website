@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-lang-fr="FitScan AI - Votre transformation commence avec un simple scan" data-lang-en="FitScan AI - Your transformation starts with a simple scan" data-lang-es="FitScan AI - Tu transformación comienza con un simple escaneo" data-lang-it="FitScan AI - La tua trasformazione inizia con una semplice scansione">FitScan AI - Votre transformation commence avec un simple scan</title>
+    
+    <!-- Preload Critical Assets -->
+    <link rel="preload" href="styles.css" as="style">
+    <link rel="preconnect" href="https://tools.applemediaservices.com">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#FFD60A">
+    <link rel="apple-touch-icon" href="logo-192.png">
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="FitScan AI analyse votre corps grâce à l'IA et génère un plan d'entraînement 100% personnalisé. Transformation fitness intelligente." data-lang-fr="FitScan AI analyse votre corps grâce à l'IA et génère un plan d'entraînement 100% personnalisé. Transformation fitness intelligente." data-lang-en="FitScan AI analyzes your body with AI and generates a 100% personalized training plan. Smart fitness transformation." data-lang-es="FitScan AI analiza tu cuerpo con IA y genera un plan de entrenamiento 100% personalizado. Transformación fitness intelligente." data-lang-it="FitScan AI analizza il tuo corpo con l'IA e genera un piano di allenamento 100% personalizzato. Trasformazione fitness intelligente.">
+    <meta name="keywords" content="fitness, IA, scan corporel, entraînement personnalisé, nutrition, transformation">
+    
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Cookie Consent Banner -->
+    <div class="cookie-banner" id="cookieBanner">
+        <div class="cookie-content">
+            <p data-lang-fr="🍪 Nous utilisons des cookies pour améliorer votre expérience. En continuant, vous acceptez notre politique de confidentialité." 
+               data-lang-en="🍪 We use cookies to improve your experience. By continuing, you accept our privacy policy." 
+               data-lang-es="🍪 Utilizamos cookies para mejorar tu experiencia. Al continuar, aceptas nuestra política de privacidad." 
+               data-lang-it="🍪 Utilizziamo i cookie per migliorare la tua esperienza. Continuando, accetti la nostra politica sulla privacy.">
+                🍪 Nous utilisons des cookies pour améliorer votre expérience. En continuant, vous acceptez notre politique de confidentialité.
+            </p>
+            <div class="cookie-buttons">
+                <button class="cookie-btn cookie-accept" onclick="acceptCookies()" 
+                        data-lang-fr="Accepter" data-lang-en="Accept" data-lang-es="Aceptar" data-lang-it="Accetta">Accepter</button>
+                <button class="cookie-btn cookie-decline" onclick="declineCookies()" 
+                        data-lang-fr="Refuser" data-lang-en="Decline" data-lang-es="Rechazar" data-lang-it="Rifiuta">Refuser</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Header -->
+    <header>
+        <nav class="navbar">
+            <a href="/" class="logo">
+                <img src="logo.png" alt="FitScan AI Logo" class="logo-img" loading="eager">
+                <span>FitScan AI</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#home" data-lang-fr="Accueil" data-lang-en="Home" data-lang-es="Inicio" data-lang-it="Home">Accueil</a></li>
+                <li><a href="#features" data-lang-fr="Fonctionnalités" data-lang-en="Features" data-lang-es="Características" data-lang-it="Caratteristiche">Fonctionnalités</a></li>
+                <li><a href="#about" data-lang-fr="À propos" data-lang-en="About" data-lang-es="Acerca de" data-lang-it="Chi siamo">À propos</a></li>
+                <li><a href="#contact" data-lang-fr="Contact" data-lang-en="Contact" data-lang-es="Contacto" data-lang-it="Contatto">Contact</a></li>
+            </ul>
+            <div class="nav-buttons">
+                <div class="language-selector">
+                    <button class="lang-btn active" data-lang="fr">
+                        <span class="flag">🇫🇷</span>
+                        <span class="lang-text">FR</span>
+                    </button>
+                    <div class="lang-dropdown">
+                        <button class="lang-option" data-lang="fr">
+                            <span class="flag">🇫🇷</span>
+                            <span>Français</span>
+                        </button>
+                        <button class="lang-option" data-lang="en">
+                            <span class="flag">🇬🇧</span>
+                            <span>English</span>
+                        </button>
+                        <button class="lang-option" data-lang="es">
+                            <span class="flag">🇪🇸</span>
+                            <span>Español</span>
+                        </button>
+                        <button class="lang-option" data-lang="it">
+                            <span class="flag">🇮🇹</span>
+                            <span>Italiano</span>
+                        </button>
+                    </div>
+                </div>
+                <a href="#" class="store-badge">
+                    <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" alt="Télécharger sur l'App Store" loading="eager">
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="hero-text">
+                <div class="social-proof">
+                    <div class="user-avatars">
+                        <div class="avatar"></div>
+                        <div class="avatar"></div>
+                        <div class="avatar"></div>
+                    </div>
+                    <span data-lang-fr="Aimé par 5M d'utilisateurs avec ⭐ 4.9 de note" data-lang-en="Loved by 5M users with ⭐ 4.9 rating" data-lang-es="Amado por 5M usuarios con ⭐ 4.9 de calificación" data-lang-it="Amato da 5M utenti con ⭐ 4.9 di valutazione">Aimé par 5M d'utilisateurs avec ⭐ 4.9 de note</span>
+                </div>
+                
+                <h1 data-lang-fr="Découvrez FitScan AI" data-lang-en="Discover FitScan AI" data-lang-es="Descubre FitScan AI" data-lang-it="Scopri FitScan AI">Découvrez FitScan AI</h1>
+                <h2 data-lang-fr="Votre transformation commence<br>avec un simple scan" data-lang-en="Your transformation starts<br>with a simple scan" data-lang-es="Tu transformación comienza<br>con un simple escaneo" data-lang-it="La tua trasformazione inizia<br>con una semplice scansione"><span class="hero-subtitle-text">Votre transformation commence<br>avec un simple scan</span></h2>
+                
+                <p class="description" data-lang-fr="FitScan AI analyse votre corps grâce à un scan vidéo alimenté par l'IA. En quelques secondes, notre technologie mesure votre morphologie, détecte vos points forts, vos zones à améliorer, et génère un plan d'entraînement et de nutrition 100% personnalisé, optimisé pour votre progression." data-lang-en="FitScan AI analyzes your body through an AI-powered video scan. In seconds, our technology measures your morphology, detects your strengths, areas to improve, and generates a 100% personalized training and nutrition plan, optimized for your progress." data-lang-es="FitScan AI analiza tu cuerpo mediante un escaneo de video impulsado por IA. En segundos, nuestra tecnología mide tu morfología, detecta tus puntos fuertes, áreas a mejorar y genera un plan de entrenamiento y nutrición 100% personalizado, optimizado para tu progreso." data-lang-it="FitScan AI analizza il tuo corpo tramite una scansione video alimentata dall'IA. In pochi secondi, la nostra tecnologia misura la tua morfologia, rileva i tuoi punti di forza, le aree da migliorare e genera un piano di allenamento e nutrizione 100% personalizzato, ottimizzato per il tuo progresso.">
+                    FitScan AI analyse votre corps grâce à un scan vidéo alimenté par l'IA.
+                    En quelques secondes, notre technologie mesure votre morphologie, détecte vos points forts, vos zones à améliorer, et génère un plan d'entraînement et de nutrition 100% personnalisé, optimisé pour votre progression.
+                </p>
+                
+                <div class="cta-buttons">
+                    <a href="#" class="app-store-btn">
+                        <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" alt="Télécharger sur l'App Store" loading="lazy">
+                    </a>
+                </div>
+            </div>
+            
+            <div class="hero-images">
+                <div class="phone-mockup phone-1">
+                    <div class="phone-screen">
+                        <div class="screen-content scanner">
+                            <div class="status-bar">9:41</div>
+                            <div class="scanner-header">
+                                <button class="back-btn">←</button>
+                                <span data-lang-fr="Scanner" data-lang-en="Scanner" data-lang-es="Escáner" data-lang-it="Scanner">Scanner</span>
+                            </div>
+                            <div class="scan-frame">
+                                <div class="corner tl"></div>
+                                <div class="corner tr"></div>
+                                <div class="corner bl"></div>
+                                <div class="corner br"></div>
+                            </div>
+                            <div class="scan-button">
+                                <div class="capture-btn"></div>
+                            </div>
+                            <div class="scan-label" data-lang-fr="Scanner l'aliment" data-lang-en="Scan food" data-lang-es="Escanear alimento" data-lang-it="Scansiona cibo">Scanner l'aliment</div>
+                        </div>
+                        <!-- Boutons invisibles sur la barre du bas du mockup principal -->
+                        <div class="phone-nav-invisible hero-phone-nav">
+                            <button class="phone-nav-btn" data-index="0" aria-label="Accueil"></button>
+                            <button class="phone-nav-btn" data-index="1" aria-label="Nutrition"></button>
+                            <button class="phone-nav-btn" data-index="2" aria-label="Entraînement"></button>
+                            <button class="phone-nav-btn" data-index="3" aria-label="Profil"></button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="phone-mockup phone-2">
+                    <div class="phone-screen">
+                        <div class="screen-content results">
+                            <div class="status-bar">9:41</div>
+                            <div class="nutrition-card">
+                                <h3 data-lang-fr="Blanc de Poulet Grillé" data-lang-en="Grilled Chicken Breast" data-lang-es="Pechuga de Pollo a la Parrilla" data-lang-it="Petto di Pollo alla Griglia">Blanc de Poulet Grillé</h3>
+                                <div class="portion">200g</div>
+                                <div class="nutrition-grid">
+                                    <div class="nutrient">
+                                        <span class="label" data-lang-fr="Calories" data-lang-en="Calories" data-lang-es="Calorías" data-lang-it="Calorie">Calories</span>
+                                        <span class="value">330</span>
+                                    </div>
+                                    <div class="nutrient">
+                                        <span class="label" data-lang-fr="Protéines" data-lang-en="Protein" data-lang-es="Proteínas" data-lang-it="Proteine">Protéines</span>
+                                        <span class="value">62g</span>
+                                    </div>
+                                    <div class="nutrient">
+                                        <span class="label" data-lang-fr="Glucides" data-lang-en="Carbs" data-lang-es="Carbohidratos" data-lang-it="Carboidrati">Glucides</span>
+                                        <span class="value">0g</span>
+                                    </div>
+                                    <div class="nutrient">
+                                        <span class="label" data-lang-fr="Lipides" data-lang-en="Fats" data-lang-es="Grasas" data-lang-it="Grassi">Lipides</span>
+                                        <span class="value">7g</span>
+                                    </div>
+                                </div>
+                                <div class="health-score">
+                                    <span data-lang-fr="Score santé" data-lang-en="Health score" data-lang-es="Puntuación de salud" data-lang-it="Punteggio salute">Score santé</span>
+                                    <span class="score">9/10</span>
+                                </div>
+                                <button class="done-btn" data-lang-fr="Terminé" data-lang-en="Done" data-lang-es="Hecho" data-lang-it="Fatto">Terminé</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <svg class="arrow-decoration" viewBox="0 0 200 100" fill="none">
+                    <path d="M10,50 Q100,20 190,50" stroke="#000" stroke-width="2" fill="none"/>
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features fade-in-section" id="features">
+        <h2 data-lang-fr="Que propose FitScan AI ?" data-lang-en="What does FitScan AI offer?" data-lang-es="¿Qué ofrece FitScan AI?" data-lang-it="Cosa offre FitScan AI?">Que propose FitScan AI ?</h2>
+        <div class="features-container">
+            <!-- iPhone Mockup (Sticky Left) -->
+            <div class="phone-mockup-sticky fade-in-up">
+                <div class="phone-mockup-wrapper">
+                    <div class="phone-screen">
+                        <img id="storyImage" src="story1.png" alt="Story" style="width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0;z-index:1;" loading="lazy">
+                        <div class="phone-screen-overlay"></div>
+                        <!-- Boutons invisibles sur la barre du bas -->
+                        <div class="phone-nav-invisible">
+                            <button class="phone-nav-btn" data-index="0" aria-label="Accueil"></button>
+                            <button class="phone-nav-btn" data-index="1" aria-label="Nutrition"></button>
+                            <button class="phone-nav-btn" data-index="2" aria-label="Entraînement"></button>
+                            <button class="phone-nav-btn" data-index="3" aria-label="Profil"></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="feature-dots">
+                    <span class="dot active"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </div>
+            </div>
+
+            <!-- Feature Cards (Right) -->
+            <div class="features-list">
+                <div class="feature-card-block active fade-in-up" style="transition-delay: 0.1s;">
+                    <h3 data-lang-fr="Analyse corporelle en direct" data-lang-en="Live body analysis" data-lang-es="Análisis corporal en directo" data-lang-it="Analisi corporea in diretta">Analyse corporelle en direct</h3>
+                    <p class="subtitle" data-lang-fr="Scannez votre corps en temps réel, simplement en tournant sur vous-même." data-lang-en="Scan your body in real-time, simply by turning around." data-lang-es="Escanea tu cuerpo en tiempo real, simplemente girando sobre ti mismo." data-lang-it="Scansiona il tuo corpo in tempo reale, semplicemente girandoti.">Scannez votre corps en temps réel, simplement en tournant sur vous-même.</p>
+                    <p data-lang-fr="Technologie 3D pour analyser silhouette, proportions et masse grasse. Scan instantané, sans équipement, juste votre téléphone." data-lang-en="3D technology to analyze silhouette, proportions and body fat. Instant scan, no equipment, just your phone." data-lang-es="Tecnología 3D para analizar silueta, proporciones y grasa corporal. Escaneo instantáneo, sin equipo, solo tu teléfono." data-lang-it="Tecnologia 3D per analizzare silhouette, proporzioni e grasso corporeo. Scansione istantanea, senza attrezzatura, solo il tuo telefono.">Technologie 3D pour analyser silhouette, proportions et masse grasse. Scan instantané, sans équipement, juste votre téléphone.</p>
+                </div>
+
+                <div class="feature-card-block fade-in-up" style="transition-delay: 0.2s;">
+                    <h3 data-lang-fr="Plan nutritionnel intelligent" data-lang-en="Intelligent nutrition plan" data-lang-es="Plan nutricional inteligente" data-lang-it="Piano nutrizionale intelligente">Plan nutritionnel intelligent</h3>
+                    <p class="subtitle" data-lang-fr="Une alimentation optimisée pour transformer votre corps plus vite." data-lang-en="Optimized diet to transform your body faster." data-lang-es="Una alimentación optimizada para transformar tu cuerpo más rápido." data-lang-it="Un'alimentazione ottimizzata per trasformare il tuo corpo più velocemente.">Une alimentation optimisée pour transformer votre corps plus vite.</p>
+                    <p data-lang-fr="L'IA calcule vos besoins (calories, macros) et propose des repas adaptés. Perte de poids, prise de muscle : tout est automatisé." data-lang-en="AI calculates your needs (calories, macros) and suggests adapted meals. Weight loss, muscle gain: everything is automated." data-lang-es="La IA calcula tus necesidades (calorías, macros) y propone comidas adaptadas. Pérdida de peso, ganancia muscular: todo está automatizado." data-lang-it="L'IA calcola le tue esigenze (calorie, macro) e propone pasti adattati. Perdita di peso, aumento muscolare: tutto è automatizzato.">L'IA calcule vos besoins (calories, macros) et propose des repas adaptés. Perte de poids, prise de muscle : tout est automatisé.</p>
+                </div>
+
+                <div class="feature-card-block fade-in-up" style="transition-delay: 0.3s;">
+                    <h3 data-lang-fr="Programmes d'entraînement 100 % personnalisés" data-lang-en="100% personalized training programs" data-lang-es="Programas de entrenamiento 100% personalizados" data-lang-it="Programmi di allenamento 100% personalizzati">Programmes d'entraînement 100 % personnalisés</h3>
+                    <p class="subtitle" data-lang-fr="Des séances créées sur mesure selon votre corps et vos objectifs." data-lang-en="Sessions created to measure based on your body and goals." data-lang-es="Sesiones creadas a medida según tu cuerpo y objetivos." data-lang-it="Sessioni create su misura in base al tuo corpo e obiettivi.">Des séances créées sur mesure selon votre corps et vos objectifs.</p>
+                    <p data-lang-fr="Plan unique adapté à votre niveau, morphologie et progression. Mise à jour automatique après chaque scan." data-lang-en="Unique plan adapted to your level, morphology and progression. Automatic update after each scan." data-lang-es="Plan único adaptado a tu nivel, morfología y progresión. Actualización automática después de cada escaneo." data-lang-it="Piano unico adattato al tuo livello, morfologia e progressione. Aggiornamento automatico dopo ogni scansione.">Plan unique adapté à votre niveau, morphologie et progression. Mise à jour automatique après chaque scan.</p>
+                </div>
+
+                <div class="feature-card-block fade-in-up" style="transition-delay: 0.4s;">
+                    <h3 data-lang-fr="Suivi d'évolution ultra précis" data-lang-en="Ultra-precise evolution tracking" data-lang-es="Seguimiento de evolución ultra preciso" data-lang-it="Monitoraggio dell'evoluzione ultra preciso">Suivi d'évolution ultra précis</h3>
+                    <p class="subtitle" data-lang-fr="Comparez vos scans et visualisez votre transformation." data-lang-en="Compare your scans and visualize your transformation." data-lang-es="Compara tus escaneos y visualiza tu transformación." data-lang-it="Confronta le tue scansioni e visualizza la tua trasformazione.">Comparez vos scans et visualisez votre transformation.</p>
+                    <p data-lang-fr="Détection des changements : tour de taille, proportions, posture, masse musculaire. Évolution affichée clairement." data-lang-en="Change detection: waist size, proportions, posture, muscle mass. Evolution displayed clearly." data-lang-es="Detección de cambios: cintura, proporciones, postura, masa muscular. Evolución mostrada claramente." data-lang-it="Rilevamento dei cambiamenti: girovita, proporzioni, postura, massa muscolare. Evoluzione mostrata chiaramente.">Détection des changements : tour de taille, proportions, posture, masse musculaire. Évolution affichée clairement.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Section -->
+    <section class="why-choose fade-in-section">
+        <div class="why-choose-content">
+            <h2 data-lang-fr="Pourquoi choisir FitScan AI ?" data-lang-en="Why choose FitScan AI?" data-lang-es="¿Por qué elegir FitScan AI?" data-lang-it="Perché scegliere FitScan AI?">Pourquoi choisir FitScan AI ?</h2>
+            <p class="why-subtitle" data-lang-fr="FitScan AI est l'application fitness la plus avancée." data-lang-en="FitScan AI is the most advanced fitness app." data-lang-es="FitScan AI es la aplicación fitness más avanzada." data-lang-it="FitScan AI è l'app fitness più avanzata.">FitScan AI est l'application fitness la plus avancée.</p>
+            
+            <div class="why-grid">
+                <div class="why-card fade-in-up" style="transition-delay: 0.1s;">
+                    <div class="why-icon">🎯</div>
+                    <h3 data-lang-fr="Précision maximale" data-lang-en="Maximum precision" data-lang-es="Máxima precisión" data-lang-it="Massima precisione">Précision maximale</h3>
+                    <p data-lang-fr="Scan 3D ultra-précis de votre corps. Analysez votre composition corporelle sans équipement additionnel." data-lang-en="Ultra-precise 3D scan of your body. Analyze your body composition without additional equipment." data-lang-es="Escaneo 3D ultra preciso de tu cuerpo. Analiza tu composición corporal sin equipo adicional." data-lang-it="Scansione 3D ultra precisa del tuo corpo. Analizza la tua composizione corporea senza attrezzatura aggiuntiva.">Scan 3D ultra-précis de votre corps. Analysez votre composition corporelle sans équipement additionnel.</p>
+                </div>
+                
+                <div class="why-card fade-in-up" style="transition-delay: 0.2s;">
+                    <div class="why-icon">💪</div>
+                    <h3 data-lang-fr="Programmes 100% personnalisés" data-lang-en="100% personalized programs" data-lang-es="Programas 100% personalizados" data-lang-it="Programmi 100% personalizzati">Programmes 100% personnalisés</h3>
+                    <p data-lang-fr="Entraînement et nutrition adaptés à votre morphologie unique. Progression optimisée en temps réel." data-lang-en="Training and nutrition adapted to your unique morphology. Progress optimized in real time." data-lang-es="Entrenamiento y nutrición adaptados a tu morfología única. Progresión optimizada en tiempo real." data-lang-it="Allenamento e nutrizione adattati alla tua morfologia unica. Progressi ottimizzati in tempo reale.">Entraînement et nutrition adaptés à votre morphologie unique. Progression optimisée en temps réel.</p>
+                </div>
+                
+                <div class="why-card fade-in-up" style="transition-delay: 0.3s;">
+                    <div class="why-icon">📊</div>
+                    <h3 data-lang-fr="Suivi de transformation" data-lang-en="Transformation tracking" data-lang-es="Seguimiento de transformación" data-lang-it="Monitoraggio della trasformazione">Suivi de transformation</h3>
+                    <p data-lang-fr="Visualisez votre évolution scan après scan. Mesurez chaque progrès avec une précision millimétrique." data-lang-en="Visualize your evolution scan after scan. Measure every progress with millimeter precision." data-lang-es="Visualiza tu evolución escaneo tras escaneo. Mide cada progreso con precisión milimétrica." data-lang-it="Visualizza la tua evoluzione scansione dopo scansione. Misura ogni progresso con precisione millimetrica.">Visualisez votre évolution scan après scan. Mesurez chaque progrès avec une précision millimétrique.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials fade-in-section">
+        <div class="testimonials-content">
+            <div class="testimonials-header fade-in-up">
+                <img src="leaf-left.png" alt="" class="leaf-decoration leaf-left" loading="lazy">
+                <h2 data-lang-fr="Des milliers d'utilisateurs parlent de nous" data-lang-en="Thousands of users talk about us" data-lang-es="Miles de usuarios hablan de nosotros" data-lang-it="Migliaia di utenti parlano di noi">Des milliers d'utilisateurs parlent de nous</h2>
+                <img src="leaf-right.png" alt="" class="leaf-decoration leaf-right" loading="lazy">
+            </div>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">
+                            <img src="avatar1.jpg" alt="@maxfit92" loading="lazy">
+                        </div>
+                        <div class="testimonial-info">
+                            <div class="testimonial-name">@maxfit92</div>
+                            <div class="testimonial-verified" data-lang-fr="✓ Utilisateur vérifié" data-lang-en="✓ Verified User" data-lang-es="✓ Usuario Verificado" data-lang-it="✓ Utente Verificato">✓ Utilisateur vérifié</div>
+                        </div>
+                    </div>
+                    <p data-lang-fr="j'ai perdu 8kg en 3 mois ça marche vraiment 💪" data-lang-en="I lost 8kg in 3 months it really works 💪" data-lang-es="Perdí 8kg en 3 meses realmente funciona 💪" data-lang-it="Ho perso 8kg in 3 mesi funziona davvero 💪">j'ai perdu 8kg en 3 mois ça marche vraiment 💪</p>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">
+                            <img src="avatar2.jpg" alt="Clara M." loading="lazy">
+                        </div>
+                        <div class="testimonial-info">
+                            <div class="testimonial-name">Clara M.</div>
+                            <div class="testimonial-verified" data-lang-fr="✓ Utilisateur vérifié" data-lang-en="✓ Verified User" data-lang-es="✓ Usuario Verificado" data-lang-it="✓ Utente Verificato">✓ Utilisateur vérifié</div>
+                        </div>
+                    </div>
+                    <p data-lang-fr="LE SCAN 3D EST DINGUE franchement j'ai jamais vu ça ailleurs 🔥🔥" data-lang-en="THE 3D SCAN IS CRAZY honestly I've never seen this elsewhere 🔥🔥" data-lang-es="EL ESCANEO 3D ES INCREÍBLE honestamente nunca vi esto en otro lugar 🔥🔥" data-lang-it="LA SCANSIONE 3D È PAZZESCA onestamente non l'ho mai vista altrove 🔥🔥">LE SCAN 3D EST DINGUE franchement j'ai jamais vu ça ailleurs 🔥🔥</p>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">
+                            <img src="avatar3.jpg" alt="2025fitjourney" loading="lazy">
+                        </div>
+                        <div class="testimonial-info">
+                            <div class="testimonial-name">2025fitjourney</div>
+                            <div class="testimonial-verified" data-lang-fr="✓ Utilisateur vérifié" data-lang-en="✓ Verified User" data-lang-es="✓ Usuario Verificado" data-lang-it="✓ Utente Verificato">✓ Utilisateur vérifié</div>
+                        </div>
+                    </div>
+                    <p>"I love this app it tracks everything without overthinking plus the UI is so aesthetic 💗"</p>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">
+                            <img src="avatar4.jpg" alt="Lucas" loading="lazy">
+                        </div>
+                        <div class="testimonial-info">
+                            <div class="testimonial-name">Lucas</div>
+                            <div class="testimonial-verified" data-lang-fr="✓ Utilisateur vérifié" data-lang-en="✓ Verified User" data-lang-es="✓ Usuario Verificado" data-lang-it="✓ Utente Verificato">✓ Utilisateur vérifié</div>
+                        </div>
+                    </div>
+                    <p data-lang-fr="Meilleure app fitness que j'ai testée. Les programmes s'adaptent automatiquement en fonction de mes perfs, c'est bluffant" data-lang-en="Best fitness app I've tested. The programs adapt automatically based on my performance, it's amazing" data-lang-es="Mejor app de fitness que he probado. Los programas se adaptan automáticamente según mi rendimiento, es increíble" data-lang-it="Migliore app fitness che ho testato. I programmi si adattano automaticamente in base alle mie prestazioni, è sorprendente">Meilleure app fitness que j'ai testée. Les programmes s'adaptent automatiquement en fonction de mes perfs, c'est bluffant</p>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">
+                            <img src="avatar5.jpg" alt="alex_training" loading="lazy">
+                        </div>
+                        <div class="testimonial-info">
+                            <div class="testimonial-name">alex_training</div>
+                            <div class="testimonial-verified" data-lang-fr="✓ Utilisateur vérifié" data-lang-en="✓ Verified User" data-lang-es="✓ Usuario Verificado" data-lang-it="✓ Utente Verificato">✓ Utilisateur vérifié</div>
+                        </div>
+                    </div>
+                    <p>"started using it yesterday and im already giving it 5⭐"</p>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">
+                            <img src="avatar6.jpg" alt="Sarah K." loading="lazy">
+                        </div>
+                        <div class="testimonial-info">
+                            <div class="testimonial-name">Sarah K.</div>
+                            <div class="testimonial-verified" data-lang-fr="✓ Utilisateur vérifié" data-lang-en="✓ Verified User" data-lang-es="✓ Usuario Verificado" data-lang-it="✓ Utente Verificato">✓ Utilisateur vérifié</div>
+                        </div>
+                    </div>
+                    <p data-lang-fr="@fitscan_ai est l'app qu'il vous faut 🙌🔥" data-lang-en="@fitscan_ai is the app you need 🙌🔥" data-lang-es="@fitscan_ai es la app que necesitas 🙌🔥" data-lang-it="@fitscan_ai è l'app di cui hai bisogno 🙌🔥">@fitscan_ai est l'app qu'il vous faut 🙌🔥</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section footer-brand">
+                <div class="footer-logo">
+                    <img src="logo.png" alt="FitScan AI Logo" class="footer-logo-img" loading="lazy">
+                    <span>FitScan AI</span>
+                </div>
+                <p class="footer-tagline" data-lang-fr="Télécharger FitScan AI" data-lang-en="Download FitScan AI" data-lang-es="Descargar FitScan AI" data-lang-it="Scarica FitScan AI">Télécharger FitScan AI</p>
+                <div class="footer-store-badges">
+                    <a href="#" class="footer-app-store">
+                        <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" alt="App Store" loading="lazy">
+                    </a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h4 data-lang-fr="Légal" data-lang-en="Legal" data-lang-es="Legal" data-lang-it="Legale">Légal</h4>
+                <ul>
+                    <li><a href="privacy.html" data-lang-fr="Politique de confidentialité" data-lang-en="Privacy Policy" data-lang-es="Política de privacidad" data-lang-it="Informativa sulla privacy">Politique de confidentialité</a></li>
+                    <li><a href="terms.html" data-lang-fr="Conditions d'utilisation" data-lang-en="Terms of use" data-lang-es="Términos de uso" data-lang-it="Termini di utilizzo">Conditions d'utilisation</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4 data-lang-fr="Entreprise" data-lang-en="Company" data-lang-es="Empresa" data-lang-it="Azienda">Entreprise</h4>
+                <ul>
+                    <li><a href="#contact" data-lang-fr="Contact" data-lang-en="Contact" data-lang-es="Contact" data-lang-it="Contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p data-lang-fr="© Copyright 2025, Tous droits réservés" data-lang-en="© Copyright 2025, All rights reserved" data-lang-es="© Copyright 2025, Todos los derechos reservados" data-lang-it="© Copyright 2025, Tutti i diritti riservati">© Copyright 2025, Tous droits réservés</p>
+            <div class="footer-social">
+                <a href="https://instagram.com/fitscan_ai" target="_blank" aria-label="Instagram">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" fill="currentColor"/>
+                    </svg>
+                </a>
+                <a href="https://www.tiktok.com/@fitscanai.app" target="_blank" aria-label="TikTok">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z" fill="currentColor"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Cookie Management
+        function acceptCookies() {
+            localStorage.setItem('cookieConsent', 'accepted');
+            document.getElementById('cookieBanner').style.display = 'none';
+            
+            // Haptic feedback on mobile
+            if ('vibrate' in navigator) {
+                navigator.vibrate(50);
+            }
+        }
+        
+        function declineCookies() {
+            localStorage.setItem('cookieConsent', 'declined');
+            document.getElementById('cookieBanner').style.display = 'none';
+            
+            // Haptic feedback on mobile
+            if ('vibrate' in navigator) {
+                navigator.vibrate([50, 50, 50]);
+            }
+        }
+        
+        // Check cookie consent on load
+        window.addEventListener('DOMContentLoaded', () => {
+            const consent = localStorage.getItem('cookieConsent');
+            if (consent) {
+                document.getElementById('cookieBanner').style.display = 'none';
+            }
+        });
+        
+        // Auto-detect language and set it
+        function detectAndSetLanguage() {
+            const savedLang = localStorage.getItem('preferredLanguage');
+            if (!savedLang) {
+                const browserLang = navigator.language.split('-')[0];
+                const supportedLangs = ['fr', 'en', 'es', 'it'];
+                const detectedLang = supportedLangs.includes(browserLang) ? browserLang : 'en';
+                
+                if (detectedLang !== 'fr') {
+                    localStorage.setItem('preferredLanguage', detectedLang);
+                    const option = document.querySelector(`[data-lang="${detectedLang}"]`);
+                    if (option) {
+                        const flag = option.querySelector('.flag').textContent;
+                        const langBtn = document.querySelector('.lang-btn');
+                        langBtn.querySelector('.flag').textContent = flag;
+                        langBtn.querySelector('.lang-text').textContent = detectedLang.toUpperCase();
+                        updateContent(detectedLang);
+                    }
+                }
+            }
+        }
+        
+        // PWA Installation
+        let deferredPrompt;
+        
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+            
+            // Show install button if you want
+            console.log('PWA can be installed');
+        });
+        
+        // Touch gestures for mobile
+        let touchStartX = 0;
+        let touchStartY = 0;
+        let touchEndX = 0;
+        let touchEndY = 0;
+        
+        function handleSwipe(element, onSwipeLeft, onSwipeRight) {
+            element.addEventListener('touchstart', (e) => {
+                touchStartX = e.changedTouches[0].screenX;
+                touchStartY = e.changedTouches[0].screenY;
+            }, { passive: true });
+            
+            element.addEventListener('touchend', (e) => {
+                touchEndX = e.changedTouches[0].screenX;
+                touchEndY = e.changedTouches[0].screenY;
+                
+                const swipeThreshold = 50;
+                const diffX = touchStartX - touchEndX;
+                const diffY = Math.abs(touchStartY - touchEndY);
+                
+                // Only trigger if horizontal swipe is dominant
+                if (Math.abs(diffX) > swipeThreshold && diffY < 100) {
+                    if (diffX > 0 && onSwipeLeft) {
+                        onSwipeLeft();
+                        if ('vibrate' in navigator) navigator.vibrate(30);
+                    } else if (diffX < 0 && onSwipeRight) {
+                        onSwipeRight();
+                        if ('vibrate' in navigator) navigator.vibrate(30);
+                    }
+                }
+            }, { passive: true });
+        }
+        
+        // Register Service Worker for PWA (DISABLED FOR NOW)
+        /*
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(registration => {
+                        console.log('SW registered:', registration);
+                    })
+                    .catch(err => {
+                        console.log('SW registration failed:', err);
+                    });
+            });
+        }
+        */
+        
+        // Function to update page content
+        function updateContent(lang) {
+            // Update all elements with data-lang attributes
+            document.querySelectorAll('[data-lang-fr]').forEach(element => {
+                const attrName = `data-lang-${lang}`;
+                if (element.hasAttribute(attrName)) {
+                    const translation = element.getAttribute(attrName);
+                    
+                    // Use innerHTML for elements that might contain HTML tags or special characters
+                    if (translation.includes('<br>') || translation.includes('&')) {
+                        element.innerHTML = translation;
+                    } else {
+                        element.textContent = translation;
+                    }
+                }
+            });
+            
+            // Update page title
+            const titles = {
+                fr: 'FitScan AI - Votre transformation commence avec un simple scan',
+                en: 'FitScan AI - Your transformation starts with a simple scan',
+                es: 'FitScan AI - Tu transformación comienza con un simple escaneo',
+                it: 'FitScan AI - La tua trasformazione inizia con una semplice scansione'
+            };
+            document.title = titles[lang];
+            
+            // Update HTML lang attribute
+            document.documentElement.lang = lang;
+            
+            // Save language preference
+            localStorage.setItem('preferredLanguage', lang);
+        }
+
+        // Language selector functionality
+        const langBtn = document.querySelector('.lang-btn');
+        const langDropdown = document.querySelector('.lang-dropdown');
+        const langOptions = document.querySelectorAll('.lang-option');
+
+        langBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            langDropdown.classList.toggle('active');
+        });
+
+        document.addEventListener('click', () => {
+            langDropdown.classList.remove('active');
+        });
+
+        langOptions.forEach(option => {
+            option.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const lang = option.dataset.lang;
+                const flag = option.querySelector('.flag').textContent;
+                const text = lang.toUpperCase();
+                
+                langBtn.querySelector('.flag').textContent = flag;
+                langBtn.querySelector('.lang-text').textContent = text;
+                langDropdown.classList.remove('active');
+                
+                // Update all content
+                updateContent(lang);
+            });
+        });
+
+        // Load saved language on page load
+        window.addEventListener('DOMContentLoaded', () => {
+            // Detect and set language automatically
+            detectAndSetLanguage();
+            
+            const savedLang = localStorage.getItem('preferredLanguage') || 'fr';
+            if (savedLang !== 'fr') {
+                const option = document.querySelector(`[data-lang="${savedLang}"]`);
+                if (option) {
+                    const flag = option.querySelector('.flag').textContent;
+                    langBtn.querySelector('.flag').textContent = flag;
+                    langBtn.querySelector('.lang-text').textContent = savedLang.toUpperCase();
+                    updateContent(savedLang);
+                }
+            }
+            
+            // Lazy loading images fade-in effect
+            const lazyImages = document.querySelectorAll('img[loading="lazy"]');
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.classList.add('loaded');
+                        observer.unobserve(img);
+                    }
+                });
+            });
+            
+            lazyImages.forEach(img => {
+                if (img.complete) {
+                    img.classList.add('loaded');
+                } else {
+                    img.addEventListener('load', () => {
+                        img.classList.add('loaded');
+                    });
+                    imageObserver.observe(img);
+                }
+            });
+            
+            // Scroll animations for sections and elements
+            const scrollElements = document.querySelectorAll('.fade-in-section, .fade-in-up');
+            const scrollObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            });
+            
+            scrollElements.forEach(el => {
+                scrollObserver.observe(el);
+            });
+            
+            // Custom smooth scroll with constant speed
+            function smoothScrollTo(targetPosition, duration = 70) {
+                const startPosition = window.pageYOffset;
+                const distance = targetPosition - startPosition;
+                let startTime = null;
+
+                function animation(currentTime) {
+                    if (startTime === null) startTime = currentTime;
+                    const timeElapsed = currentTime - startTime;
+                    const progress = Math.min(timeElapsed / duration, 1);
+                    
+                    // Linear easing for constant speed
+                    window.scrollTo(0, startPosition + distance * progress);
+                    
+                    if (timeElapsed < duration) {
+                        requestAnimationFrame(animation);
+                    }
+                }
+
+                requestAnimationFrame(animation);
+            }
+            
+            // Smooth scroll for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    const href = this.getAttribute('href');
+                    if (href !== '#' && href.length > 1) {
+                        e.preventDefault();
+                        const target = document.querySelector(href);
+                        if (target) {
+                            const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - 40;
+                            smoothScrollTo(targetPosition, 70);
+                        }
+                    }
+                });
+            });
+            
+            // Feature cards selection
+            const featureCards = document.querySelectorAll('.feature-card-block');
+            const featureDots = document.querySelectorAll('.feature-dots .dot');
+            const phoneWrapper = document.querySelector('.phone-mockup-wrapper');
+            let currentFeatureIndex = 0;
+            let touchStartX = 0;
+            let touchEndX = 0;
+            let mouseStartX = 0;
+            let isDragging = false;
+            
+            const storyImages = [
+                'IMG_0492.PNG',
+                'IMG_0499.PNG',
+                'IMG_0500.PNG',
+                'IMG_0501.PNG'
+            ];
+            const storyImageEl = document.getElementById('storyImage');
+            
+            function setActiveFeature(index) {
+                if (index === currentFeatureIndex) return;
+                const direction = index > currentFeatureIndex ? 'left' : 'right';
+                featureCards.forEach(c => c.classList.remove('active'));
+                featureDots.forEach(d => d.classList.remove('active'));
+                if (featureCards[index] && featureDots[index]) {
+                    featureCards[index].classList.add('active');
+                    featureDots[index].classList.add('active');
+                    // Animation slide
+                    if (storyImageEl && storyImages[index]) {
+                        storyImageEl.classList.remove('slide-left', 'slide-right');
+                        // Pour relancer l'animation si on clique vite
+                        void storyImageEl.offsetWidth;
+                        storyImageEl.classList.add('slide-' + direction);
+                        setTimeout(() => {
+                            storyImageEl.src = storyImages[index];
+                            // On retire la classe après l'animation
+                            setTimeout(() => {
+                                storyImageEl.classList.remove('slide-left', 'slide-right');
+                            }, 350);
+                        }, 10);
+                    }
+                    currentFeatureIndex = index;
+                }
+            }
+
+            // Desktop drag functionality for phone mockup
+            if (phoneWrapper) {
+                phoneWrapper.style.cursor = 'grab';
+
+                phoneWrapper.addEventListener('mousedown', (e) => {
+                    isDragging = true;
+                    mouseStartX = e.pageX;
+                    phoneWrapper.style.cursor = 'grabbing';
+                    e.preventDefault();
+                });
+
+                window.addEventListener('mousemove', (e) => {
+                    if (!isDragging) return;
+                    const diff = mouseStartX - e.pageX;
+                    if (Math.abs(diff) > 50) {
+                        if (diff > 0 && currentFeatureIndex < featureCards.length - 1) {
+                            setActiveFeature(currentFeatureIndex + 1);
+                            isDragging = false;
+                            phoneWrapper.style.cursor = 'grab';
+                        } else if (diff < 0 && currentFeatureIndex > 0) {
+                            setActiveFeature(currentFeatureIndex - 1);
+                            isDragging = false;
+                            phoneWrapper.style.cursor = 'grab';
+                        }
+                    }
+                });
+
+                window.addEventListener('mouseup', () => {
+                    isDragging = false;
+                    phoneWrapper.style.cursor = 'grab';
+                });
+            }
+            
+            // Touch events on phone mockup (mobile only)
+            if (phoneWrapper && window.innerWidth <= 640) {
+                phoneWrapper.addEventListener('touchstart', function(e) {
+                    touchStartX = e.changedTouches[0].screenX;
+                }, { passive: true });
+                
+                phoneWrapper.addEventListener('touchend', function(e) {
+                    touchEndX = e.changedTouches[0].screenX;
+                    handleSwipe();
+                }, { passive: true });
+                
+                function handleSwipe() {
+                    const swipeThreshold = 50;
+                    const diff = touchStartX - touchEndX;
+                    
+                    if (Math.abs(diff) > swipeThreshold) {
+                        if (diff > 0) {
+                            // Swipe left - next feature
+                            if (currentFeatureIndex < featureCards.length - 1) {
+                                setActiveFeature(currentFeatureIndex + 1);
+                            }
+                        } else {
+                            // Swipe right - previous feature
+                            if (currentFeatureIndex > 0) {
+                                setActiveFeature(currentFeatureIndex - 1);
+                            }
+                        }
+                    }
+                }
+            }
+            
+            featureCards.forEach((card, index) => {
+                card.addEventListener('click', function() {
+                    setActiveFeature(index);
+                });
+            });
+            
+            // Dots selection
+            featureDots.forEach((dot, index) => {
+                dot.addEventListener('click', function() {
+                    setActiveFeature(index);
+                });
+            });
+
+            // Drag to scroll functionality for features list
+            const featuresList = document.querySelector('.features-list');
+            // Boutons invisibles sur la barre du téléphone
+            // Pour les deux barres (hero et sticky)
+            document.querySelectorAll('.phone-nav-btn').forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    const idx = parseInt(this.getAttribute('data-index'));
+                    // Slide sur le mockup sticky (features)
+                    setActiveFeature(idx);
+                    // Scroll vers la section features si on clique depuis la hero
+                    const parent = this.closest('.hero-phone-nav');
+                    if(parent) {
+                        const featuresSection = document.getElementById('features');
+                        if(featuresSection) {
+                            const y = featuresSection.getBoundingClientRect().top + window.scrollY - 40;
+                            window.scrollTo({top: y, behavior: 'smooth'});
+                        }
+                    }
+                });
+            });
+            if (featuresList) {
+                let isDown = false;
+                let startY;
+                let scrollTop;
+
+                featuresList.style.cursor = 'grab';
+                featuresList.style.overflowY = 'auto';
+
+                featuresList.addEventListener('mousedown', (e) => {
+                    isDown = true;
+                    featuresList.style.cursor = 'grabbing';
+                    featuresList.style.userSelect = 'none';
+                    startY = e.pageY - featuresList.offsetTop;
+                    scrollTop = featuresList.scrollTop;
+                    e.preventDefault();
+                });
+
+                featuresList.addEventListener('mouseleave', () => {
+                    isDown = false;
+                    featuresList.style.cursor = 'grab';
+                    featuresList.style.userSelect = 'auto';
+                });
+
+                featuresList.addEventListener('mouseup', () => {
+                    isDown = false;
+                    featuresList.style.cursor = 'grab';
+                    featuresList.style.userSelect = 'auto';
+                });
+
+                featuresList.addEventListener('mousemove', (e) => {
+                    if (!isDown) return;
+                    e.preventDefault();
+                    const y = e.pageY - featuresList.offsetTop;
+                    const walk = (y - startY) * 2;
+                    featuresList.scrollTop = scrollTop - walk;
+                });
+            }
+        });
+        
+        // Header scroll effect
+        const header = document.querySelector('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        // Force scroll to top on any page load
+        if (history.scrollRestoration) {
+            history.scrollRestoration = 'manual';
+        }
+        
+        window.addEventListener('beforeunload', () => {
+            window.scrollTo(0, 0);
+        });
+        
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                window.scrollTo(0, 0);
+            }, 0);
+        });
+        
+        window.addEventListener('pageshow', () => {
+            window.scrollTo(0, 0);
+        });
+    </script>
+</body>
+</html>

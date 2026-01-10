@@ -1,0 +1,15 @@
+<svg width="200" height="500" viewBox="0 0 200 500" xmlns="http://www.w3.org/2000/svg">
+  <!-- Branch -->
+  <path d="M 100 480 Q 110 400, 115 320 Q 120 240, 125 160 Q 130 80, 130 40" 
+        stroke="#5a8c6f" stroke-width="3" fill="none"/>
+  
+  <!-- Leaves -->
+  <ellipse cx="105" cy="70" rx="18" ry="35" fill="#5a8c6f" opacity="0.9" transform="rotate(-25 105 70)"/>
+  <ellipse cx="120" cy="125" rx="15" ry="28" fill="#6b9d7a" opacity="0.9" transform="rotate(15 120 125)"/>
+  <ellipse cx="105" cy="160" rx="17" ry="32" fill="#5a8c6f" opacity="0.9" transform="rotate(-20 105 160)"/>
+  <ellipse cx="130" cy="210" rx="20" ry="38" fill="#6b9d7a" opacity="0.9" transform="rotate(25 130 210)"/>
+  <ellipse cx="115" cy="270" rx="22" ry="40" fill="#5a8c6f" opacity="0.9" transform="rotate(-15 115 270)"/>
+  <ellipse cx="140" cy="330" rx="24" ry="42" fill="#6b9d7a" opacity="0.9" transform="rotate(20 140 330)"/>
+  <ellipse cx="125" cy="390" rx="26" ry="45" fill="#5a8c6f" opacity="0.9" transform="rotate(-10 125 390)"/>
+  <ellipse cx="145" cy="445" rx="28" ry="48" fill="#6b9d7a" opacity="0.9" transform="rotate(15 145 445)"/>
+</svg>
