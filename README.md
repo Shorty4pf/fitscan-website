@@ -8,11 +8,6 @@ FitScan AI est une application mobile alimentée par l'IA qui permet de suivre f
 
 ## Fonctionnalités du Site
 
-- ✨ Design moderne et épuré inspiré de Cal AI
-- 📱 Mockups de téléphones interactifs avec animations
-- 🎯 Section de fonctionnalités détaillées
-- 📲 Liens vers App Store et Google Play
-- 💻 Entièrement responsive (mobile, tablette, desktop)
 
 ## Structure du Projet
 
@@ -43,36 +38,23 @@ npx http-server
 
 ### Modifier les couleurs
 Les couleurs principales sont définies dans `styles.css` :
-- Noir : `#000` (header, footer)
-- Fond clair : `#f5f5f5`
-- Dégradés pour les écrans de téléphone
 
 ### Modifier le contenu
 Éditez `index.html` pour changer :
-- Le texte de la section hero
-- Les fonctionnalités
-- Les liens de navigation
-- Le contenu du footer
 
 ### Ajouter de vraies images
 Remplacez les mockups CSS par de vraies captures d'écran de votre application en ajoutant des balises `<img>` dans les sections `.phone-screen`.
 
 ## Technologies Utilisées
 
-- HTML5
-- CSS3 (Flexbox, Grid, Animations)
-- Design responsive
-- Aucune dépendance JavaScript
 
 ## Prochaines Étapes
 
-- [ ] Ajouter de vraies captures d'écran de l'application
-- [ ] Créer une page "Features" détaillée
-- [ ] Ajouter une section témoignages/avis
-- [ ] Intégrer un système de newsletter
-- [ ] Ajouter une page de tarification
-- [ ] Créer une page FAQ
 
 ## Licence
 
 © 2025 FitScan AI. Tous droits réservés.
+=======
+# fitscan-website
+Official website for FitScan, a mobile fitness application using advanced technologies and AI. The site presents the application, its features, privacy approach, and contact information. Website currently under development.
+>>>>>>> 4fa3c4288c9706d9a7028d40a4448723522910eb
