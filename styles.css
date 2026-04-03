@@ -1,3 +1,8 @@
+/* Zone noire vierge lors du clic sur la feature Scan */
+.phone-mockup.blank {
+    background: #000 !important;
+    box-shadow: none !important;
+}
 /* Boutons invisibles sur la barre du téléphone */
 .phone-nav-invisible {
     position: absolute;
