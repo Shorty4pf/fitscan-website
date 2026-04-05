@@ -4,8 +4,182 @@
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Conditions d'Utilisation - FitScan AI</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Conditions Générales d'Utilisation - FitScan AI</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #fff;
+            color: #1a1a1a;
+            line-height: 1.8;
+        }
+        .top-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1.2rem 2rem;
+            border-bottom: 1px solid #eee;
+            background: #fff;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+        .top-bar a {
+            color: #1a1a1a;
+            text-decoration: none;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-weight: 500;
+        }
+        .top-bar a:hover { opacity: 0.6; }
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: #1a1a1a;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            padding: 0.6rem 1.2rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .download-btn:hover { background: #333; }
+        .container {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 3rem 2rem 5rem;
+        }
+        h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.4rem;
+        }
+        .subtitle {
+            color: #888;
+            font-size: 0.9rem;
+            margin-bottom: 2.5rem;
+        }
+        h2 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-top: 2rem;
+            margin-bottom: 0.6rem;
+            color: #1a1a1a;
+        }
+        p { color: #444; margin-bottom: 1rem; }
+        ul { color: #444; margin-left: 1.5rem; margin-bottom: 1rem; }
+        li { margin-bottom: 0.4rem; }
+        a { color: #1a1a1a; }
+        @media (max-width: 600px) {
+            .container { padding: 2rem 1.2rem 4rem; }
+            h1 { font-size: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="top-bar">
+        <a href="/">← Retour à l'accueil</a>
+        <button class="download-btn" onclick="downloadPDF()">
+            ⬇ Télécharger PDF
+        </button>
+    </div>
+
+    <div class="container" id="terms-content">
+        <h1>Conditions Générales d'Utilisation</h1>
+        <p class="subtitle">FitScan AI — Dernière mise à jour : 4 avril 2026</p>
+
+        <p>Les présentes Conditions Générales d'Utilisation (CGU) régissent l'utilisation de l'application mobile FitScan AI et du site web fitscanai.app. En accédant à l'Application, vous acceptez sans réserve les présentes CGU.</p>
+
+        <h2>1. Présentation du service</h2>
+        <p>FitScan AI est une application mobile disponible sur l'App Store, proposant :</p>
+        <ul>
+            <li>Scan corporel par intelligence artificielle</li>
+            <li>Génération de programmes de musculation personnalisés</li>
+            <li>Génération de plans nutritionnels personnalisés</li>
+            <li>Scan de plats alimentaires pour estimer les calories</li>
+            <li>Questionnaire personnalisé pour affiner les recommandations</li>
+        </ul>
+        <p>Contact : <a href="mailto:support@fitscanai.app">support@fitscanai.app</a> — Site : <a href="https://fitscanai.app" target="_blank">https://fitscanai.app</a></p>
+
+        <h2>2. Accès au service et inscription</h2>
+        <p>L'accès à FitScan AI nécessite la création d'un compte. L'utilisateur s'engage à :</p>
+        <ul>
+            <li>Fournir des informations exactes lors de l'inscription</li>
+            <li>Maintenir la confidentialité de ses identifiants</li>
+            <li>Être âgé d'au moins 13 ans (consentement parental requis entre 13 et 15 ans)</li>
+            <li>Ne pas créer plusieurs comptes</li>
+        </ul>
+
+        <h2>3. Abonnement et tarifs</h2>
+        <ul>
+            <li>Abonnement mensuel : 14,99 € / mois</li>
+            <li>Abonnement annuel : 57,99 € / an</li>
+        </ul>
+        <p>Les paiements sont gérés via Apple In-App Purchase. L'abonnement se renouvelle automatiquement sauf résiliation au moins 24h avant la date de renouvellement, depuis les paramètres de votre compte Apple ID.</p>
+
+        <h2>4. Utilisation du service</h2>
+        <p>Il est interdit de :</p>
+        <ul>
+            <li>Utiliser l'Application à des fins illégales ou frauduleuses</li>
+            <li>Tenter de pirater ou reproduire tout ou partie de l'Application</li>
+            <li>Partager ses identifiants avec des tiers</li>
+            <li>Publier des contenus offensants ou illicites</li>
+        </ul>
+
+        <h2>5. Avertissement médical et responsabilité</h2>
+        <p>FitScan AI ne constitue en aucun cas un dispositif médical ou un conseil nutritionnel professionnel. Les programmes générés sont fournis à titre informatif uniquement. Consultez un professionnel de santé avant de modifier votre alimentation ou programme d'entraînement.</p>
+
+        <h2>6. Propriété intellectuelle</h2>
+        <p>L'ensemble des éléments de FitScan AI (logo, interface, algorithmes, contenus) sont la propriété exclusive de FitScan AI et protégés par les lois relatives à la propriété intellectuelle. Toute reproduction non autorisée est strictement interdite.</p>
+
+        <h2>7. Disponibilité du service</h2>
+        <p>FitScan AI s'efforce d'assurer la disponibilité de l'Application 24h/24, 7j/7. Des maintenances peuvent être effectuées sans préavis. FitScan AI ne saurait être tenu responsable des interruptions de service.</p>
+
+        <h2>8. Suspension et résiliation de compte</h2>
+        <p>FitScan AI peut suspendre ou supprimer tout compte en cas de non-respect des CGU, comportement frauduleux ou défaut de paiement. L'utilisateur peut supprimer son compte à tout moment depuis les paramètres de l'Application.</p>
+
+        <h2>9. Limitation de responsabilité</h2>
+        <p>Dans les limites autorisées par la loi, FitScan AI ne pourra être tenu responsable des dommages indirects résultant de l'utilisation ou de l'impossibilité d'utiliser l'Application.</p>
+
+        <h2>10. Modifications des CGU</h2>
+        <p>FitScan AI se réserve le droit de modifier les présentes CGU à tout moment. Les utilisateurs seront informés par notification dans l'Application ou par e-mail.</p>
+
+        <h2>11. Droit applicable et juridiction</h2>
+        <p>Les présentes CGU sont soumises au droit français. En cas de litige, les tribunaux français seront compétents.</p>
+
+        <h2>12. Contact</h2>
+        <p>Pour toute question : <a href="mailto:support@fitscanai.app">support@fitscanai.app</a></p>
+    </div>
+
+    <script>
+        function downloadPDF() {
+            const btn = document.querySelector('.download-btn');
+            btn.textContent = 'Génération…';
+            btn.disabled = true;
+
+            const element = document.getElementById('terms-content');
+            const opt = {
+                margin: [15, 15, 15, 15],
+                filename: 'cgu-fitscanai.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2, useCORS: true },
+                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+            };
+
+            html2pdf().set(opt).from(element).save().then(() => {
+                btn.innerHTML = '⬇ Télécharger PDF';
+                btn.disabled = false;
+            });
+        }
+    </script>
+</body>
+</html>
     <style>
         body {
             padding-top: 0;
