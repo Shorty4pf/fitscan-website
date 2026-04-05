@@ -3,7 +3,11 @@
     "apps": [],
     "details": [
       {
+<<<<<<< HEAD
         "appID": "5MUUGKCN3Y.com.fitscanai.labs",
+=======
+        "appID": "5MUUQKCN3Y.com.fitscanai.labs",
+>>>>>>> 08500d7 (Mise à jour vercel.json pour routing précis)
         "paths": [
           "/universallink",
           "/universallink/*"
