@@ -1,522 +1,110 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Politique de Confidentialité - FitScan AI</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: #fff;
-            color: #1a1a1a;
-            line-height: 1.8;
-        }
-        .top-bar {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 1.2rem 2rem;
-            border-bottom: 1px solid #eee;
-            background: #fff;
-            position: sticky;
-            top: 0;
-            z-index: 10;
-        }
-        .top-bar a {
-            color: #1a1a1a;
-            text-decoration: none;
-            font-size: 0.95rem;
-            display: flex;
-            align-items: center;
-            gap: 0.4rem;
-            font-weight: 500;
-        }
-        .top-bar a:hover { opacity: 0.6; }
-        .download-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: #1a1a1a;
-            color: #fff;
-            border: none;
-            border-radius: 8px;
-            padding: 0.6rem 1.2rem;
-            font-size: 0.9rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background 0.2s;
-        }
-        .download-btn:hover { background: #333; }
-        .container {
-            max-width: 760px;
-            margin: 0 auto;
-            padding: 3rem 2rem 5rem;
-        }
-        h1 {
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 0.4rem;
-        }
-        .subtitle {
-            color: #888;
-            font-size: 0.9rem;
-            margin-bottom: 2.5rem;
-        }
-        h2 {
-            font-size: 1.15rem;
-            font-weight: 700;
-            margin-top: 2rem;
-            margin-bottom: 0.6rem;
-            color: #1a1a1a;
-        }
-        p { color: #444; margin-bottom: 1rem; }
-        ul { color: #444; margin-left: 1.5rem; margin-bottom: 1rem; }
-        li { margin-bottom: 0.4rem; }
-        a { color: #1a1a1a; }
-        @media (max-width: 600px) {
-            .container { padding: 2rem 1.2rem 4rem; }
-            h1 { font-size: 1.5rem; }
-        }
-    </style>
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Politique de Confidentialité - FitScan AI</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #fff; color: #1a1a1a; line-height: 1.8; }
+.top-bar { display: flex; align-items: center; justify-content: space-between; padding: 1.2rem 2rem; border-bottom: 1px solid #eee; background: #fff; position: sticky; top: 0; z-index: 10; }
+.top-bar a { color: #1a1a1a; text-decoration: none; font-size: 0.95rem; display: flex; align-items: center; gap: 0.4rem; font-weight: 500; }
+.top-bar a:hover { opacity: 0.6; }
+.download-btn { display: inline-flex; align-items: center; gap: 0.5rem; background: #1a1a1a; color: #fff; border: none; border-radius: 8px; padding: 0.6rem 1.2rem; font-size: 0.9rem; font-weight: 600; cursor: pointer; transition: background 0.2s; }
+.download-btn:hover { background: #333; }
+.container { max-width: 760px; margin: 0 auto; padding: 3rem 2rem 5rem; }
+h1 { font-size: 2rem; font-weight: 700; margin-bottom: 0.4rem; }
+.subtitle { color: #888; font-size: 0.9rem; margin-bottom: 2.5rem; }
+h2 { font-size: 1.15rem; font-weight: 700; margin-top: 2rem; margin-bottom: 0.6rem; color: #1a1a1a; }
+p { color: #444; margin-bottom: 1rem; }
+ul { color: #444; margin-left: 1.5rem; margin-bottom: 1rem; }
+li { margin-bottom: 0.4rem; }
+a { color: #1a1a1a; }
+@media (max-width: 600px) { .container { padding: 2rem 1.2rem 4rem; } h1 { font-size: 1.5rem; } }</style>
 </head>
 <body>
-    <div class="top-bar">
-        <a href="/">← Retour à l'accueil</a>
-        <button class="download-btn" onclick="downloadPDF()">
-            ⬇ Télécharger PDF
-        </button>
-    </div>
-
-    <div class="container" id="privacy-content">
-        <h1>Politique de Confidentialité</h1>
-        <p class="subtitle">FitScan AI — Dernière mise à jour : 4 avril 2026</p>
-
-        <p>FitScan AI s'engage à protéger la vie privée de ses utilisateurs. Cette politique explique comment nous collectons, utilisons et protégeons vos données personnelles conformément au RGPD et aux lois françaises en vigueur.</p>
-
-        <h2>1. Responsable du traitement</h2>
-        <ul>
-            <li>Responsable : FitScan AI</li>
-            <li>Contact : <a href="mailto:support@fitscanai.app">support@fitscanai.app</a></li>
-            <li>Site web : <a href="https://fitscanai.app">https://fitscanai.app</a></li>
-        </ul>
-
-        <h2>2. Données collectées</h2>
-        <ul>
-            <li><strong>Données de compte :</strong> adresse e-mail, mot de passe (chiffré)</li>
-            <li><strong>Données de santé et corporelles :</strong> images de scan corporel, photos de repas, âge, poids, taille, objectifs, niveau d'activité physique</li>
-            <li><strong>Données d'utilisation :</strong> historique des programmes générés, données de connexion et d'activité</li>
-        </ul>
-
-        <h2>3. Finalités du traitement</h2>
-        <ul>
-            <li>Créer et gérer votre compte utilisateur</li>
-            <li>Générer des programmes nutritionnels et de musculation personnalisés</li>
-            <li>Analyser les scans corporels et photos de repas</li>
-            <li>Améliorer les fonctionnalités de l'application</li>
-            <li>Envoyer des communications liées à votre compte</li>
-        </ul>
-
-        <h2>4. Base légale du traitement</h2>
-        <ul>
-            <li>Exécution du contrat (fourniture du service)</li>
-            <li>Consentement explicite pour les données de santé</li>
-            <li>Intérêt légitime pour l'amélioration du service</li>
-        </ul>
-
-        <h2>5. Hébergement et transfert des données</h2>
-        <p>Vos données sont hébergées via Firebase (Google LLC), certifié conforme au cadre de transfert de données UE-États-Unis. Pour plus d'informations : <a href="https://firebase.google.com/support/privacy" target="_blank">firebase.google.com/support/privacy</a></p>
-
-        <h2>6. Durée de conservation</h2>
-        <ul>
-            <li>Données de compte : conservées tant que votre compte est actif</li>
-            <li>Données corporelles et photos : supprimées à votre demande ou à la suppression du compte</li>
-            <li>Données d'utilisation : conservées 12 mois maximum</li>
-        </ul>
-
-        <h2>7. Partage des données</h2>
-        <p>Nous ne vendons jamais vos données. Elles peuvent être partagées uniquement avec :</p>
-        <ul>
-            <li>Firebase (Google LLC) : hébergement et authentification</li>
-            <li>Les autorités compétentes si la loi l'exige</li>
-        </ul>
-
-        <h2>8. Vos droits (RGPD)</h2>
-        <ul>
-            <li>Droit d'accès, de rectification et d'effacement</li>
-            <li>Droit à la portabilité et d'opposition</li>
-            <li>Droit de retirer votre consentement à tout moment</li>
-        </ul>
-        <p>Pour exercer ces droits : <a href="mailto:support@fitscanai.app">support@fitscanai.app</a><br>
-        Réclamation auprès de la CNIL : <a href="https://www.cnil.fr" target="_blank">www.cnil.fr</a></p>
-
-        <h2>9. Sécurité des données</h2>
-        <p>Nous mettons en œuvre des mesures techniques appropriées pour protéger vos données, notamment le chiffrement via Firebase.</p>
-
-        <h2>10. Données sensibles</h2>
-        <p>Les données corporelles et de santé sont traitées uniquement avec votre consentement explicite, recueilli lors de la première utilisation des fonctionnalités concernées.</p>
-
-        <h2>11. Avertissement médical</h2>
-        <p>FitScan AI ne constitue pas un avis médical ou nutritionnel professionnel. Consultez un professionnel de santé avant de modifier votre alimentation ou programme d'entraînement.</p>
-
-        <h2>12. Modifications</h2>
-        <p>Nous nous réservons le droit de modifier cette politique. Toute modification sera notifiée via l'application ou par e-mail.</p>
-
-        <h2>13. Contact</h2>
-        <p>Pour toute question : <a href="mailto:support@fitscanai.app">support@fitscanai.app</a></p>
-    </div>
-
-    <script>
-        function downloadPDF() {
-            const btn = document.querySelector('.download-btn');
-            btn.textContent = 'Génération…';
-            btn.disabled = true;
-
-            const element = document.getElementById('privacy-content');
-            const opt = {
-                margin: [15, 15, 15, 15],
-                filename: 'politique-confidentialite-fitscanai.pdf',
-                image: { type: 'jpeg', quality: 0.98 },
-                html2canvas: { scale: 2, useCORS: true },
-                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
-            };
-
-            html2pdf().set(opt).from(element).save().then(() => {
-                btn.innerHTML = '⬇ Télécharger PDF';
-                btn.disabled = false;
-            });
-        }
-    </script>
-</body>
-</html>
-        .legal-page {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 6rem 2rem 4rem 2rem;
-            line-height: 1.8;
-        }
-        .back-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: var(--primary-yellow);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.1rem;
-            margin-bottom: 2.5rem;
-            transition: opacity 0.2s;
-        }
-        .back-link:hover {
-            opacity: 0.8;
-        }
-        .legal-page h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            color: var(--primary-yellow);
-            font-weight: 700;
-        }
-        .legal-page h2 {
-            font-size: 1.8rem;
-            margin-top: 2.5rem;
-            margin-bottom: 1rem;
-            color: #fff;
-        }
-        .legal-page h3 {
-            font-size: 1.3rem;
-            margin-top: 2rem;
-            margin-bottom: 0.75rem;
-            color: var(--text-primary);
-        }
-        .legal-page p {
-            margin-bottom: 1.25rem;
-            color: var(--text-secondary);
-        }
-        .legal-page ul, .legal-page ol {
-            margin-left: 2rem;
-            margin-bottom: 1.25rem;
-            color: var(--text-secondary);
-        }
-        .legal-page li {
-            margin-bottom: 0.5rem;
-        }
-        .last-updated {
-            font-style: italic;
-            color: #666;
-            margin-bottom: 2rem;
-        }
-    </style>
-</head>
-<body>
-    <!-- Header -->
-    <header>
-        <nav class="navbar">
-            <a href="/" class="logo">
-                <img src="logo.png" alt="FitScan AI Logo" class="logo-img" loading="eager">
-                <span>FitScan AI</span>
-            </a>
-            <ul class="nav-links">
-                <li><a href="/#home" data-lang-fr="Accueil" data-lang-en="Home" data-lang-es="Inicio" data-lang-it="Home">Accueil</a></li>
-                <li><a href="/#features" data-lang-fr="Fonctionnalités" data-lang-en="Features" data-lang-es="Características" data-lang-it="Caratteristiche">Fonctionnalités</a></li>
-                <li><a href="/#about" data-lang-fr="À propos" data-lang-en="About" data-lang-es="Acerca de" data-lang-it="Chi siamo">À propos</a></li>
-                <li><a href="mailto:support@fitscanai.app" data-lang-fr="Contact" data-lang-en="Contact" data-lang-es="Contacto" data-lang-it="Contatto">Contact</a></li>
-            </ul>
-            <div class="nav-buttons">
-                <div class="language-selector">
-                    <button class="lang-btn active" data-lang="fr">
-                        <span class="flag">🇫🇷</span>
-                        <span class="lang-text">FR</span>
-                    </button>
-                    <div class="lang-dropdown">
-                        <button class="lang-option" data-lang="fr">
-                            <span class="flag">🇫🇷</span>
-                            <span>Français</span>
-                        </button>
-                        <button class="lang-option" data-lang="en">
-                            <span class="flag">🇬🇧</span>
-                            <span>English</span>
-                        </button>
-                        <button class="lang-option" data-lang="es">
-                            <span class="flag">🇪🇸</span>
-                            <span>Español</span>
-                        </button>
-                        <button class="lang-option" data-lang="it">
-                            <span class="flag">🇮🇹</span>
-                            <span>Italiano</span>
-                        </button>
-                    </div>
-                </div>
-                <a href="#" class="store-badge">
-                    <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" alt="Télécharger sur l'App Store" loading="eager">
-                </a>
-            </div>
-        </nav>
-    </header>
-
-    <div class="legal-page">
-        <a href="/" class="back-link">
-            <span>←</span>
-            <span data-lang-fr="Retour à l'accueil" data-lang-en="Back to home" data-lang-es="Volver al inicio" data-lang-it="Torna alla home">Retour à l'accueil</span>
-        </a>
-        
-        <h1 data-lang-fr="Politique de Confidentialité" data-lang-en="Privacy Policy" data-lang-es="Política de Privacidad" data-lang-it="Informativa sulla Privacy">Politique de Confidentialité</h1>
-        <p class="last-updated" data-lang-fr="Dernière mise à jour : 21 décembre 2025" data-lang-en="Last updated: December 21, 2025" data-lang-es="Última actualización: 21 de diciembre de 2025" data-lang-it="Ultimo aggiornamento: 21 dicembre 2025">Dernière mise à jour : 21 décembre 2025</p>
-            <h1>Politique de Confidentialité — FitScan AI</h1>
-            <p><strong>Dernière mise à jour : 4 avril 2026</strong></p>
-            <button onclick="window.print()" class="download-btn">📄 Enregistrer en PDF</button>
-            <br><br>
-            <p>FitScan AI (ci-après « nous », « notre » ou « l'Application ») s'engage à protéger la vie privée de ses utilisateurs. Cette politique de confidentialité explique comment nous collectons, utilisons et protégeons vos données personnelles conformément au Règlement Général sur la Protection des Données (RGPD) et aux lois françaises en vigueur.</p>
-
-            <h2>1. Responsable du traitement</h2>
-            <ul>
-                <li>Responsable : FitScan AI</li>
-                <li>Contact : support@fitscanai.app</li>
-                <li>Site web : <a href="https://fitscanai.app" target="_blank">https://fitscanai.app</a></li>
-            </ul>
-
-            <h2>2. Données collectées</h2>
-            <p>Dans le cadre de l'utilisation de l'Application, nous collectons les données suivantes :</p>
-            <ul>
-                <li><strong>a) Données de compte :</strong><br>Adresse e-mail<br>Mot de passe (chiffré)</li>
-                <li><strong>b) Données de santé et corporelles :</strong><br>Images de scan corporel (utilisées pour analyser votre morphologie)<br>Photos de repas (utilisées pour estimer les calories)<br>Données issues du questionnaire : âge, poids, taille, objectifs, niveau d'activité physique</li>
-                <li><strong>c) Données d'utilisation :</strong><br>Historique des programmes générés<br>Données de connexion et d'activité dans l'app</li>
-            </ul>
-
-            <h2>3. Finalités du traitement</h2>
-            <ul>
-                <li>Créer et gérer votre compte utilisateur</li>
-                <li>Générer des programmes nutritionnels et de musculation personnalisés grâce à l'intelligence artificielle</li>
-                <li>Analyser les scans corporels pour évaluer votre morphologie</li>
-                <li>Analyser les photos de repas pour estimer les apports caloriques</li>
-                <li>Améliorer les fonctionnalités de l'Application</li>
-                <li>Vous envoyer des communications liées à votre compte (ex : confirmation d'inscription, réinitialisation de mot de passe)</li>
-            </ul>
-
-            <h2>4. Base légale du traitement</h2>
-            <ul>
-                <li>Exécution du contrat (fourniture du service abonné)</li>
-                <li>Consentement explicite de l'utilisateur pour les données de santé et corporelles</li>
-                <li>Intérêt légitime pour l'amélioration du service</li>
-            </ul>
-
-            <h2>5. Hébergement et transfert des données</h2>
-            <p>Vos données sont hébergées via Firebase (Google LLC), un service tiers situé aux États-Unis. Google LLC est certifié conforme au cadre de transfert de données UE-États-Unis. Pour plus d'informations : <a href="https://firebase.google.com/support/privacy" target="_blank">https://firebase.google.com/support/privacy</a></p>
-
-            <h2>6. Durée de conservation</h2>
-            <ul>
-                <li>Données de compte : conservées tant que votre compte est actif</li>
-                <li>Données corporelles et photos : supprimées à votre demande ou à la suppression du compte</li>
-                <li>Données d'utilisation : conservées 12 mois maximum</li>
-            </ul>
-
-            <h2>7. Partage des données</h2>
-            <p>Nous ne vendons jamais vos données personnelles à des tiers. Vos données peuvent être partagées uniquement avec :</p>
-            <ul>
-                <li>Firebase (Google LLC) : hébergement et authentification</li>
-                <li>Les autorités compétentes si la loi l'exige</li>
-            </ul>
-
-            <h2>8. Vos droits (RGPD)</h2>
-            <p>Conformément au RGPD, vous disposez des droits suivants :</p>
-            <ul>
-                <li>Droit d'accès à vos données</li>
-                <li>Droit de rectification</li>
-                <li>Droit à l'effacement (« droit à l'oubli »)</li>
-                <li>Droit à la portabilité</li>
-                <li>Droit d'opposition au traitement</li>
-                <li>Droit de retirer votre consentement à tout moment</li>
-            </ul>
-            <p>Pour exercer ces droits, contactez-nous à : <a href="mailto:support@fitscanai.app">support@fitscanai.app</a><br>
-            Vous pouvez également introduire une réclamation auprès de la CNIL : <a href="https://www.cnil.fr" target="_blank">https://www.cnil.fr</a></p>
-
-            <h2>9. Sécurité des données</h2>
-            <p>Nous mettons en œuvre des mesures techniques et organisationnelles appropriées pour protéger vos données contre tout accès non autorisé, altération, divulgation ou destruction, notamment le chiffrement des données via Firebase.</p>
-
-            <h2>10. Données sensibles</h2>
-            <p>Les données corporelles et de santé collectées (scan, questionnaire santé, photos de repas) constituent des données sensibles au sens du RGPD. Leur traitement est effectué uniquement avec votre consentement explicite, recueilli lors de la première utilisation des fonctionnalités concernées.</p>
-
-            <h2>11. Avertissement médical</h2>
-            <p>FitScan AI ne constitue pas un avis médical ou nutritionnel professionnel. Les programmes générés par l'application sont fournis à titre informatif uniquement. Consultez un professionnel de santé avant de modifier votre alimentation ou votre programme d'entraînement.</p>
-
-            <h2>12. Modifications</h2>
-            <p>Nous nous réservons le droit de modifier cette politique de confidentialité à tout moment. Toute modification sera notifiée via l'Application ou par e-mail. La date de dernière mise à jour est indiquée en haut de ce document.</p>
-
-            <h2>13. Contact</h2>
-            <p>Pour toute question relative à cette politique : <a href="mailto:support@fitscanai.app">support@fitscanai.app</a></p>
-        <p data-lang-fr="Chez FitScan AI, nous prenons votre vie privée très au sérieux. Cette politique de confidentialité explique comment nous collectons, utilisons et protégeons vos données personnelles." data-lang-en="At FitScan AI, we take your privacy very seriously. This privacy policy explains how we collect, use and protect your personal data." data-lang-es="En FitScan AI, nos tomamos muy en serio su privacidad. Esta política de privacidad explica cómo recopilamos, usamos y protegemos sus datos personales." data-lang-it="In FitScan AI, prendiamo molto sul serio la tua privacy. Questa informativa sulla privacy spiega come raccogliamo, utilizziamo e proteggiamo i tuoi dati personali.">Chez FitScan AI, nous prenons votre vie privée très au sérieux. Cette politique de confidentialité explique comment nous collectons, utilisons et protégeons vos données personnelles.</p>
-        
-        <h2 data-lang-fr="1. Collecte des Données" data-lang-en="1. Data Collection" data-lang-es="1. Recolección de Datos" data-lang-it="1. Raccolta dei Dati">1. Collecte des Données</h2>
-        <p data-lang-fr="Nous collectons les types de données suivants :" data-lang-en="We collect the following types of data:" data-lang-es="Recopilamos los siguientes tipos de datos:" data-lang-it="Raccogliamo i seguenti tipi di dati:">Nous collectons les types de données suivants :</p>
-        <ul>
-            <li><strong data-lang-fr="Données de profil :" data-lang-en="Profile data:" data-lang-es="Datos de perfil:" data-lang-it="Dati del profilo:">Données de profil :</strong> <span data-lang-fr="nom, email, âge, sexe" data-lang-en="name, email, age, gender" data-lang-es="nombre, email, edad, sexo" data-lang-it="nome, email, età, sesso">nom, email, âge, sexe</span></li>
-            <li><strong data-lang-fr="Données biométriques :" data-lang-en="Biometric data:" data-lang-es="Datos biométricos:" data-lang-it="Dati biometrici:">Données biométriques :</strong> <span data-lang-fr="scans corporels 3D, mesures physiques" data-lang-en="3D body scans, physical measurements" data-lang-es="escaneos corporales 3D, medidas físicas" data-lang-it="scansioni corporee 3D, misure fisiche">scans corporels 3D, mesures physiques</span></li>
-            <li><strong data-lang-fr="Données d'utilisation :" data-lang-en="Usage data:" data-lang-es="Datos de uso:" data-lang-it="Dati di utilizzo:">Données d'utilisation :</strong> <span data-lang-fr="interactions avec l'application, statistiques d'entraînement" data-lang-en="app interactions, training statistics" data-lang-es="interacciones con la aplicación, estadísticas de entrenamiento" data-lang-it="interazioni con l'app, statistiche di allenamento">interactions avec l'application, statistiques d'entraînement</span></li>
-            <li><strong data-lang-fr="Données techniques :" data-lang-en="Technical data:" data-lang-es="Datos técnicos:" data-lang-it="Dati tecnici:">Données techniques :</strong> <span data-lang-fr="adresse IP, type d'appareil, système d'exploitation" data-lang-en="IP address, device type, operating system" data-lang-es="dirección IP, tipo de dispositivo, sistema operativo" data-lang-it="indirizzo IP, tipo di dispositivo, sistema operativo">adresse IP, type d'appareil, système d'exploitation</span></li>
-        </ul>
-        
-        <h2 data-lang-fr="2. Utilisation des Données" data-lang-en="2. Data Usage" data-lang-es="2. Uso de Datos" data-lang-it="2. Utilizzo dei Dati">2. Utilisation des Données</h2>
-        <p data-lang-fr="Vos données sont utilisées pour :" data-lang-en="Your data is used to:" data-lang-es="Sus datos se utilizan para:" data-lang-it="I tuoi dati vengono utilizzati per:">Vos données sont utilisées pour :</p>
-        <ul>
-            <li data-lang-fr="Créer et personnaliser vos programmes d'entraînement" data-lang-en="Create and customize your training programs" data-lang-es="Crear y personalizar sus programas de entrenamiento" data-lang-it="Creare e personalizzare i tuoi programmi di allenamento">Créer et personnaliser vos programmes d'entraînement</li>
-            <li data-lang-fr="Analyser votre composition corporelle" data-lang-en="Analyze your body composition" data-lang-es="Analizar su composición corporal" data-lang-it="Analizzare la tua composizione corporea">Analyser votre composition corporelle</li>
-            <li data-lang-fr="Suivre votre progression" data-lang-en="Track your progress" data-lang-es="Seguir su progreso" data-lang-it="Monitorare i tuoi progressi">Suivre votre progression</li>
-            <li data-lang-fr="Améliorer nos services et algorithmes IA" data-lang-en="Improve our services and AI algorithms" data-lang-es="Mejorar nuestros servicios y algoritmos de IA" data-lang-it="Migliorare i nostri servizi e algoritmi IA">Améliorer nos services et algorithmes IA</li>
-            <li data-lang-fr="Vous envoyer des notifications pertinentes" data-lang-en="Send you relevant notifications" data-lang-es="Enviarle notificaciones relevantes" data-lang-it="Inviarti notifiche pertinenti">Vous envoyer des notifications pertinentes</li>
-        </ul>
-        
-        <h2 data-lang-fr="3. Protection des Données" data-lang-en="3. Data Protection" data-lang-es="3. Protección de Datos" data-lang-it="3. Protezione dei Dati">3. Protection des Données</h2>
-        <p data-lang-fr="Nous utilisons les mesures de sécurité suivantes :" data-lang-en="We use the following security measures:" data-lang-es="Utilizamos las siguientes medidas de seguridad:" data-lang-it="Utilizziamo le seguenti misure di sicurezza:">Nous utilisons les mesures de sécurité suivantes :</p>
-        <ul>
-            <li data-lang-fr="Chiffrement SSL/TLS pour toutes les communications" data-lang-en="SSL/TLS encryption for all communications" data-lang-es="Cifrado SSL/TLS para todas las comunicaciones" data-lang-it="Crittografia SSL/TLS per tutte le comunicazioni">Chiffrement SSL/TLS pour toutes les communications</li>
-            <li data-lang-fr="Stockage sécurisé sur serveurs certifiés" data-lang-en="Secure storage on certified servers" data-lang-es="Almacenamiento seguro en servidores certificados" data-lang-it="Archiviazione sicura su server certificati">Stockage sécurisé sur serveurs certifiés</li>
-            <li data-lang-fr="Accès restreint aux données personnelles" data-lang-en="Restricted access to personal data" data-lang-es="Acceso restringido a datos personales" data-lang-it="Accesso limitato ai dati personali">Accès restreint aux données personnelles</li>
-            <li data-lang-fr="Audits de sécurité réguliers" data-lang-en="Regular security audits" data-lang-es="Auditorías de seguridad regulares" data-lang-it="Audit di sicurezza regolari">Audits de sécurité réguliers</li>
-        </ul>
-        
-        <h2 data-lang-fr="4. Partage des Données" data-lang-en="4. Data Sharing" data-lang-es="4. Compartir Datos" data-lang-it="4. Condivisione dei Dati">4. Partage des Données</h2>
-        <p data-lang-fr="Nous ne vendons jamais vos données personnelles. Nous pouvons partager vos données uniquement avec :" data-lang-en="We never sell your personal data. We may share your data only with:" data-lang-es="Nunca vendemos sus datos personales. Podemos compartir sus datos solo con:" data-lang-it="Non vendiamo mai i tuoi dati personali. Possiamo condividere i tuoi dati solo con:">Nous ne vendons jamais vos données personnelles. Nous pouvons partager vos données uniquement avec :</p>
-        <ul>
-            <li data-lang-fr="Des prestataires de services (hébergement, paiement)" data-lang-en="Service providers (hosting, payment)" data-lang-es="Proveedores de servicios (alojamiento, pago)" data-lang-it="Fornitori di servizi (hosting, pagamento)">Des prestataires de services (hébergement, paiement)</li>
-            <li data-lang-fr="Des autorités légales si la loi l'exige" data-lang-en="Legal authorities if required by law" data-lang-es="Autoridades legales si la ley lo requiere" data-lang-it="Autorità legali se richiesto dalla legge">Des autorités légales si la loi l'exige</li>
-        </ul>
-        
-        <h2 data-lang-fr="5. Vos Droits" data-lang-en="5. Your Rights" data-lang-es="5. Sus Derechos" data-lang-it="5. I Tuoi Diritti">5. Vos Droits</h2>
-        <p data-lang-fr="Conformément au RGPD, vous avez le droit de :" data-lang-en="In accordance with GDPR, you have the right to:" data-lang-es="De acuerdo con el RGPD, tiene derecho a:" data-lang-it="In conformità al GDPR, hai il diritto di:">Conformément au RGPD, vous avez le droit de :</p>
-        <ul>
-            <li data-lang-fr="Accéder à vos données personnelles" data-lang-en="Access your personal data" data-lang-es="Acceder a sus datos personales" data-lang-it="Accedere ai tuoi dati personali">Accéder à vos données personnelles</li>
-            <li data-lang-fr="Corriger vos données inexactes" data-lang-en="Correct your inaccurate data" data-lang-es="Corregir sus datos inexactos" data-lang-it="Correggere i tuoi dati inesatti">Corriger vos données inexactes</li>
-            <li data-lang-fr="Supprimer vos données" data-lang-en="Delete your data" data-lang-es="Eliminar sus datos" data-lang-it="Eliminare i tuoi dati">Supprimer vos données</li>
-            <li data-lang-fr="Vous opposer au traitement de vos données" data-lang-en="Object to the processing of your data" data-lang-es="Oponerse al procesamiento de sus datos" data-lang-it="Opporti al trattamento dei tuoi dati">Vous opposer au traitement de vos données</li>
-            <li data-lang-fr="Exporter vos données (portabilité)" data-lang-en="Export your data (portability)" data-lang-es="Exportar sus datos (portabilidad)" data-lang-it="Esportare i tuoi dati (portabilità)">Exporter vos données (portabilité)</li>
-        </ul>
-        
-        <h2 data-lang-fr="6. Cookies" data-lang-en="6. Cookies" data-lang-es="6. Cookies" data-lang-it="6. Cookie">6. Cookies</h2>
-        <p data-lang-fr="Notre site utilise des cookies pour améliorer votre expérience. Vous pouvez gérer vos préférences de cookies dans les paramètres de votre navigateur. Consultez notre" data-lang-en="Our site uses cookies to improve your experience. You can manage your cookie preferences in your browser settings. See our" data-lang-es="Nuestro sitio utiliza cookies para mejorar su experiencia. Puede gestionar sus preferencias de cookies en la configuración de su navegador. Consulte nuestra" data-lang-it="Il nostro sito utilizza cookie per migliorare la tua esperienza. Puoi gestire le tue preferenze sui cookie nelle impostazioni del tuo browser. Consulta la nostra">Notre site utilise des cookies pour améliorer votre expérience. Vous pouvez gérer vos préférences de cookies dans les paramètres de votre navigateur. Consultez notre</p> <a href="/cookies" style="color: var(--primary-yellow);" data-lang-fr="politique des cookies" data-lang-en="cookie policy" data-lang-es="política de cookies" data-lang-it="politica sui cookie">politique des cookies</a> <span data-lang-fr="pour plus d'informations." data-lang-en="for more information." data-lang-es="para más información." data-lang-it="per ulteriori informazioni.">pour plus d'informations.</span>
-        
-        <h2 data-lang-fr="7. Durée de Conservation" data-lang-en="7. Retention Period" data-lang-es="7. Período de Retención" data-lang-it="7. Periodo di Conservazione">7. Durée de Conservation</h2>
-        <p data-lang-fr="Nous conservons vos données aussi longtemps que votre compte est actif, ou selon les exigences légales. Vous pouvez demander la suppression de vos données à tout moment." data-lang-en="We retain your data as long as your account is active, or as required by law. You can request deletion of your data at any time." data-lang-es="Conservamos sus datos mientras su cuenta esté activa, o según lo requiera la ley. Puede solicitar la eliminación de sus datos en cualquier momento." data-lang-it="Conserviamo i tuoi dati finché il tuo account è attivo, o come richiesto dalla legge. Puoi richiedere la cancellazione dei tuoi dati in qualsiasi momento.">Nous conservons vos données aussi longtemps que votre compte est actif, ou selon les exigences légales. Vous pouvez demander la suppression de vos données à tout moment.</p>
-        
-        <h2 data-lang-fr="8. Modifications" data-lang-en="8. Changes" data-lang-es="8. Modificaciones" data-lang-it="8. Modifiche">8. Modifications</h2>
-        <p data-lang-fr="Cette politique peut être mise à jour. Nous vous informerons de tout changement important par email ou notification dans l'application." data-lang-en="This policy may be updated. We will inform you of any significant changes by email or notification in the app." data-lang-es="Esta política puede actualizarse. Le informaremos de cualquier cambio importante por correo electrónico o notificación en la aplicación." data-lang-it="Questa politica può essere aggiornata. Ti informeremo di eventuali modifiche importanti via email o notifica nell'app.">Cette politique peut être mise à jour. Nous vous informerons de tout changement important par email ou notification dans l'application.</p>
-        
-        <h2 data-lang-fr="9. Contact" data-lang-en="9. Contact" data-lang-es="9. Contacto" data-lang-it="9. Contatto">9. Contact</h2>
-        <p data-lang-fr="Pour toute question concernant cette politique de confidentialité, contactez-nous :" data-lang-en="For any questions regarding this privacy policy, contact us:" data-lang-es="Para cualquier pregunta sobre esta política de privacidad, contáctenos:" data-lang-it="Per qualsiasi domanda riguardante questa informativa sulla privacy, contattaci:">Pour toute question concernant cette politique de confidentialité, contactez-nous :</p>
-        <ul>
-            <li data-lang-fr="Email : privacy@fitscan.ai" data-lang-en="Email: privacy@fitscan.ai" data-lang-es="Email: privacy@fitscan.ai" data-lang-it="Email: privacy@fitscan.ai">Email : privacy@fitscan.ai</li>
-            <li data-lang-fr="Adresse : FitScan AI, 123 Rue de la Tech, 75001 Paris, France" data-lang-en="Address: FitScan AI, 123 Tech Street, 75001 Paris, France" data-lang-es="Dirección: FitScan AI, 123 Rue de la Tech, 75001 París, Francia" data-lang-it="Indirizzo: FitScan AI, 123 Rue de la Tech, 75001 Parigi, Francia">Adresse : FitScan AI, 123 Rue de la Tech, 75001 Paris, France</li>
-        </ul>
-    </div>
-    
-    <script>
-        // Function to update page content
-        function updateContent(lang) {
-            document.querySelectorAll('[data-lang-fr]').forEach(element => {
-                const attrName = `data-lang-${lang}`;
-                if (element.hasAttribute(attrName)) {
-                    const translation = element.getAttribute(attrName);
-                    if (translation.includes('<br>') || translation.includes('&')) {
-                        element.innerHTML = translation;
-                    } else {
-                        element.textContent = translation;
-                    }
-                }
-            });
-            document.documentElement.lang = lang;
-            localStorage.setItem('preferredLanguage', lang);
-        }
-
-        // Language selector functionality
-        const langBtn = document.querySelector('.lang-btn');
-        const langDropdown = document.querySelector('.lang-dropdown');
-        const langOptions = document.querySelectorAll('.lang-option');
-
-        langBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            langDropdown.classList.toggle('active');
-        });
-
-        document.addEventListener('click', () => {
-            langDropdown.classList.remove('active');
-        });
-
-        langOptions.forEach(option => {
-            option.addEventListener('click', (e) => {
-                e.stopPropagation();
-                const lang = option.dataset.lang;
-                const flag = option.querySelector('.flag').textContent;
-                const text = lang.toUpperCase();
-                
-                langBtn.querySelector('.flag').textContent = flag;
-                langBtn.querySelector('.lang-text').textContent = text;
-                langDropdown.classList.remove('active');
-                updateContent(lang);
-            });
-        });
-
-        // Load saved language
-        window.addEventListener('DOMContentLoaded', () => {
-            const savedLang = localStorage.getItem('preferredLanguage') || 'fr';
-            if (savedLang !== 'fr') {
-                const option = document.querySelector(`[data-lang="${savedLang}"]`);
-                if (option) {
-                    const flag = option.querySelector('.flag').textContent;
-                    langBtn.querySelector('.flag').textContent = flag;
-                    langBtn.querySelector('.lang-text').textContent = savedLang.toUpperCase();
-                    updateContent(savedLang);
-                }
-            }
-        });
-        
-        // Header scroll effect
-        const header = document.querySelector('header');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-        });
-    </script>
+<div class="top-bar">
+  <a href="/">← Retour à l'accueil</a>
+  <button class="download-btn" onclick="downloadPDF('politique-confidentialite-fitscanai.pdf')">⬇ Télécharger PDF</button>
+</div>
+<div class="container" id="content">
+<h1>Politique de Confidentialité</h1>
+<p class="subtitle">FitScan AI — Dernière mise à jour : 4 avril 2026</p>
+<p>FitScan AI s'engage à protéger la vie privée de ses utilisateurs. Cette politique explique comment nous collectons, utilisons et protégeons vos données personnelles conformément au RGPD et aux lois françaises en vigueur.</p>
+<h2>1. Responsable du traitement</h2>
+<ul>
+<li>Responsable : FitScan AI</li>
+<li>Contact : <a href="mailto:support@fitscanai.app">support@fitscanai.app</a></li>
+<li>Site web : <a href="https://fitscanai.app">https://fitscanai.app</a></li>
+</ul>
+<h2>2. Données collectées</h2>
+<ul>
+<li><strong>Données de compte :</strong> adresse e-mail, mot de passe (chiffré)</li>
+<li><strong>Données de santé et corporelles :</strong> images de scan corporel, photos de repas, âge, poids, taille, objectifs, niveau d'activité physique</li>
+<li><strong>Données d'utilisation :</strong> historique des programmes générés, données de connexion</li>
+</ul>
+<h2>3. Finalités du traitement</h2>
+<ul>
+<li>Créer et gérer votre compte utilisateur</li>
+<li>Générer des programmes nutritionnels et de musculation personnalisés</li>
+<li>Analyser les scans corporels et photos de repas</li>
+<li>Améliorer les fonctionnalités de l'application</li>
+<li>Envoyer des communications liées à votre compte</li>
+</ul>
+<h2>4. Base légale du traitement</h2>
+<ul>
+<li>Exécution du contrat (fourniture du service)</li>
+<li>Consentement explicite pour les données de santé</li>
+<li>Intérêt légitime pour l'amélioration du service</li>
+</ul>
+<h2>5. Hébergement et transfert des données</h2>
+<p>Vos données sont hébergées via Firebase (Google LLC), certifié conforme au cadre de transfert de données UE-États-Unis. Pour plus d'informations : <a href="https://firebase.google.com/support/privacy" target="_blank">firebase.google.com/support/privacy</a></p>
+<h2>6. Durée de conservation</h2>
+<ul>
+<li>Données de compte : conservées tant que votre compte est actif</li>
+<li>Données corporelles et photos : supprimées à votre demande ou à la suppression du compte</li>
+<li>Données d'utilisation : conservées 12 mois maximum</li>
+</ul>
+<h2>7. Partage des données</h2>
+<p>Nous ne vendons jamais vos données. Elles peuvent être partagées uniquement avec :</p>
+<ul>
+<li>Firebase (Google LLC) : hébergement et authentification</li>
+<li>Les autorités compétentes si la loi l'exige</li>
+</ul>
+<h2>8. Vos droits (RGPD)</h2>
+<ul>
+<li>Droit d'accès, de rectification et d'effacement</li>
+<li>Droit à la portabilité et d'opposition</li>
+<li>Droit de retirer votre consentement à tout moment</li>
+</ul>
+<p>Pour exercer ces droits : <a href="mailto:support@fitscanai.app">support@fitscanai.app</a><br>Réclamation auprès de la CNIL : <a href="https://www.cnil.fr" target="_blank">www.cnil.fr</a></p>
+<h2>9. Sécurité des données</h2>
+<p>Nous mettons en œuvre des mesures techniques appropriées pour protéger vos données, notamment le chiffrement via Firebase.</p>
+<h2>10. Données sensibles</h2>
+<p>Les données corporelles et de santé sont traitées uniquement avec votre consentement explicite, recueilli lors de la première utilisation des fonctionnalités concernées.</p>
+<h2>11. Avertissement médical</h2>
+<p>FitScan AI ne constitue pas un avis médical ou nutritionnel professionnel. Consultez un professionnel de santé avant de modifier votre alimentation ou programme d'entraînement.</p>
+<h2>12. Modifications</h2>
+<p>Nous nous réservons le droit de modifier cette politique. Toute modification sera notifiée via l'application ou par e-mail.</p>
+<h2>13. Contact</h2>
+<p>Pour toute question : <a href="mailto:support@fitscanai.app">support@fitscanai.app</a></p>
+</div>
+<script>
+function downloadPDF(filename) {
+    var btn = document.querySelector('.download-btn');
+    btn.textContent = 'Generation...';
+    btn.disabled = true;
+    html2pdf().set({
+        margin: [15,15,15,15],
+        filename: filename,
+        image: { type: 'jpeg', quality: 0.98 },
+        html2canvas: { scale: 2, useCORS: true },
+        jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+    }).from(document.getElementById('content')).save().then(function() {
+        btn.innerHTML = '⬇ Télécharger PDF';
+        btn.disabled = false;
+    });
+}</script>
 </body>
 </html>
