@@ -1,9 +1,8 @@
 {
   "version": 2,
   "public": true,
-  "routes": [
-    { "src": "/$", "dest": "/index.html" },
-    { "src": "/universallink$", "dest": "/universallink.html" },
-    { "src": "/.well-known/apple-app-site-association", "dest": "/public/.well-known/apple-app-site-association" }
+  "rewrites": [
+    { "source": "/universallink", "destination": "/universallink.html" },
+    { "source": "/.well-known/apple-app-site-association", "destination": "/.well-known/apple-app-site-association" }
   ]
 }
