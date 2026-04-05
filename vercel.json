@@ -3,6 +3,9 @@
   "public": true,
   "rewrites": [
     { "source": "/universallink", "destination": "/universallink.html" },
+    { "source": "/privacy", "destination": "/privacy.html" },
+    { "source": "/terms", "destination": "/terms.html" },
+    { "source": "/cookies", "destination": "/cookies.html" },
     { "source": "/.well-known/apple-app-site-association", "destination": "/.well-known/apple-app-site-association" }
   ]
 }
