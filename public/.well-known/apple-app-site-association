@@ -1,0 +1,14 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "5MUUQKCN3Y.com.fitscanai.labs",
+        "paths": [
+          "/universallink",
+          "/universallink/*"
+        ]
+      }
+    ]
+  }
+}
