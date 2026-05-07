@@ -238,14 +238,14 @@ header.scrolled {
     width: 48px;
     height: 48px;
     object-fit: contain;
-    filter: brightness(0) saturate(100%) invert(80%) sepia(78%) saturate(2300%) hue-rotate(0deg) brightness(98%) contrast(103%);
+    border-radius: 8px;
 }
 
 .footer-logo-img {
     width: 36px;
     height: 36px;
     object-fit: contain;
-    filter: brightness(0) saturate(100%) invert(80%) sepia(78%) saturate(2300%) hue-rotate(0deg) brightness(98%) contrast(103%);
+    border-radius: 6px;
 }
 
 .nav-links {
