@@ -249,11 +249,12 @@ header.scrolled {
 }
 
 .gold-x {
-    background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+    background: linear-gradient(135deg, #FFF176 0%, #FFD60A 40%, #FFAA00 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     font-weight: 700;
+    filter: drop-shadow(0 0 6px rgba(255, 214, 10, 0.5));
 }
 
 .nav-links {
