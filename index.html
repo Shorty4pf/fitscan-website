@@ -538,7 +538,7 @@
                     const translation = element.getAttribute(attrName);
                     
                     // Use innerHTML for elements that might contain HTML tags or special characters
-                    if (translation.includes('<br>') || translation.includes('&')) {
+                    if (translation.includes('<')) {
                         element.innerHTML = translation;
                     } else {
                         element.textContent = translation;
