@@ -509,6 +509,13 @@ h2 {
     position: relative;
 }
 
+.phone-screenshot {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
 /* Animation de slide pour l'image du téléphone */
 #storyImage.slide-left {
     animation: slideLeft 0.35s cubic-bezier(0.4,0,0.2,1);
