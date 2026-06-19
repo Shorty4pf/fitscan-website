@@ -6,11 +6,13 @@
 
 /* Force phones side-by-side on wider screens without altering other content */
 @media (min-width: 900px) {
+    /* place phones at the right of the hero like the reference screenshot */
     .hero-images {
         display: flex !important;
         align-items: center !important;
-        justify-content: center !important;
+        justify-content: flex-end !important;
         gap: 2rem !important;
+        padding-right: 6% !important;
     }
 
     .hero-images .phone-mockup {
@@ -27,20 +29,22 @@
 
 /* Small visual tweaks: rotate and overlap phones on desktop only */
 @media (min-width: 900px) {
+    /* Left phone: slight left tilt, lifted forward */
     .hero-images .phone-mockup.phone-1 {
-        transform: rotate(-8deg) translateX(-20px);
+        transform: rotate(-12deg) translateX(8px) translateY(6px);
         z-index: 2;
     }
 
+    /* Right phone: slight right tilt, sits slightly behind with overlap */
     .hero-images .phone-mockup.phone-2 {
-        transform: rotate(6deg) translateX(20px);
+        transform: rotate(10deg) translateX(-8px) translateY(8px);
         z-index: 1;
-        margin-left: -2.5rem; /* small overlap */
+        margin-left: -4rem; /* increase overlap to match screenshot */
     }
 
     /* Slight responsive scaling so phones don't overflow */
     .hero-images .phone-mockup {
-        max-width: 320px !important;
+        max-width: 360px !important;
     }
 }
 /* Boutons invisibles sur la barre du téléphone */
