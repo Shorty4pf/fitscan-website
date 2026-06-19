@@ -509,40 +509,38 @@ h2 {
     padding: 12px;
     box-shadow: 0 25px 50px rgba(255, 214, 10, 0.2);
     position: relative;
+    /* expose vars for animation-safe transforms */
+    --phone-rot: -8deg;
+    --phone-translate-x: 0px;
     animation: float 3s ease-in-out infinite;
 }
 
 .phone-1 {
-    transform: rotate(-8deg);
-    z-index: 1;
+    /* prefer variables so keyframes can combine translateY without losing rotation */
+    --phone-rot: -14deg;
+    --phone-translate-x: -36px;
+    z-index: 2;
 }
 
 .phone-2 {
-    transform: rotate(5deg) translateX(-30px);
-    z-index: 2;
+    --phone-rot: 10deg;
+    --phone-translate-x: -8px;
+    z-index: 1;
     animation-delay: 0.5s;
 }
 
 @keyframes float {
     0%, 100% {
-        transform: translateY(0) rotate(-8deg);
+        transform: translateY(0) rotate(var(--phone-rot)) translateX(var(--phone-translate-x));
     }
     50% {
-        transform: translateY(-20px) rotate(-8deg);
+        transform: translateY(-20px) rotate(var(--phone-rot)) translateX(var(--phone-translate-x));
     }
 }
 
+/* fallback: phone-2 uses same animation but with different vars */
 .phone-2 {
-    animation-name: float2;
-}
-
-@keyframes float2 {
-    0%, 100% {
-        transform: translateY(0) rotate(5deg) translateX(-30px);
-    }
-    50% {
-        transform: translateY(-15px) rotate(5deg) translateX(-30px);
-    }
+    animation-name: float;
 }
 
 .phone-screen {
