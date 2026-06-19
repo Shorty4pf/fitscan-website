@@ -31,15 +31,20 @@
 @media (min-width: 900px) {
     /* Left phone: slight left tilt, lifted forward */
     .hero-images .phone-mockup.phone-1 {
-        transform: rotate(-12deg) translateX(8px) translateY(6px);
+        --phone-rot: -11deg;
+        --phone-translate-x: -18px;
+        --phone-base-y: -6px; /* lift slightly */
         z-index: 2;
+        margin-left: -1rem;
     }
 
     /* Right phone: slight right tilt, sits slightly behind with overlap */
     .hero-images .phone-mockup.phone-2 {
-        transform: rotate(10deg) translateX(-8px) translateY(8px);
+        --phone-rot: 8.5deg;
+        --phone-translate-x: -6px;
+        --phone-base-y: 8px; /* push slightly down */
         z-index: 1;
-        margin-left: -4rem; /* increase overlap to match screenshot */
+        margin-left: -5rem; /* overlap */
     }
 
     /* Slight responsive scaling so phones don't overflow */
@@ -531,10 +536,10 @@ h2 {
 
 @keyframes float {
     0%, 100% {
-        transform: translateY(0) rotate(var(--phone-rot)) translateX(var(--phone-translate-x));
+        transform: translateY(calc(var(--phone-base-y, 0px) + 0px)) rotate(var(--phone-rot)) translateX(var(--phone-translate-x));
     }
     50% {
-        transform: translateY(-20px) rotate(var(--phone-rot)) translateX(var(--phone-translate-x));
+        transform: translateY(calc(var(--phone-base-y, 0px) - 20px)) rotate(var(--phone-rot)) translateX(var(--phone-translate-x));
     }
 }
 
