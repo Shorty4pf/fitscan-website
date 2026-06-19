@@ -52,6 +52,36 @@
         max-width: 360px !important;
     }
 }
+
+/* Force absolute positioning for precise right-side stacking on wide screens */
+@media (min-width: 1200px) {
+    .hero-images {
+        display: block !important; /* keep container but allow absolute children */
+        height: 720px !important;
+    }
+
+    .hero-images .phone-mockup {
+        position: absolute !important;
+        width: 360px !important;
+        height: 640px !important;
+        margin: 0 !important;
+        left: auto !important;
+    }
+
+    .hero-images .phone-mockup.phone-2 {
+        right: 6% !important;
+        top: 8% !important;
+        --phone-base-y: 8px;
+        z-index: 1 !important;
+    }
+
+    .hero-images .phone-mockup.phone-1 {
+        right: 18% !important;
+        top: 2% !important;
+        --phone-base-y: -6px;
+        z-index: 2 !important;
+    }
+}
 /* Boutons invisibles sur la barre du téléphone */
 .phone-nav-invisible {
     position: absolute;
