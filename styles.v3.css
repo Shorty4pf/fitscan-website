@@ -24,6 +24,25 @@
         height: auto !important;
     }
 }
+
+/* Small visual tweaks: rotate and overlap phones on desktop only */
+@media (min-width: 900px) {
+    .hero-images .phone-mockup.phone-1 {
+        transform: rotate(-8deg) translateX(-20px) !important;
+        z-index: 2 !important;
+    }
+
+    .hero-images .phone-mockup.phone-2 {
+        transform: rotate(6deg) translateX(20px) !important;
+        z-index: 1 !important;
+        margin-left: -3rem !important; /* small overlap */
+    }
+
+    /* Slight responsive scaling so phones don't overflow */
+    .hero-images .phone-mockup {
+        max-width: 320px !important;
+    }
+}
 /* Boutons invisibles sur la barre du téléphone */
 .phone-nav-invisible {
     position: absolute;
