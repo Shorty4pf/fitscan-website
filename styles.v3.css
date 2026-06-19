@@ -28,14 +28,14 @@
 /* Small visual tweaks: rotate and overlap phones on desktop only */
 @media (min-width: 900px) {
     .hero-images .phone-mockup.phone-1 {
-        transform: rotate(-8deg) translateX(-20px) !important;
-        z-index: 2 !important;
+        transform: rotate(-8deg) translateX(-20px);
+        z-index: 2;
     }
 
     .hero-images .phone-mockup.phone-2 {
-        transform: rotate(6deg) translateX(20px) !important;
-        z-index: 1 !important;
-        margin-left: -3rem !important; /* small overlap */
+        transform: rotate(6deg) translateX(20px);
+        z-index: 1;
+        margin-left: -2.5rem; /* small overlap */
     }
 
     /* Slight responsive scaling so phones don't overflow */
