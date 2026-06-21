@@ -4,84 +4,6 @@
     box-shadow: none !important;
 }
 
-/* Force phones side-by-side on wider screens without altering other content */
-@media (min-width: 900px) {
-    /* place phones at the right of the hero like the reference screenshot */
-    .hero-images {
-        display: flex !important;
-        align-items: center !important;
-        justify-content: flex-end !important;
-        gap: 2rem !important;
-        padding-right: 6% !important;
-    }
-
-    .hero-images .phone-mockup {
-        flex: 0 0 auto !important;
-        margin: 0 !important;
-    }
-
-    /* Ensure phone screens keep their natural size and stack horizontally */
-    .hero-images .phone-mockup .phone-screen {
-        width: auto !important;
-        height: auto !important;
-    }
-}
-
-/* Small visual tweaks: rotate and overlap phones on desktop only */
-@media (min-width: 900px) {
-    /* Left phone: slight left tilt, lifted forward */
-    .hero-images .phone-mockup.phone-1 {
-        --phone-rot: -11deg;
-        --phone-translate-x: -18px;
-        --phone-base-y: -6px; /* lift slightly */
-        z-index: 2;
-        margin-left: -1rem;
-    }
-
-    /* Right phone: slight right tilt, sits slightly behind with overlap */
-    .hero-images .phone-mockup.phone-2 {
-        --phone-rot: 8.5deg;
-        --phone-translate-x: -6px;
-        --phone-base-y: 8px; /* push slightly down */
-        z-index: 1;
-        margin-left: -5rem; /* overlap */
-    }
-
-    /* Slight responsive scaling so phones don't overflow */
-    .hero-images .phone-mockup {
-        max-width: 360px !important;
-    }
-}
-
-/* Force absolute positioning for precise right-side stacking on wide screens */
-@media (min-width: 1200px) {
-    .hero-images {
-        display: block !important; /* keep container but allow absolute children */
-        height: 720px !important;
-    }
-
-    .hero-images .phone-mockup {
-        position: absolute !important;
-        width: 360px !important;
-        height: 640px !important;
-        margin: 0 !important;
-        left: auto !important;
-    }
-
-    .hero-images .phone-mockup.phone-2 {
-        right: 6% !important;
-        top: 8% !important;
-        --phone-base-y: 8px;
-        z-index: 1 !important;
-    }
-
-    .hero-images .phone-mockup.phone-1 {
-        right: 18% !important;
-        top: 2% !important;
-        --phone-base-y: -6px;
-        z-index: 2 !important;
-    }
-}
 /* Boutons invisibles sur la barre du téléphone */
 .phone-nav-invisible {
     position: absolute;
@@ -551,15 +473,14 @@ h2 {
 }
 
 .phone-1 {
-    /* prefer variables so keyframes can combine translateY without losing rotation */
-    --phone-rot: -14deg;
-    --phone-translate-x: -36px;
+    --phone-rot: -10deg;
+    --phone-translate-x: 0px;
     z-index: 2;
 }
 
 .phone-2 {
-    --phone-rot: 10deg;
-    --phone-translate-x: -8px;
+    --phone-rot: 8deg;
+    --phone-translate-x: 0px;
     z-index: 1;
     animation-delay: 0.5s;
 }
