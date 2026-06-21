@@ -805,10 +805,7 @@ h2 {
     display: none;
 }
 
-/* Hero phones: remove inner padding so image fills edge-to-edge */
-.phone-mockup .phone-mockup-wrapper {
-    padding: 0;
-}
+
 
 .phone-screen {
     width: 100%;
