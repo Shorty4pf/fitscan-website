@@ -463,9 +463,10 @@ h2 {
     height: 580px;
     background: #1a1a1a;
     border-radius: 40px;
-    padding: 12px;
+    padding: 0;
     box-shadow: 0 25px 50px rgba(255, 214, 10, 0.2);
     position: relative;
+    overflow: hidden;
     /* expose vars for animation-safe transforms */
     --phone-rot: -8deg;
     --phone-translate-x: 0px;
@@ -500,8 +501,8 @@ h2 {
 }
 
 .phone-screen {
-    background: #fff;
-    border-radius: 32px;
+    background: #000;
+    border-radius: 40px;
     height: 100%;
     overflow: hidden;
     position: relative;
