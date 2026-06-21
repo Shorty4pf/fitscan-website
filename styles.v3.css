@@ -802,16 +802,7 @@ h2 {
 }
 
 .phone-mockup-wrapper::before {
-    content: '';
-    position: absolute;
-    top: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 120px;
-    height: 30px;
-    background: #1a1a1a;
-    border-radius: 0 0 24px 24px;
-    z-index: 2;
+    display: none;
 }
 
 .phone-screen {
