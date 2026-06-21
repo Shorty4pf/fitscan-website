@@ -497,8 +497,6 @@ h2 {
     --phone-translate-x: 0px;
     z-index: 1;
     animation-delay: 0.5s;
-    background: transparent;
-    box-shadow: none;
 }
 
 @keyframes float {
