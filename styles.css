@@ -779,6 +779,10 @@ h2 {
     align-items: center;
 }
 
+.phone-mockup-sticky .phone-screen {
+    pointer-events: none;
+}
+
 .phone-mockup-wrapper {
     width: 280px;
     height: 560px;
@@ -845,6 +849,7 @@ h2 {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
+    overflow: hidden;
 }
 
 .feature-card-block {
