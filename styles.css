@@ -473,6 +473,11 @@ h2 {
     z-index: 1;
 }
 
+.phone-1 .phone-screen,
+.phone-2 .phone-screen {
+    pointer-events: none;
+}
+
 .phone-2 {
     transform: rotate(5deg) translateX(-30px);
     z-index: 2;
