@@ -3,14 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NoraX - Universal Link</title>
+    <title>NoraX - Connexion</title>
     <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
     <div class="container">
-        <h1>Bienvenue sur NoraX</h1>
-        <p>Vous avez ouvert un lien universel. Si l’application ne s’ouvre pas automatiquement, veuillez la télécharger ou l’ouvrir manuellement.</p>
-        <a href="https://apps.apple.com/app/idYOUR_APP_ID" class="button">Télécharger l’application</a>
+        <h1>Ouvrir NoraX</h1>
+        <p id="message">Ouverture de l’application…</p>
+        <p id="fallback" hidden>Si NoraX ne s’ouvre pas, installez ou rouvrez l’application depuis l’écran d’accueil.</p>
     </div>
+    <script>
+      (function () {
+        var params = window.location.search;
+        if (!params || params.indexOf("oobCode=") === -1) {
+          document.getElementById("message").textContent =
+            "Lien de connexion incomplet. Demandez un nouveau lien depuis l’application NoraX.";
+          return;
+        }
+        document.getElementById("fallback").hidden = false;
+        // Même URL : iOS peut proposer « Ouvrir dans NoraX » si l’app est installée.
+        setTimeout(function () {
+          window.location.replace(window.location.pathname + params);
+        }, 400);
+      })();
+    </script>
 </body>
 </html>
