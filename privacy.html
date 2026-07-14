@@ -1,111 +1,697 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<link rel="icon" type="image/x-icon" href="favicon.ico">
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Politique de Confidentialité - NoraX</title>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
-<style>* { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #fff; color: #1a1a1a; line-height: 1.8; }
-.top-bar { display: flex; align-items: center; justify-content: space-between; padding: 1.2rem 2rem; border-bottom: 1px solid #eee; background: #fff; position: sticky; top: 0; z-index: 10; }
-.top-bar a { color: #1a1a1a; text-decoration: none; font-size: 0.95rem; display: flex; align-items: center; gap: 0.4rem; font-weight: 500; }
-.top-bar a:hover { opacity: 0.6; }
-.download-btn { display: inline-flex; align-items: center; gap: 0.5rem; background: #1a1a1a; color: #fff; border: none; border-radius: 8px; padding: 0.6rem 1.2rem; font-size: 0.9rem; font-weight: 600; cursor: pointer; transition: background 0.2s; }
-.download-btn:hover { background: #333; }
-.container { max-width: 760px; margin: 0 auto; padding: 3rem 2rem 5rem; }
-h1 { font-size: 2rem; font-weight: 700; margin-bottom: 0.4rem; }
-.subtitle { color: #888; font-size: 0.9rem; margin-bottom: 2.5rem; }
-h2 { font-size: 1.15rem; font-weight: 700; margin-top: 2rem; margin-bottom: 0.6rem; color: #1a1a1a; }
-p { color: #444; margin-bottom: 1rem; }
-ul { color: #444; margin-left: 1.5rem; margin-bottom: 1rem; }
-li { margin-bottom: 0.4rem; }
-a { color: #1a1a1a; }
-@media (max-width: 600px) { .container { padding: 2rem 1.2rem 4rem; } h1 { font-size: 1.5rem; } }</style>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Politique de Confidentialité - NoraX</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #fff;
+            color: #1a1a1a;
+            line-height: 1.8;
+        }
+
+        .top-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1.2rem 2rem;
+            border-bottom: 1px solid #eee;
+            background: #fff;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .top-bar a {
+            color: #1a1a1a;
+            text-decoration: none;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-weight: 500;
+        }
+
+        .top-bar a:hover {
+            opacity: 0.6;
+        }
+
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: #1a1a1a;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            padding: 0.6rem 1.2rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .download-btn:hover {
+            background: #333;
+        }
+
+        .download-btn:disabled {
+            cursor: wait;
+            opacity: 0.7;
+        }
+
+        .container {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 3rem 2rem 5rem;
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.4rem;
+        }
+
+        .subtitle {
+            color: #888;
+            font-size: 0.9rem;
+            margin-bottom: 2.5rem;
+        }
+
+        h2 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-top: 2rem;
+            margin-bottom: 0.6rem;
+            color: #1a1a1a;
+        }
+
+        p {
+            color: #444;
+            margin-bottom: 1rem;
+        }
+
+        ul {
+            color: #444;
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        li {
+            margin-bottom: 0.4rem;
+        }
+
+        a {
+            color: #1a1a1a;
+        }
+
+        @media (max-width: 600px) {
+            .top-bar {
+                padding: 1rem 1.2rem;
+                gap: 1rem;
+            }
+
+            .download-btn {
+                padding: 0.55rem 0.8rem;
+                font-size: 0.8rem;
+            }
+
+            .container {
+                padding: 2rem 1.2rem 4rem;
+            }
+
+            h1 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
 </head>
+
 <body>
-<div class="top-bar">
-  <a href="/">← Retour à l'accueil</a>
-  <button class="download-btn" onclick="downloadPDF('politique-confidentialite-norax.pdf')">⬇ Télécharger PDF</button>
-</div>
-<div class="container" id="content">
-<h1>Politique de Confidentialité</h1>
-<p class="subtitle">NoraX — Dernière mise à jour : 4 avril 2026</p>
-<p>NoraX s'engage à protéger la vie privée de ses utilisateurs. Cette politique explique comment nous collectons, utilisons et protégeons vos données personnelles conformément au RGPD et aux lois françaises en vigueur.</p>
-<h2>1. Responsable du traitement</h2>
-<ul>
-<li>Responsable : NoraX</li>
-<li>Adresse : 50 avenue des Champs Élysées, 75008 Paris, France</li>
-<li>Contact : <a href="mailto:support@noraxai.app">support@noraxai.app</a></li>
-<li>Site web : <a href="https://noraxai.app">https://noraxai.app</a></li>
-</ul>
-<h2>2. Données collectées</h2>
-<ul>
-<li><strong>Données de compte :</strong> adresse e-mail, mot de passe (chiffré)</li>
-<li><strong>Données de santé et corporelles :</strong> images de scan corporel, photos de repas, âge, poids, taille, objectifs, niveau d'activité physique</li>
-<li><strong>Données d'utilisation :</strong> historique des programmes générés, données de connexion</li>
-</ul>
-<h2>3. Finalités du traitement</h2>
-<ul>
-<li>Créer et gérer votre compte utilisateur</li>
-<li>Générer des programmes nutritionnels et de musculation personnalisés</li>
-<li>Analyser les scans corporels et photos de repas</li>
-<li>Améliorer les fonctionnalités de l'application</li>
-<li>Envoyer des communications liées à votre compte</li>
-</ul>
-<h2>4. Base légale du traitement</h2>
-<ul>
-<li>Exécution du contrat (fourniture du service)</li>
-<li>Consentement explicite pour les données de santé</li>
-<li>Intérêt légitime pour l'amélioration du service</li>
-</ul>
-<h2>5. Hébergement et transfert des données</h2>
-<p>Vos données sont hébergées via Firebase (Google LLC), certifié conforme au cadre de transfert de données UE-États-Unis. Pour plus d'informations : <a href="https://firebase.google.com/support/privacy" target="_blank">firebase.google.com/support/privacy</a></p>
-<h2>6. Durée de conservation</h2>
-<ul>
-<li>Données de compte : conservées tant que votre compte est actif</li>
-<li>Données corporelles et photos : supprimées à votre demande ou à la suppression du compte</li>
-<li>Données d'utilisation : conservées 12 mois maximum</li>
-</ul>
-<h2>7. Partage des données</h2>
-<p>Nous ne vendons jamais vos données. Elles peuvent être partagées uniquement avec :</p>
-<ul>
-<li>Firebase (Google LLC) : hébergement et authentification</li>
-<li>Les autorités compétentes si la loi l'exige</li>
-</ul>
-<h2>8. Vos droits (RGPD)</h2>
-<ul>
-<li>Droit d'accès, de rectification et d'effacement</li>
-<li>Droit à la portabilité et d'opposition</li>
-<li>Droit de retirer votre consentement à tout moment</li>
-</ul>
-<p>Pour exercer ces droits : <a href="mailto:support@noraxai.app">support@noraxai.app</a><br>Réclamation auprès de la CNIL : <a href="https://www.cnil.fr" target="_blank">www.cnil.fr</a></p>
-<h2>9. Sécurité des données</h2>
-<p>Nous mettons en œuvre des mesures techniques appropriées pour protéger vos données, notamment le chiffrement via Firebase.</p>
-<h2>10. Données sensibles</h2>
-<p>Les données corporelles et de santé sont traitées uniquement avec votre consentement explicite, recueilli lors de la première utilisation des fonctionnalités concernées.</p>
-<h2>11. Avertissement médical</h2>
-<p>NoraX ne constitue pas un avis médical ou nutritionnel professionnel. Consultez un professionnel de santé avant de modifier votre alimentation ou programme d'entraînement.</p>
-<h2>12. Modifications</h2>
-<p>Nous nous réservons le droit de modifier cette politique. Toute modification sera notifiée via l'application ou par e-mail.</p>
-<h2>13. Contact</h2>
-<p>Pour toute question : <a href="mailto:support@noraxai.app">support@noraxai.app</a></p>
-</div>
-<script>
-function downloadPDF(filename) {
-    var btn = document.querySelector('.download-btn');
-    btn.textContent = 'Generation...';
-    btn.disabled = true;
-    html2pdf().set({
-        margin: [15,15,15,15],
-        filename: filename,
-        image: { type: 'jpeg', quality: 0.98 },
-        html2canvas: { scale: 2, useCORS: true },
-        jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
-    }).from(document.getElementById('content')).save().then(function() {
-        btn.innerHTML = '⬇ Télécharger PDF';
-        btn.disabled = false;
-    });
-}</script>
+    <div class="top-bar">
+        <a href="/">← Retour à l'accueil</a>
+
+        <button
+            class="download-btn"
+            type="button"
+            onclick="downloadPDF('politique-confidentialite-norax.pdf')"
+        >
+            ⬇ Télécharger PDF
+        </button>
+    </div>
+
+    <div class="container" id="content">
+        <h1>Politique de Confidentialité</h1>
+
+        <p class="subtitle">
+            NoraX | Dernière mise à jour : 14 juillet 2026
+        </p>
+
+        <p>
+            NoraX s'engage à protéger la vie privée de ses utilisateurs.
+            La présente politique explique quelles données personnelles peuvent être
+            collectées, comment elles sont utilisées, avec quels prestataires elles
+            peuvent être partagées et comment vous pouvez exercer vos droits.
+        </p>
+
+        <p>
+            Cette politique s'applique à l'application mobile NoraX, au site
+            <a href="https://noraxai.app" target="_blank" rel="noopener noreferrer">
+                noraxai.app
+            </a>
+            et aux services associés.
+        </p>
+
+        <h2>1. Responsable du traitement</h2>
+
+        <ul>
+            <li><strong>Responsable :</strong> NoraX</li>
+            <li>
+                <strong>Adresse :</strong>
+                50 avenue des Champs-Élysées, 75008 Paris, France
+            </li>
+            <li>
+                <strong>Contact :</strong>
+                <a href="mailto:support@noraxai.app">support@noraxai.app</a>
+            </li>
+            <li>
+                <strong>Site web :</strong>
+                <a
+                    href="https://noraxai.app"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    https://noraxai.app
+                </a>
+            </li>
+        </ul>
+
+        <h2>2. Données collectées</h2>
+
+        <p>
+            Selon les fonctionnalités que vous utilisez, NoraX peut collecter les
+            catégories de données suivantes :
+        </p>
+
+        <ul>
+            <li>
+                <strong>Données de compte :</strong>
+                adresse e-mail, nom ou pseudonyme, identifiant de compte et
+                informations nécessaires à l'authentification. Lorsque
+                l'authentification est gérée par un prestataire externe, NoraX ne
+                conserve pas directement votre mot de passe en clair.
+            </li>
+
+            <li>
+                <strong>Données de profil :</strong>
+                âge, sexe, taille, poids, objectifs, préférences alimentaires,
+                niveau d'activité physique, fréquence d'entraînement, matériel
+                disponible et autres informations nécessaires à la personnalisation
+                du service.
+            </li>
+
+            <li>
+                <strong>Données de santé et d'activité physique :</strong>
+                poids, évolution corporelle, mensurations déclarées, données
+                d'entraînement, programmes réalisés, données nutritionnelles et,
+                lorsque vous l'autorisez, certaines données provenant d'Apple
+                HealthKit.
+            </li>
+
+            <li>
+                <strong>Photos et vidéos :</strong>
+                photos ou images sélectionnées par l'utilisateur pour effectuer un
+                scan corporel, analyser un repas ou utiliser une fonctionnalité
+                nécessitant un contenu visuel.
+            </li>
+
+            <li>
+                <strong>Contenu utilisateur :</strong>
+                messages envoyés au coach IA, réponses aux questionnaires,
+                préférences, commentaires, demandes adressées au support et autres
+                contenus saisis dans l'application.
+            </li>
+
+            <li>
+                <strong>Données vocales :</strong>
+                texte dicté, données nécessaires à la reconnaissance vocale et texte
+                envoyé au service de synthèse vocale lorsque vous utilisez les
+                fonctions concernées.
+            </li>
+
+            <li>
+                <strong>Données d'abonnement :</strong>
+                statut de l'abonnement, type de formule, historique technique des
+                transactions et informations nécessaires à la restauration des
+                achats. Les informations bancaires et les numéros de carte sont
+                traités directement par Apple et ne sont pas accessibles à NoraX.
+            </li>
+
+            <li>
+                <strong>Données techniques et d'utilisation :</strong>
+                version de l'application, type d'appareil, système d'exploitation,
+                journaux techniques, erreurs, données de diagnostic, interactions
+                avec les fonctionnalités et dates de connexion.
+            </li>
+        </ul>
+
+        <h2>3. Finalités du traitement</h2>
+
+        <p>Les données peuvent être utilisées pour :</p>
+
+        <ul>
+            <li>Créer, sécuriser et gérer votre compte utilisateur</li>
+            <li>Vous authentifier et maintenir votre session</li>
+            <li>Personnaliser votre expérience dans NoraX</li>
+            <li>
+                Générer des programmes nutritionnels et d'entraînement adaptés à
+                votre profil
+            </li>
+            <li>Analyser les scans corporels et les photos de repas</li>
+            <li>Fournir les réponses et recommandations du coach IA</li>
+            <li>Fournir les fonctionnalités de synthèse et de reconnaissance vocale</li>
+            <li>Suivre votre progression et vos objectifs</li>
+            <li>Gérer les abonnements et restaurer les achats</li>
+            <li>Répondre aux demandes d'assistance</li>
+            <li>Prévenir la fraude et assurer la sécurité du service</li>
+            <li>Diagnostiquer les pannes et améliorer les performances</li>
+            <li>Respecter les obligations légales applicables</li>
+        </ul>
+
+        <h2>4. Base légale du traitement</h2>
+
+        <p>
+            Selon la nature du traitement, NoraX s'appuie sur une ou plusieurs des
+            bases légales suivantes :
+        </p>
+
+        <ul>
+            <li>
+                <strong>Exécution du contrat :</strong>
+                pour fournir les fonctionnalités demandées, gérer le compte et
+                permettre l'accès au service.
+            </li>
+
+            <li>
+                <strong>Consentement explicite :</strong>
+                pour le traitement de certaines données de santé, l'accès aux photos,
+                à la caméra, au microphone, à HealthKit et l'utilisation des
+                fonctionnalités d'intelligence artificielle.
+            </li>
+
+            <li>
+                <strong>Intérêt légitime :</strong>
+                pour sécuriser le service, prévenir les abus, diagnostiquer les
+                erreurs et améliorer les performances, sous réserve de vos droits.
+            </li>
+
+            <li>
+                <strong>Obligation légale :</strong>
+                lorsque la conservation ou la communication de certaines
+                informations est imposée par la loi.
+            </li>
+        </ul>
+
+        <h2>5. Intelligence artificielle et traitement des données</h2>
+
+        <p>
+            Certaines fonctionnalités de NoraX utilisent des services
+            d'intelligence artificielle afin de fournir des analyses, des
+            recommandations, des programmes personnalisés, des réponses du coach IA
+            et des fonctions de synthèse vocale.
+        </p>
+
+        <p>
+            Avant le premier partage de données avec un service d'intelligence
+            artificielle tiers, NoraX vous présente une demande de consentement
+            précisant les catégories de données susceptibles d'être transmises et
+            la finalité du traitement.
+        </p>
+
+        <p>
+            Selon la fonctionnalité utilisée et uniquement après votre consentement,
+            les données suivantes peuvent notamment être transmises :
+        </p>
+
+        <ul>
+            <li>Les messages envoyés au coach IA</li>
+            <li>
+                Les informations de profil nécessaires à la personnalisation, comme
+                l'âge, la taille, le poids, les objectifs et les préférences
+            </li>
+            <li>Les données nutritionnelles et sportives pertinentes</li>
+            <li>
+                Les photos ou images choisies pour une analyse corporelle ou
+                alimentaire
+            </li>
+            <li>
+                Le texte strictement nécessaire à la génération d'une synthèse
+                vocale
+            </li>
+        </ul>
+
+        <p>
+            Ces données peuvent être transmises à l'infrastructure sécurisée de
+            NoraX, puis au fournisseur de services d'intelligence artificielle
+            <strong>OpenAI</strong>, uniquement afin de produire la réponse, l'analyse,
+            le programme ou le contenu audio demandé.
+        </p>
+
+        <p>
+            Les clés d'accès aux services d'intelligence artificielle ne sont pas
+            intégrées dans l'application mobile. Les appels concernés sont effectués
+            par l'intermédiaire du backend sécurisé de NoraX.
+        </p>
+
+        <p>
+            NoraX n'utilise pas les données transmises à ces fonctionnalités pour
+            créer des profils publicitaires ou afficher de la publicité ciblée.
+        </p>
+
+        <p>
+            Vous pouvez refuser ce traitement lors de la demande initiale ou retirer
+            votre consentement à tout moment depuis
+            <strong>Profil &gt; Données &amp; IA</strong>.
+            En cas de refus ou de retrait, aucune nouvelle donnée ne sera transmise
+            aux services d'intelligence artificielle par les fonctionnalités
+            concernées, qui pourront alors devenir indisponibles.
+        </p>
+
+        <h2>6. Hébergement, prestataires et destinataires</h2>
+
+        <p>
+            NoraX ne vend pas vos données personnelles. Elles peuvent être
+            communiquées uniquement aux prestataires nécessaires au fonctionnement
+            du service, dans la limite de leurs missions.
+        </p>
+
+        <ul>
+            <li>
+                <strong>Google Firebase :</strong>
+                authentification, base de données, stockage et services techniques.
+            </li>
+
+            <li>
+                <strong>OpenAI :</strong>
+                traitement de certaines requêtes d'intelligence artificielle et
+                génération de contenu audio, après votre consentement.
+            </li>
+
+            <li>
+                <strong>Railway :</strong>
+                hébergement de certains services backend de NoraX.
+            </li>
+
+            <li>
+                <strong>Apple :</strong>
+                authentification avec Apple, gestion des abonnements, paiements,
+                restauration des achats et, lorsque vous l'autorisez, accès aux
+                données HealthKit.
+            </li>
+
+            <li>
+                <strong>Prestataires techniques autorisés :</strong>
+                uniquement lorsqu'ils sont nécessaires à l'hébergement, à la
+                sécurité, à l'envoi de communications ou au fonctionnement de
+                l'application.
+            </li>
+
+            <li>
+                <strong>Autorités compétentes :</strong>
+                uniquement lorsque la loi l'exige ou afin de protéger les droits et
+                la sécurité des utilisateurs.
+            </li>
+        </ul>
+
+        <p>
+            Pour plus d'informations sur Firebase :
+            <a
+                href="https://firebase.google.com/support/privacy"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                firebase.google.com/support/privacy
+            </a>
+        </p>
+
+        <h2>7. Transferts internationaux</h2>
+
+        <p>
+            Certains prestataires de NoraX peuvent traiter des données en dehors de
+            l'Espace économique européen, notamment aux États-Unis. Lorsque cela est
+            nécessaire, ces transferts sont encadrés par des mécanismes reconnus par
+            la réglementation applicable, tels qu'une décision d'adéquation ou des
+            clauses contractuelles appropriées.
+        </p>
+
+        <h2>8. Durée de conservation</h2>
+
+        <p>
+            Les données sont conservées uniquement pendant la durée nécessaire aux
+            finalités décrites dans cette politique, sous réserve des obligations
+            légales applicables.
+        </p>
+
+        <ul>
+            <li>
+                <strong>Données de compte :</strong>
+                pendant la durée d'activité du compte, puis pendant le délai
+                nécessaire à sa suppression et au respect des obligations légales.
+            </li>
+
+            <li>
+                <strong>Données de profil et de progression :</strong>
+                pendant la durée d'utilisation du service ou jusqu'à leur suppression
+                par l'utilisateur.
+            </li>
+
+            <li>
+                <strong>Photos et données corporelles :</strong>
+                pendant la durée nécessaire à l'analyse et au fonctionnement de la
+                fonctionnalité, puis selon les réglages du compte et les demandes de
+                suppression.
+            </li>
+
+            <li>
+                <strong>Messages et contenus utilisateur :</strong>
+                pendant la durée nécessaire à la fourniture du service, à la
+                continuité des conversations et au fonctionnement du compte.
+            </li>
+
+            <li>
+                <strong>Données techniques et journaux :</strong>
+                pendant une durée limitée nécessaire à la sécurité, au diagnostic et
+                à l'amélioration du service.
+            </li>
+
+            <li>
+                <strong>Données de facturation et de transaction :</strong>
+                selon les durées imposées par la réglementation et les obligations
+                comptables applicables.
+            </li>
+        </ul>
+
+        <h2>9. Autorisations de l'appareil</h2>
+
+        <p>
+            Certaines fonctionnalités peuvent nécessiter votre autorisation pour
+            accéder à la caméra, aux photos, au microphone, à la reconnaissance
+            vocale, aux notifications ou aux données HealthKit.
+        </p>
+
+        <p>
+            Ces autorisations sont demandées au moment où elles deviennent
+            nécessaires. Vous pouvez les modifier depuis les réglages de votre
+            appareil. Le refus d'une autorisation peut empêcher le fonctionnement de
+            la fonctionnalité concernée sans bloquer les autres parties de
+            l'application.
+        </p>
+
+        <h2>10. Vos droits</h2>
+
+        <p>
+            Conformément à la réglementation applicable, vous pouvez notamment
+            exercer les droits suivants :
+        </p>
+
+        <ul>
+            <li>Droit d'accès à vos données personnelles</li>
+            <li>Droit de rectification des données inexactes</li>
+            <li>Droit à l'effacement de vos données</li>
+            <li>Droit à la limitation du traitement</li>
+            <li>Droit d'opposition à certains traitements</li>
+            <li>Droit à la portabilité lorsque ce droit est applicable</li>
+            <li>Droit de retirer votre consentement à tout moment</li>
+            <li>Droit de supprimer votre compte et les données associées</li>
+        </ul>
+
+        <p>
+            Pour exercer vos droits :
+            <a href="mailto:support@noraxai.app">support@noraxai.app</a>
+        </p>
+
+        <p>
+            Vous pouvez également adresser une réclamation à la CNIL :
+            <a
+                href="https://www.cnil.fr"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                www.cnil.fr
+            </a>
+        </p>
+
+        <h2>11. Suppression du compte</h2>
+
+        <p>
+            Vous pouvez demander la suppression de votre compte depuis les réglages
+            de NoraX ou en contactant
+            <a href="mailto:support@noraxai.app">support@noraxai.app</a>.
+        </p>
+
+        <p>
+            La suppression entraîne l'effacement ou l'anonymisation des données
+            associées, sauf lorsque leur conservation temporaire est nécessaire au
+            respect d'une obligation légale, à la prévention de la fraude ou à la
+            résolution d'un litige.
+        </p>
+
+        <h2>12. Sécurité des données</h2>
+
+        <p>
+            NoraX met en œuvre des mesures techniques et organisationnelles destinées
+            à protéger les données contre l'accès non autorisé, la perte,
+            l'altération, la divulgation ou la destruction.
+        </p>
+
+        <p>
+            Ces mesures comprennent notamment l'utilisation de connexions chiffrées,
+            de mécanismes d'authentification, de contrôles d'accès et d'une
+            infrastructure backend sécurisée.
+        </p>
+
+        <p>
+            Aucun système ne pouvant garantir une sécurité absolue, nous vous
+            recommandons également de protéger l'accès à votre appareil et à votre
+            compte.
+        </p>
+
+        <h2>13. Données sensibles et données de santé</h2>
+
+        <p>
+            Les données corporelles, de santé et d'activité physique sont traitées
+            uniquement dans le cadre des fonctionnalités demandées et avec les
+            autorisations ou consentements requis.
+        </p>
+
+        <p>
+            NoraX ne vend pas ces données et ne les utilise pas à des fins de
+            publicité ciblée.
+        </p>
+
+        <h2>14. Mineurs</h2>
+
+        <p>
+            NoraX n'est pas destiné aux enfants n'ayant pas l'âge minimum requis pour
+            consentir au traitement de leurs données selon la législation applicable.
+            Lorsqu'une autorisation parentale est requise, l'utilisation du service
+            doit être effectuée avec l'accord du représentant légal.
+        </p>
+
+        <h2>15. Avertissement médical</h2>
+
+        <p>
+            NoraX fournit des informations générales liées à la forme physique, à la
+            nutrition et au suivi des objectifs. L'application ne constitue pas un
+            dispositif médical et ne remplace pas un diagnostic, un traitement ou un
+            avis délivré par un professionnel de santé.
+        </p>
+
+        <p>
+            Consultez un professionnel de santé avant de modifier de manière
+            importante votre alimentation ou votre programme d'entraînement, en
+            particulier en cas de problème médical, de douleur, de grossesse ou de
+            traitement en cours.
+        </p>
+
+        <h2>16. Modifications de la politique</h2>
+
+        <p>
+            Cette politique peut être modifiée afin de refléter l'évolution de
+            l'application, de ses fonctionnalités ou des obligations légales.
+        </p>
+
+        <p>
+            La date de dernière mise à jour est indiquée en haut de cette page. En cas
+            de modification importante, une information pourra être présentée dans
+            l'application, sur le site ou par e-mail.
+        </p>
+
+        <h2>17. Contact</h2>
+
+        <p>
+            Pour toute question concernant cette politique ou le traitement de vos
+            données personnelles :
+        </p>
+
+        <p>
+            <a href="mailto:support@noraxai.app">support@noraxai.app</a>
+        </p>
+    </div>
+
+    <script>
+        function downloadPDF(filename) {
+            var btn = document.querySelector('.download-btn');
+
+            btn.textContent = 'Génération...';
+            btn.disabled = true;
+
+            html2pdf()
+                .set({
+                    margin: [15, 15, 15, 15],
+                    filename: filename,
+                    image: {
+                        type: 'jpeg',
+                        quality: 0.98
+                    },
+                    html2canvas: {
+                        scale: 2,
+                        useCORS: true
+                    },
+                    jsPDF: {
+                        unit: 'mm',
+                        format: 'a4',
+                        orientation: 'portrait'
+                    }
+                })
+                .from(document.getElementById('content'))
+                .save()
+                .then(function() {
+                    btn.innerHTML = '⬇ Télécharger PDF';
+                    btn.disabled = false;
+                })
+                .catch(function() {
+                    btn.innerHTML = '⬇ Télécharger PDF';
+                    btn.disabled = false;
+
+                    alert(
+                        "Le PDF n'a pas pu être généré. Veuillez réessayer."
+                    );
+                });
+        }
+    </script>
 </body>
 </html>
