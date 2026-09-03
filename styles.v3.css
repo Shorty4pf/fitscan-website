@@ -472,18 +472,52 @@ h2 {
 }
 
 .phone-mockup {
-    width: 280px;
-    height: 580px;
-    background: #1a1a1a;
-    border-radius: 40px;
-    padding: 0;
-    box-shadow: 0 25px 50px rgba(255, 214, 10, 0.2);
+    width: 292px;
+    height: 598px;
+    background: #1a1a1c;
+    border-radius: 54px;
+    padding: 16px;
+    border: 2px solid #8e8e93;
+    box-shadow:
+        inset 0 0 0 1px rgba(255, 255, 255, 0.25),
+        0 0 0 1px rgba(0, 0, 0, 0.8),
+        0 30px 70px rgba(0, 0, 0, 0.7),
+        0 20px 40px rgba(255, 214, 10, 0.12);
     position: relative;
-    overflow: hidden;
+    overflow: visible;
     /* expose vars for animation-safe transforms */
     --phone-rot: -8deg;
     --phone-translate-x: 0px;
     animation: float 3s ease-in-out infinite;
+}
+
+/* Side buttons (iPhone chassis) */
+.phone-mockup::before,
+.phone-mockup::after {
+    content: '';
+    position: absolute;
+    background: #8e8e93;
+    border-radius: 2px;
+    z-index: 3;
+}
+
+.phone-mockup::before {
+    /* silent switch + volume */
+    left: -5px;
+    top: 108px;
+    width: 4px;
+    height: 30px;
+    box-shadow:
+        0 46px 0 0 #8e8e93,
+        0 84px 0 0 #8e8e93;
+}
+
+.phone-mockup::after {
+    /* power button */
+    right: -5px;
+    top: 156px;
+    width: 4px;
+    height: 60px;
 }
 
 .phone-1 {
@@ -801,14 +835,37 @@ h2 {
     position: relative;
 }
 
-/* Hero phones: wrapper fills entire phone frame — no dark gap at bottom */
+/* Hero phones: iPhone bezel around screenshots, no faded bottom */
 .hero-images .phone-mockup-wrapper {
     width: 100%;
     height: 100%;
     padding: 0;
     border-radius: 40px;
-    background: transparent;
-    box-shadow: none;
+    background: #000;
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+    position: relative;
+}
+
+.hero-images .phone-screen {
+    border-radius: 40px;
+    border: none;
+    height: 100%;
+}
+
+.hero-images .phone-mockup-wrapper::before {
+    display: block;
+    content: '';
+    position: absolute;
+    top: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 30px;
+    background: #000;
+    border-radius: 20px;
+    z-index: 5;
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.15);
 }
 
 .phone-mockup-wrapper::before {
@@ -1256,10 +1313,17 @@ footer {
     color: #fff;
 }
 
-/* Responsive Design */
+/* Responsive Design — mobile/tablet only; desktop rules above stay untouched */
 @media (max-width: 968px) {
+    header {
+        padding: 0.85rem 1.25rem;
+    }
+
     .navbar {
-        padding: 0.5rem 1rem;
+        padding: 0;
+        width: 100%;
+        max-width: 100%;
+        gap: 0.75rem;
     }
 
     .nav-links {
@@ -1267,112 +1331,232 @@ footer {
     }
 
     .hero {
-        padding: 3rem 1.5rem;
+        min-height: auto;
+        padding: 2.5rem 1.25rem 3rem;
+        width: 100%;
+        overflow: hidden;
     }
 
     .hero-content {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
         text-align: center;
         gap: 2rem;
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
     }
 
     .hero-text {
         max-width: 100%;
+        width: 100%;
+        min-width: 0;
+        margin: 0 auto;
+    }
+
+    .social-proof {
+        justify-content: center;
+        flex-wrap: wrap;
+        max-width: 100%;
+        gap: 0.5rem 0.75rem;
+    }
+
+    .social-proof > span {
+        flex: 1 1 12rem;
+        min-width: 0;
+        text-align: center;
+        overflow-wrap: anywhere;
     }
 
     h1 {
-        font-size: 2.5rem;
+        font-size: clamp(1.85rem, 7vw, 2.5rem);
+        overflow-wrap: anywhere;
+    }
+
+    .hero h2 {
+        font-size: clamp(1.35rem, 5.5vw, 2rem);
+        overflow-wrap: anywhere;
     }
 
     h2 {
-        font-size: 2rem;
+        font-size: clamp(1.5rem, 5.5vw, 2rem);
+        overflow-wrap: anywhere;
     }
 
     .description {
         font-size: 0.95rem;
-        max-width: 600px;
+        max-width: 100%;
+        width: 100%;
         margin-left: auto;
         margin-right: auto;
+        overflow-wrap: anywhere;
     }
 
     .cta-buttons {
         justify-content: center;
+        width: 100%;
     }
 
     .hero-images {
-        height: 500px;
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        min-height: 420px;
         margin: 0 auto;
+        gap: 0;
+        overflow: hidden;
+        justify-content: center;
+        align-items: center;
+        padding: 0.5rem 0 1rem;
     }
 
-    .phone-mockup {
-        width: 220px;
-        height: 460px;
+    .hero-images .phone-mockup {
+        width: min(190px, 42vw);
+        height: auto;
+        aspect-ratio: 9 / 19.2;
+        flex-shrink: 0;
+        padding: 11px;
+        border-radius: 40px;
+        border: 2px solid #8e8e93;
+        background: #1a1a1c;
     }
 
-    .phone-2 {
-        transform: rotate(5deg) translateX(-20px);
+    .hero-images .phone-mockup::before {
+        top: 70px;
+        height: 20px;
+        left: -4px;
+        width: 3px;
+        background: #8e8e93;
+        box-shadow:
+            0 30px 0 0 #8e8e93,
+            0 56px 0 0 #8e8e93;
+    }
+
+    .hero-images .phone-mockup::after {
+        top: 100px;
+        height: 38px;
+        right: -4px;
+        width: 3px;
+        background: #8e8e93;
+    }
+
+    .hero-images .phone-1 {
+        --phone-rot: -8deg;
+        --phone-translate-x: 14px;
+        --phone-base-y: 0px;
+        transform: none;
+    }
+
+    .hero-images .phone-2 {
+        --phone-rot: 6deg;
+        --phone-translate-x: -14px;
+        --phone-base-y: 0px;
+        transform: none;
+    }
+
+    .hero-images .phone-mockup-wrapper::before {
+        width: 58px;
+        height: 16px;
+        top: 7px;
+    }
+
+    .hero-images .phone-screen,
+    .hero-images .phone-mockup-wrapper {
+        border-radius: 32px;
     }
 
     .features {
-        padding: 4rem 1.5rem;
+        padding: 4rem 1.25rem;
+        min-height: auto;
+        width: 100%;
+        overflow: hidden;
     }
 
     .features h2 {
-        font-size: 2rem;
+        font-size: clamp(1.5rem, 5.5vw, 2rem);
+        padding: 0 0.25rem;
     }
 
     .features-container {
-        grid-template-columns: 1fr;
-        gap: 3rem;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 2.5rem;
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
     }
 
     .phone-mockup-sticky {
         position: relative;
         top: 0;
+        width: 100%;
     }
 
-    .phone-mockup-wrapper {
-        width: 240px;
-        height: 500px;
+    .features .phone-mockup-wrapper {
+        width: min(240px, 68vw);
+        height: auto;
+        aspect-ratio: 9 / 19.2;
         margin: 0 auto;
     }
 
     .why-choose {
-        padding: 5rem 1.5rem;
+        padding: 4.5rem 1.25rem;
+        overflow: hidden;
     }
 
     .why-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
         gap: 1.25rem;
+        width: 100%;
+        max-width: 100%;
     }
 
     .testimonials {
-        padding: 5rem 1.5rem;
+        padding: 4.5rem 1.25rem;
+        overflow: hidden;
     }
 
     .testimonials-grid {
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        grid-template-columns: minmax(0, 1fr);
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .testimonial-card {
+        width: 100%;
+        max-width: 100%;
+        transform: none !important;
+    }
+
+    .testimonial-card:nth-child(2),
+    .testimonial-card:nth-child(3),
+    .testimonial-card:nth-child(5) {
+        transform: none !important;
     }
 
     .footer-content {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
         gap: 2.5rem;
+        width: 100%;
+        max-width: 100%;
     }
-    
+
     .footer-bottom {
         flex-direction: column;
         gap: 1.5rem;
         text-align: center;
     }
-    
+
     .footer-social {
         order: -1;
+    }
+
+    .cookie-content p {
+        overflow-wrap: anywhere;
     }
 }
 
 @media (max-width: 640px) {
     header {
-        padding: 0.75rem 1.25rem;
+        padding: 0.7rem 1rem;
     }
 
     .navbar {
@@ -1380,22 +1564,26 @@ footer {
         justify-content: space-between;
         align-items: center;
         flex-wrap: nowrap;
+        gap: 0.5rem;
     }
 
     .logo {
-        font-size: 1.15rem;
+        font-size: 1.1rem;
         flex-shrink: 0;
+        gap: 0.5rem;
+        min-width: 0;
     }
 
     .logo-img {
-        width: 36px;
-        height: 36px;
+        width: 34px;
+        height: 34px;
     }
 
     .nav-buttons {
         display: flex;
         align-items: center;
         flex-shrink: 0;
+        gap: 0.5rem;
     }
 
     .nav-buttons .store-badge {
@@ -1419,35 +1607,39 @@ footer {
     .lang-dropdown {
         right: 0;
         left: auto;
+        max-width: calc(100vw - 2rem);
     }
 
     .hero {
-        padding: 2rem 1.25rem 3rem;
+        padding: 1.75rem 1rem 2.5rem;
     }
 
     .social-proof {
-        font-size: 0.75rem;
-        gap: 0.375rem;
-        margin-bottom: 1.5rem;
-        justify-content: flex-start;
+        font-size: 0.72rem;
+        gap: 0.35rem 0.5rem;
+        margin-bottom: 1.25rem;
+        justify-content: center;
         flex-direction: row;
         align-items: center;
+        line-height: 1.35;
     }
 
     .user-avatars {
-        transform: scale(0.8);
-        margin-right: -0.25rem;
+        transform: scale(0.78);
+        transform-origin: center left;
+        margin-right: 0;
+        flex-shrink: 0;
     }
 
-    h1 {
-        font-size: 2.125rem;
-        margin-bottom: 0.625rem;
+    .hero h1 {
+        font-size: clamp(1.75rem, 8vw, 2.1rem);
+        margin-bottom: 0.5rem;
         line-height: 1.15;
         letter-spacing: -0.02em;
     }
 
-    h2 {
-        font-size: 1.5rem;
+    .hero h2 {
+        font-size: clamp(1.2rem, 5.8vw, 1.45rem);
         line-height: 1.3;
         margin-bottom: 1rem;
         letter-spacing: -0.01em;
@@ -1456,64 +1648,80 @@ footer {
     .description {
         font-size: 0.875rem;
         line-height: 1.6;
-        margin-bottom: 1.5rem;
+        margin-bottom: 1.35rem;
         padding: 0;
         max-width: 100%;
-        display: -webkit-box;
-        -webkit-line-clamp: 3;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
+        display: block;
+        -webkit-line-clamp: unset;
+        overflow: visible;
     }
 
     .cta-buttons {
-        margin-top: 0.5rem;
+        margin-top: 0.35rem;
     }
 
     .app-store-btn img {
         height: 42px;
+        width: auto;
+        max-width: 100%;
     }
 
     .hero-images {
-        height: 400px;
-        gap: 0.75rem;
-        margin-top: 1.5rem;
+        min-height: 340px;
+        height: 340px;
+        gap: 0;
+        margin-top: 1rem;
+        padding: 0;
     }
 
-    .phone-mockup {
-        width: 158px;
-        height: 336px;
-        border-radius: 30px;
+    .hero-images .phone-mockup {
+        width: min(148px, 38vw);
+        height: auto;
+        aspect-ratio: 9 / 19.2;
+        border-radius: 34px;
         padding: 9px;
+        border: 1.5px solid #8e8e93;
+        background: #1a1a1c;
     }
 
-    .phone-screen {
-        border-radius: 23px;
+    .hero-images .phone-mockup::before {
+        top: 58px;
+        height: 18px;
+        width: 3px;
+        left: -3.5px;
+        background: #8e8e93;
+        box-shadow:
+            0 26px 0 0 #8e8e93,
+            0 48px 0 0 #8e8e93;
     }
 
-    .status-bar {
-        font-size: 0.7rem;
-        padding: 0.5rem;
+    .hero-images .phone-mockup::after {
+        top: 84px;
+        height: 34px;
+        width: 3px;
+        right: -3.5px;
+        background: #8e8e93;
     }
 
-    .scanner-header {
-        padding: 0.75rem;
-        font-size: 0.85rem;
+    .hero-images .phone-1 {
+        --phone-rot: -7deg;
+        --phone-translate-x: 18px;
     }
 
-    .nutrition-card h3 {
-        font-size: 0.9rem;
+    .hero-images .phone-2 {
+        --phone-rot: 5deg;
+        --phone-translate-x: -18px;
     }
 
-    .nutrition-card {
-        padding: 0.875rem;
+    .hero-images .phone-screen,
+    .hero-images .phone-mockup-wrapper {
+        border-radius: 26px;
     }
 
-    .phone-1 {
-        transform: rotate(-8deg) scale(0.98);
-    }
-
-    .phone-2 {
-        transform: rotate(5deg) translateX(-18px) scale(0.98);
+    .hero-images .phone-mockup-wrapper::before {
+        width: 48px;
+        height: 14px;
+        top: 6px;
     }
 
     .arrow-decoration {
@@ -1521,19 +1729,20 @@ footer {
     }
 
     .features {
-        padding: 3.5rem 1.25rem;
+        padding: 3rem 1rem;
     }
 
     .features h2 {
-        font-size: 1.875rem;
-        margin-bottom: 2.25rem;
+        font-size: clamp(1.45rem, 6.5vw, 1.85rem);
+        margin-bottom: 2rem;
         letter-spacing: -0.02em;
     }
 
-    .phone-mockup-wrapper {
-        width: 210px;
-        height: 440px;
-        margin: 0 auto 1.75rem;
+    .features .phone-mockup-wrapper {
+        width: min(210px, 64vw);
+        height: auto;
+        aspect-ratio: 9 / 19.2;
+        margin: 0 auto 1.5rem;
         position: relative;
         overflow: hidden;
         touch-action: pan-x;
@@ -1544,13 +1753,8 @@ footer {
         cursor: grabbing;
     }
 
-    .phone-screen {
-        border-radius: 23px;
-        transition: transform 0.1s ease;
-    }
-
     .feature-dots {
-        margin-top: 1.25rem;
+        margin-top: 1.1rem;
     }
 
     .feature-dots .dot {
@@ -1564,104 +1768,114 @@ footer {
     }
 
     .features-list {
-        gap: 1.5rem;
+        gap: 1.25rem;
         display: flex;
         flex-direction: column;
+        width: 100%;
     }
 
     .feature-card-block {
-        padding: 1.5rem;
+        padding: 1.25rem 1.15rem;
         border-radius: 12px;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
     }
 
     .feature-card-block h3 {
-        font-size: 1.0625rem;
-        margin-bottom: 0.75rem;
+        font-size: 1.05rem;
+        margin-bottom: 0.65rem;
         letter-spacing: -0.01em;
+        white-space: normal;
+        overflow-wrap: anywhere;
     }
 
     .feature-card-block .subtitle {
-        font-size: 0.9375rem;
+        font-size: 0.9rem;
         white-space: normal;
         line-height: 1.5;
-        margin-bottom: 0.75rem;
-        display: -webkit-box;
-        -webkit-line-clamp: 2;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
+        margin-bottom: 0.65rem;
+        overflow: visible;
+        display: block;
+        -webkit-line-clamp: unset;
+        text-overflow: unset;
     }
 
     .feature-card-block p {
         font-size: 0.875rem;
         line-height: 1.65;
-        display: -webkit-box;
-        -webkit-line-clamp: 3;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
+        overflow: visible;
+        display: block;
+        -webkit-line-clamp: unset;
     }
 
     .why-choose {
-        padding: 4rem 1.25rem;
+        padding: 3.25rem 1rem;
     }
 
     .why-choose h2 {
-        font-size: 1.875rem;
-        margin-bottom: 0.625rem;
+        font-size: clamp(1.45rem, 6.5vw, 1.85rem);
+        margin-bottom: 0.5rem;
         letter-spacing: -0.02em;
     }
 
     .why-subtitle {
-        font-size: 0.9375rem;
-        margin-bottom: 2.5rem;
+        font-size: 0.9rem;
+        margin-bottom: 2rem;
         line-height: 1.5;
+        padding: 0 0.25rem;
     }
 
     .why-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 1.15rem;
     }
 
     .why-card {
-        padding: 2rem 1.75rem;
+        padding: 1.5rem 1.25rem;
         border-radius: 14px;
+        width: 100%;
+        max-width: 100%;
     }
 
     .why-icon {
-        font-size: 2.5rem;
-        margin-bottom: 1.25rem;
+        font-size: 2.25rem;
+        margin-bottom: 1rem;
     }
 
     .why-card h3 {
-        font-size: 1.125rem;
-        margin-bottom: 0.875rem;
+        font-size: 1.05rem;
+        margin-bottom: 0.75rem;
         letter-spacing: -0.01em;
     }
 
     .why-card p {
-        font-size: 0.9375rem;
-        line-height: 1.7;
-        display: -webkit-box;
-        -webkit-line-clamp: 3;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
+        font-size: 0.9rem;
+        line-height: 1.65;
+        overflow: visible;
+        display: block;
+        -webkit-line-clamp: unset;
     }
 
     .testimonials {
-        padding: 4rem 1.25rem;
+        padding: 3.25rem 1rem;
     }
 
     .testimonials h2 {
-        font-size: 1.75rem;
+        font-size: clamp(1.35rem, 6vw, 1.7rem);
         letter-spacing: -0.02em;
     }
 
     .testimonials-header {
-        gap: 1.25rem;
-        margin-bottom: 2.5rem;
+        gap: 0.75rem;
+        margin-bottom: 2rem;
+        flex-wrap: wrap;
+        justify-content: center;
     }
 
     .leaf-decoration {
-        width: 42px;
+        width: 36px;
+        flex-shrink: 0;
     }
 
     .testimonials-grid {
@@ -1669,14 +1883,16 @@ footer {
         flex-direction: column;
         gap: 0;
         padding: 0;
+        width: 100%;
     }
 
     .testimonial-card {
-        padding: 1.75rem 1.5rem;
+        padding: 1.35rem 1.15rem;
         border-radius: 12px;
         width: 100%;
+        max-width: 100%;
         box-sizing: border-box;
-        margin: 0 0 1.5rem 0;
+        margin: 0 0 1.15rem 0;
         transform: none !important;
     }
 
@@ -1684,107 +1900,116 @@ footer {
         margin-bottom: 0;
     }
 
-    .testimonial-card:nth-child(2),
-    .testimonial-card:nth-child(3),
-    .testimonial-card:nth-child(5) {
-        transform: none !important;
-    }
-
     .testimonial-card:hover {
         transform: translateY(-3px) !important;
     }
 
     .testimonial-header {
-        margin-bottom: 1rem;
-        gap: 0.875rem;
+        margin-bottom: 0.85rem;
+        gap: 0.75rem;
     }
 
     .testimonial-avatar {
-        width: 42px;
-        height: 42px;
-    }
-
-    .testimonial-info {
-        gap: 0.25rem;
+        width: 40px;
+        height: 40px;
+        flex-shrink: 0;
     }
 
     .testimonial-name {
-        font-size: 0.9375rem;
+        font-size: 0.9rem;
         margin-bottom: 0.125rem;
     }
 
     .testimonial-verified {
-        font-size: 0.75rem;
+        font-size: 0.72rem;
     }
 
     .testimonial-card p {
-        font-size: 0.9375rem;
-        line-height: 1.7;
+        font-size: 0.9rem;
+        line-height: 1.65;
         margin-top: 0;
-    }
-
-    footer {
-        padding: 3.5rem 1.25rem 1.75rem;
-    }
-
-    .footer-content {
-        gap: 2.25rem;
-    }
-
-    .footer-section h4 {
-        font-size: 1.0625rem;
-        margin-bottom: 1rem;
-    }
-
-    .footer-section ul li {
-        margin-bottom: 0.75rem;
-    }
-
-    .footer-section a {
-        font-size: 0.9375rem;
-    }
-
-    .footer-section p {
-        font-size: 0.9375rem;
-        line-height: 1.5;
-    }
-
-    .footer-logo {
-        font-size: 1.1875rem;
-        margin-bottom: 0.875rem;
-    }
-
-    .footer-logo-img {
-        width: 36px;
-        height: 36px;
-    }
-
-    .footer-bottom {
-        padding-top: 2.25rem;
-        font-size: 0.875rem;
-    }
-
-    .feature-card-block {
-        padding: 1.5rem;
-    }
-
-    .feature-card-block h3 {
-        font-size: 1.25rem;
-    }
-
-    .feature-card-block .subtitle {
-        font-size: 1rem;
-    }
-
-    .feature-card-block p {
-        font-size: 0.95rem;
+        overflow-wrap: anywhere;
     }
 
     footer {
         padding: 3rem 1rem 1.5rem;
+        overflow: hidden;
+    }
+
+    .footer-content {
+        gap: 2rem;
     }
 
     .footer-section h4 {
         font-size: 1rem;
+        margin-bottom: 0.85rem;
+    }
+
+    .footer-section ul li {
+        margin-bottom: 0.65rem;
+    }
+
+    .footer-section a {
+        font-size: 0.9rem;
+    }
+
+    .footer-section p,
+    .footer-tagline {
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .footer-logo {
+        font-size: 1.15rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .footer-logo-img {
+        width: 34px;
+        height: 34px;
+    }
+
+    .footer-app-store img {
+        height: 42px;
+        width: auto;
+        max-width: 100%;
+    }
+
+    .footer-bottom {
+        padding-top: 2rem;
+        font-size: 0.85rem;
+        width: 100%;
+    }
+
+    .cookie-banner {
+        padding: 1rem;
+    }
+
+    .cookie-content p {
+        font-size: 0.8rem;
+        line-height: 1.45;
+    }
+}
+
+@media (max-width: 380px) {
+    .hero-images {
+        min-height: 300px;
+        height: 300px;
+    }
+
+    .hero-images .phone-mockup {
+        width: min(132px, 40vw);
+    }
+
+    .hero-images .phone-1 {
+        --phone-translate-x: 14px;
+    }
+
+    .hero-images .phone-2 {
+        --phone-translate-x: -14px;
+    }
+
+    .features .phone-mockup-wrapper {
+        width: min(190px, 72vw);
     }
 }
