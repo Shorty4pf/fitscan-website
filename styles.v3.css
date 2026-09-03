@@ -801,6 +801,16 @@ h2 {
     position: relative;
 }
 
+/* Hero phones: wrapper fills entire phone frame — no dark gap at bottom */
+.hero-images .phone-mockup-wrapper {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    border-radius: 40px;
+    background: transparent;
+    box-shadow: none;
+}
+
 .phone-mockup-wrapper::before {
     display: none;
 }
