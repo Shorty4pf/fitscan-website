@@ -41,7 +41,7 @@ html {
 /* Lazy Loading Images */
 img[loading="lazy"] {
     opacity: 0;
-    transition: opacity 0.1s ease-in;
+    transition: opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 img[loading="lazy"].loaded {
@@ -52,23 +52,49 @@ img[loading="lazy"].loaded {
 .fade-in-section,
 .fade-in-up {
     opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.1s ease-out, transform 0.6s ease-out;
+    transform: translate3d(0, 28px, 0);
+    transition:
+        opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1),
+        transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: opacity, transform;
 }
 
 .fade-in-section.visible,
 .fade-in-up.visible {
     opacity: 1;
-    transform: translateY(0);
+    transform: translate3d(0, 0, 0);
+}
+
+.fade-in-section.visible,
+.fade-in-up.visible {
+    will-change: auto;
 }
 
 /* Reduce motion for users who prefer it */
 @media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
     .fade-in-section,
     .fade-in-up {
         opacity: 1;
         transform: none;
         transition: none;
+        will-change: auto;
+    }
+
+    .phone-mockup {
+        animation: none !important;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
     }
 }
 
@@ -105,7 +131,7 @@ img {
     padding: 1.5rem 2rem;
     z-index: 10000;
     box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.5);
-    animation: slideUp 0.4s ease;
+    animation: slideUp 0.55s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 @keyframes slideUp {
@@ -147,7 +173,7 @@ img {
     font-weight: 600;
     font-size: 0.9rem;
     cursor: pointer;
-    transition: all 0.1s ease;
+    transition: all var(--motion-base) var(--ease-out-smooth);
     white-space: nowrap;
 }
 
@@ -204,6 +230,11 @@ img {
     --card-bg: #1a1a1a;
     --text-primary: #ffffff;
     --text-secondary: #a0a0a0;
+    --ease-out-smooth: cubic-bezier(0.22, 1, 0.36, 1);
+    --ease-in-out-smooth: cubic-bezier(0.45, 0, 0.15, 1);
+    --motion-fast: 0.28s;
+    --motion-base: 0.4s;
+    --motion-slow: 0.75s;
 }
 
 /* Header & Navigation */
@@ -214,7 +245,10 @@ header {
     top: 0;
     z-index: 1000;
     border-bottom: 1px solid #222;
-    transition: all 0.1s ease;
+    transition: background var(--motion-base) var(--ease-out-smooth),
+                border-color var(--motion-base) var(--ease-out-smooth),
+                backdrop-filter var(--motion-base) var(--ease-out-smooth),
+                -webkit-backdrop-filter var(--motion-base) var(--ease-out-smooth);
 }
 
 header.scrolled {
@@ -241,7 +275,7 @@ header.scrolled {
     color: #fff;
     text-decoration: none;
     cursor: pointer;
-    transition: opacity 0.1s;
+    transition: opacity var(--motion-fast) var(--ease-out-smooth);
 }
 
 .logo:hover {
@@ -281,7 +315,7 @@ header.scrolled {
     color: #fff;
     text-decoration: none;
     font-weight: 500;
-    transition: opacity 0.1s;
+    transition: opacity var(--motion-fast) var(--ease-out-smooth);
 }
 
 .nav-links a:hover {
@@ -309,7 +343,7 @@ header.scrolled {
     border-radius: 8px;
     color: var(--text-primary);
     cursor: pointer;
-    transition: all 0.1s;
+    transition: all var(--motion-fast) var(--ease-out-smooth);
     font-size: 0.85rem;
     font-weight: 600;
 }
@@ -334,7 +368,7 @@ header.scrolled {
     opacity: 0;
     visibility: hidden;
     transform: translateY(-10px);
-    transition: all 0.1s;
+    transition: all var(--motion-fast) var(--ease-out-smooth);
     z-index: 100;
     overflow: hidden;
 }
@@ -342,7 +376,7 @@ header.scrolled {
 .lang-dropdown.active {
     opacity: 1;
     visibility: visible;
-    transform: translateY(0);
+    transform: translate3d(0, 0, 0);
 }
 
 .lang-option {
@@ -355,7 +389,7 @@ header.scrolled {
     border: none;
     color: var(--text-primary);
     cursor: pointer;
-    transition: all 0.1s;
+    transition: all var(--motion-fast) var(--ease-out-smooth);
     text-align: left;
     font-size: 0.85rem;
 }
@@ -472,23 +506,27 @@ h2 {
 }
 
 .phone-mockup {
-    width: 292px;
-    height: 598px;
+    width: 288px;
+    height: 590px;
     background: #1a1a1c;
-    border-radius: 54px;
-    padding: 16px;
-    border: 2px solid #8e8e93;
+    border-radius: 48px;
+    padding: 7px;
+    border: 1.5px solid #8e8e93;
     box-shadow:
-        inset 0 0 0 1px rgba(255, 255, 255, 0.25),
-        0 0 0 1px rgba(0, 0, 0, 0.8),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.18),
+        0 0 0 1px rgba(0, 0, 0, 0.7),
         0 30px 70px rgba(0, 0, 0, 0.7),
         0 20px 40px rgba(255, 214, 10, 0.12);
     position: relative;
     overflow: visible;
+    box-sizing: border-box;
     /* expose vars for animation-safe transforms */
     --phone-rot: -8deg;
     --phone-translate-x: 0px;
-    animation: float 3s ease-in-out infinite;
+    animation: float 4.5s var(--ease-in-out-smooth) infinite;
+    will-change: transform;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
 }
 
 /* Side buttons (iPhone chassis) */
@@ -503,21 +541,21 @@ h2 {
 
 .phone-mockup::before {
     /* silent switch + volume */
-    left: -5px;
+    left: -4px;
     top: 108px;
-    width: 4px;
-    height: 30px;
+    width: 3px;
+    height: 28px;
     box-shadow:
-        0 46px 0 0 #8e8e93,
-        0 84px 0 0 #8e8e93;
+        0 44px 0 0 #8e8e93,
+        0 80px 0 0 #8e8e93;
 }
 
 .phone-mockup::after {
     /* power button */
-    right: -5px;
+    right: -4px;
     top: 156px;
-    width: 4px;
-    height: 60px;
+    width: 3px;
+    height: 56px;
 }
 
 .phone-1 {
@@ -534,11 +572,14 @@ h2 {
 }
 
 @keyframes float {
-    0%, 100% {
-        transform: translateY(calc(var(--phone-base-y, 0px) + 0px)) rotate(var(--phone-rot)) translateX(var(--phone-translate-x));
+    0% {
+        transform: translate3d(var(--phone-translate-x), calc(var(--phone-base-y, 0px) + 0px), 0) rotate(var(--phone-rot));
     }
     50% {
-        transform: translateY(calc(var(--phone-base-y, 0px) - 20px)) rotate(var(--phone-rot)) translateX(var(--phone-translate-x));
+        transform: translate3d(var(--phone-translate-x), calc(var(--phone-base-y, 0px) - 14px), 0) rotate(var(--phone-rot));
+    }
+    100% {
+        transform: translate3d(var(--phone-translate-x), calc(var(--phone-base-y, 0px) + 0px), 0) rotate(var(--phone-rot));
     }
 }
 
@@ -564,19 +605,19 @@ h2 {
 
 /* Animation de slide pour l'image du téléphone */
 #storyImage.slide-left {
-    animation: slideLeft 0.35s cubic-bezier(0.4,0,0.2,1);
+    animation: slideLeft 0.5s var(--ease-out-smooth);
 }
 #storyImage.slide-right {
-    animation: slideRight 0.35s cubic-bezier(0.4,0,0.2,1);
+    animation: slideRight 0.5s var(--ease-out-smooth);
 }
 
 @keyframes slideLeft {
-    0% { transform: translateX(100%); opacity: 0.5; }
-    100% { transform: translateX(0); opacity: 1; }
+    0% { transform: translate3d(28%, 0, 0); opacity: 0.35; }
+    100% { transform: translate3d(0, 0, 0); opacity: 1; }
 }
 @keyframes slideRight {
-    0% { transform: translateX(-100%); opacity: 0.5; }
-    100% { transform: translateX(0); opacity: 1; }
+    0% { transform: translate3d(-28%, 0, 0); opacity: 0.35; }
+    100% { transform: translate3d(0, 0, 0); opacity: 1; }
 }
 
 .screen-content {
@@ -679,7 +720,7 @@ h2 {
     background: var(--primary-yellow);
     border: 4px solid rgba(255, 214, 10, 0.5);
     cursor: pointer;
-    transition: transform 0.1s;
+    transition: transform var(--motion-fast) var(--ease-out-smooth);
 }
 
 .capture-btn:hover {
@@ -770,7 +811,7 @@ h2 {
     font-size: 1rem;
     font-weight: 700;
     cursor: pointer;
-    transition: all 0.1s;
+    transition: all var(--motion-fast) var(--ease-out-smooth);
 }
 
 .done-btn:hover {
@@ -835,37 +876,48 @@ h2 {
     position: relative;
 }
 
-/* Hero phones: iPhone bezel around screenshots, no faded bottom */
+/* Hero phones: thin iPhone bezel — frame around screens, not over them */
 .hero-images .phone-mockup-wrapper {
     width: 100%;
     height: 100%;
     padding: 0;
-    border-radius: 40px;
+    border-radius: 41px;
     background: #000;
-    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+    box-shadow: none;
     overflow: hidden;
     position: relative;
 }
 
 .hero-images .phone-screen {
-    border-radius: 40px;
+    border-radius: 41px;
     border: none;
     height: 100%;
+    overflow: hidden;
+}
+
+.hero-images .phone-screen img,
+.hero-images .phone-screenshot {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
 }
 
 .hero-images .phone-mockup-wrapper::before {
     display: block;
     content: '';
     position: absolute;
-    top: 12px;
+    top: 10px;
     left: 50%;
     transform: translateX(-50%);
-    width: 100px;
-    height: 30px;
+    width: 88px;
+    height: 24px;
     background: #000;
     border-radius: 20px;
     z-index: 5;
-    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.15);
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.12);
+    pointer-events: none;
 }
 
 .phone-mockup-wrapper::before {
@@ -903,7 +955,7 @@ h2 {
     height: 10px;
     border-radius: 50%;
     background: #3a3a3a;
-    transition: all 0.1s ease;
+    transition: all var(--motion-base) var(--ease-out-smooth);
     cursor: pointer;
 }
 
@@ -925,7 +977,7 @@ h2 {
     border-radius: 14px;
     padding: 1.25rem 1.5rem;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    transition: all 0.1s ease;
+    transition: all var(--motion-base) var(--ease-out-smooth);
     cursor: pointer;
 }
 
@@ -1012,7 +1064,7 @@ h2 {
     padding: 2rem;
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    transition: all 0.1s ease;
+    transition: all var(--motion-base) var(--ease-out-smooth);
     position: relative;
     overflow: hidden;
 }
@@ -1028,7 +1080,7 @@ h2 {
     -webkit-mask-composite: xor;
     mask-composite: exclude;
     opacity: 0;
-    transition: opacity 0.1s ease;
+    transition: opacity var(--motion-fast) var(--ease-out-smooth);
 }
 
 .why-card:hover {
@@ -1088,7 +1140,7 @@ h2 {
     height: auto;
     opacity: 0.6;
     filter: brightness(1.3);
-    transition: opacity 0.1s ease;
+    transition: opacity var(--motion-fast) var(--ease-out-smooth);
 }
 
 .leaf-right {
@@ -1117,7 +1169,7 @@ h2 {
     border-radius: 14px;
     padding: 1.25rem;
     text-align: left;
-    transition: all 0.1s ease;
+    transition: all var(--motion-base) var(--ease-out-smooth);
 }
 
 .testimonial-card:nth-child(2),
@@ -1271,7 +1323,7 @@ footer {
 .footer-section a {
     color: var(--text-secondary);
     text-decoration: none;
-    transition: color 0.1s;
+    transition: color var(--motion-fast) var(--ease-out-smooth);
     font-size: 0.95rem;
 }
 
@@ -1303,7 +1355,7 @@ footer {
 
 .footer-social a {
     color: var(--text-secondary);
-    transition: color 0.1s;
+    transition: color var(--motion-fast) var(--ease-out-smooth);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1410,32 +1462,32 @@ footer {
     }
 
     .hero-images .phone-mockup {
-        width: min(190px, 42vw);
+        width: min(200px, 44vw);
         height: auto;
         aspect-ratio: 9 / 19.2;
         flex-shrink: 0;
-        padding: 11px;
-        border-radius: 40px;
-        border: 2px solid #8e8e93;
+        padding: 6px;
+        border-radius: 36px;
+        border: 1.5px solid #8e8e93;
         background: #1a1a1c;
     }
 
     .hero-images .phone-mockup::before {
         top: 70px;
-        height: 20px;
-        left: -4px;
-        width: 3px;
+        height: 18px;
+        left: -3px;
+        width: 2.5px;
         background: #8e8e93;
         box-shadow:
-            0 30px 0 0 #8e8e93,
-            0 56px 0 0 #8e8e93;
+            0 28px 0 0 #8e8e93,
+            0 52px 0 0 #8e8e93;
     }
 
     .hero-images .phone-mockup::after {
         top: 100px;
-        height: 38px;
-        right: -4px;
-        width: 3px;
+        height: 34px;
+        right: -3px;
+        width: 2.5px;
         background: #8e8e93;
     }
 
@@ -1454,14 +1506,14 @@ footer {
     }
 
     .hero-images .phone-mockup-wrapper::before {
-        width: 58px;
-        height: 16px;
-        top: 7px;
+        width: 52px;
+        height: 14px;
+        top: 6px;
     }
 
     .hero-images .phone-screen,
     .hero-images .phone-mockup-wrapper {
-        border-radius: 32px;
+        border-radius: 30px;
     }
 
     .features {
@@ -1675,31 +1727,31 @@ footer {
     }
 
     .hero-images .phone-mockup {
-        width: min(148px, 38vw);
+        width: min(156px, 40vw);
         height: auto;
         aspect-ratio: 9 / 19.2;
-        border-radius: 34px;
-        padding: 9px;
+        border-radius: 30px;
+        padding: 5px;
         border: 1.5px solid #8e8e93;
         background: #1a1a1c;
     }
 
     .hero-images .phone-mockup::before {
         top: 58px;
-        height: 18px;
-        width: 3px;
-        left: -3.5px;
+        height: 16px;
+        width: 2.5px;
+        left: -3px;
         background: #8e8e93;
         box-shadow:
-            0 26px 0 0 #8e8e93,
-            0 48px 0 0 #8e8e93;
+            0 24px 0 0 #8e8e93,
+            0 44px 0 0 #8e8e93;
     }
 
     .hero-images .phone-mockup::after {
         top: 84px;
-        height: 34px;
-        width: 3px;
-        right: -3.5px;
+        height: 30px;
+        width: 2.5px;
+        right: -3px;
         background: #8e8e93;
     }
 
@@ -1715,13 +1767,13 @@ footer {
 
     .hero-images .phone-screen,
     .hero-images .phone-mockup-wrapper {
-        border-radius: 26px;
+        border-radius: 25px;
     }
 
     .hero-images .phone-mockup-wrapper::before {
-        width: 48px;
-        height: 14px;
-        top: 6px;
+        width: 44px;
+        height: 12px;
+        top: 5px;
     }
 
     .arrow-decoration {

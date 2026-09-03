@@ -9,7 +9,7 @@
     <title data-lang-fr="NoraX - Votre transformation commence avec un simple scan" data-lang-en="NoraX - Your transformation starts with a simple scan" data-lang-es="NoraX - Tu transformación comienza con un simple escaneo" data-lang-it="NoraX - La tua trasformazione inizia con una semplice scansione">NoraX - Votre transformation commence avec un simple scan</title>
     
     <!-- Preload Critical Assets -->
-    <link rel="preload" href="styles.v3.css?v=1788473795" as="style">
+    <link rel="preload" href="styles.v3.css?v=1788475001" as="style">
     <link rel="preconnect" href="https://tools.applemediaservices.com">
     
     <!-- PWA Manifest -->
@@ -21,7 +21,7 @@
     <meta name="description" content="NoraX analyse votre corps grâce à l'IA et génère un plan d'entraînement 100% personnalisé. Transformation fitness intelligente." data-lang-fr="NoraX analyse votre corps grâce à l'IA et génère un plan d'entraînement 100% personnalisé. Transformation fitness intelligente." data-lang-en="NoraX analyzes your body with AI and generates a 100% personalized training plan. Smart fitness transformation." data-lang-es="NoraX analiza tu cuerpo con IA y genera un plan de entrenamiento 100% personalizado. Transformación fitness intelligente." data-lang-it="NoraX analizza il tuo corpo con l'IA e genera un piano di allenamento 100% personalizzato. Trasformazione fitness intelligente.">
     <meta name="keywords" content="fitness, IA, scan corporel, entraînement personnalisé, nutrition, transformation">
     
-    <link rel="stylesheet" href="styles.v3.css?v=1788473795">
+    <link rel="stylesheet" href="styles.v3.css?v=1788475001">
 </head>
 <body>
     <!-- Cookie Consent Banner -->
@@ -580,32 +580,48 @@
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('visible');
+                        scrollObserver.unobserve(entry.target);
                     }
                 });
             }, {
-                threshold: 0.1,
-                rootMargin: '0px 0px -50px 0px'
+                threshold: 0.12,
+                rootMargin: '0px 0px -8% 0px'
             });
             
             scrollElements.forEach(el => {
                 scrollObserver.observe(el);
             });
             
-            // Custom smooth scroll with constant speed
-            function smoothScrollTo(targetPosition, duration = 70) {
+            // Smooth scroll with ease-in-out (Mac + iPhone)
+            function smoothScrollTo(targetPosition, duration) {
                 const startPosition = window.pageYOffset;
                 const distance = targetPosition - startPosition;
+                const absDistance = Math.abs(distance);
+                if (absDistance < 2) return;
+
+                const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+                if (prefersReduced) {
+                    window.scrollTo(0, targetPosition);
+                    return;
+                }
+
+                const scrollDuration = duration != null
+                    ? duration
+                    : Math.min(1100, Math.max(480, absDistance * 0.55));
                 let startTime = null;
+
+                function easeInOutCubic(t) {
+                    return t < 0.5
+                        ? 4 * t * t * t
+                        : 1 - Math.pow(-2 * t + 2, 3) / 2;
+                }
 
                 function animation(currentTime) {
                     if (startTime === null) startTime = currentTime;
                     const timeElapsed = currentTime - startTime;
-                    const progress = Math.min(timeElapsed / duration, 1);
-                    
-                    // Linear easing for constant speed
-                    window.scrollTo(0, startPosition + distance * progress);
-                    
-                    if (timeElapsed < duration) {
+                    const progress = Math.min(timeElapsed / scrollDuration, 1);
+                    window.scrollTo(0, startPosition + distance * easeInOutCubic(progress));
+                    if (progress < 1) {
                         requestAnimationFrame(animation);
                     }
                 }
@@ -622,7 +638,7 @@
                         const target = document.querySelector(href);
                         if (target) {
                             const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - 40;
-                            smoothScrollTo(targetPosition, 70);
+                            smoothScrollTo(targetPosition);
                         }
                     }
                 });
@@ -654,16 +670,14 @@
                     // Animation slide
                     if (storyImageEl && storyImages[index]) {
                         storyImageEl.classList.remove('slide-left', 'slide-right');
-                        // Pour relancer l'animation si on clique vite
                         void storyImageEl.offsetWidth;
                         storyImageEl.classList.add('slide-' + direction);
                         setTimeout(() => {
                             storyImageEl.src = storyImages[index];
-                            // On retire la classe après l'animation
                             setTimeout(() => {
                                 storyImageEl.classList.remove('slide-left', 'slide-right');
-                            }, 350);
-                        }, 10);
+                            }, 500);
+                        }, 16);
                     }
                     currentFeatureIndex = index;
                 }
@@ -744,15 +758,23 @@
             });
         });
         
-        // Header scroll effect
+        // Header scroll effect (rAF for smoother Mac/iPhone scrolling)
         const header = document.querySelector('header');
-        window.addEventListener('scroll', () => {
+        let headerTicking = false;
+        const updateHeader = () => {
             if (window.scrollY > 50) {
                 header.classList.add('scrolled');
             } else {
                 header.classList.remove('scrolled');
             }
-        });
+            headerTicking = false;
+        };
+        window.addEventListener('scroll', () => {
+            if (!headerTicking) {
+                headerTicking = true;
+                requestAnimationFrame(updateHeader);
+            }
+        }, { passive: true });
         
         // Force scroll to top on any page load
         if (history.scrollRestoration) {
