@@ -367,8 +367,10 @@ header.scrolled {
     min-width: 140px;
     opacity: 0;
     visibility: hidden;
-    transform: translateY(-10px);
-    transition: all var(--motion-fast) var(--ease-out-smooth);
+    transform: translate3d(0, -8px, 0);
+    transition: opacity var(--motion-base) var(--ease-out-smooth),
+                transform var(--motion-base) var(--ease-out-smooth),
+                visibility var(--motion-base) var(--ease-out-smooth);
     z-index: 100;
     overflow: hidden;
 }
@@ -904,22 +906,7 @@ h2 {
     display: block;
 }
 
-.hero-images .phone-mockup-wrapper::before {
-    display: block;
-    content: '';
-    position: absolute;
-    top: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 88px;
-    height: 24px;
-    background: #000;
-    border-radius: 20px;
-    z-index: 5;
-    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.12);
-    pointer-events: none;
-}
-
+.hero-images .phone-mockup-wrapper::before,
 .phone-mockup-wrapper::before {
     display: none;
 }
@@ -1386,7 +1373,8 @@ footer {
         min-height: auto;
         padding: 2.5rem 1.25rem 3rem;
         width: 100%;
-        overflow: hidden;
+        overflow-x: clip;
+        overflow-y: visible;
     }
 
     .hero-content {
@@ -1452,13 +1440,13 @@ footer {
         width: 100%;
         max-width: 100%;
         height: auto;
-        min-height: 420px;
+        min-height: 0;
         margin: 0 auto;
         gap: 0;
-        overflow: hidden;
+        overflow: visible;
         justify-content: center;
         align-items: center;
-        padding: 0.5rem 0 1rem;
+        padding: 0.75rem 0 2rem;
     }
 
     .hero-images .phone-mockup {
@@ -1503,12 +1491,6 @@ footer {
         --phone-translate-x: -14px;
         --phone-base-y: 0px;
         transform: none;
-    }
-
-    .hero-images .phone-mockup-wrapper::before {
-        width: 52px;
-        height: 14px;
-        top: 6px;
     }
 
     .hero-images .phone-screen,
@@ -1719,61 +1701,57 @@ footer {
     }
 
     .hero-images {
-        min-height: 340px;
-        height: 340px;
-        gap: 0;
-        margin-top: 1rem;
-        padding: 0;
+        min-height: 0;
+        height: auto;
+        gap: 1.15rem;
+        margin-top: 1.15rem;
+        padding: 0.65rem 0.25rem 2.5rem;
+        overflow: visible;
+        justify-content: center;
     }
 
     .hero-images .phone-mockup {
-        width: min(156px, 40vw);
+        width: min(186px, 47vw);
         height: auto;
         aspect-ratio: 9 / 19.2;
-        border-radius: 30px;
-        padding: 5px;
+        border-radius: 34px;
+        padding: 6px;
         border: 1.5px solid #8e8e93;
         background: #1a1a1c;
     }
 
     .hero-images .phone-mockup::before {
-        top: 58px;
-        height: 16px;
+        top: 66px;
+        height: 18px;
         width: 2.5px;
         left: -3px;
         background: #8e8e93;
         box-shadow:
-            0 24px 0 0 #8e8e93,
-            0 44px 0 0 #8e8e93;
+            0 28px 0 0 #8e8e93,
+            0 52px 0 0 #8e8e93;
     }
 
     .hero-images .phone-mockup::after {
-        top: 84px;
-        height: 30px;
+        top: 96px;
+        height: 34px;
         width: 2.5px;
         right: -3px;
         background: #8e8e93;
     }
 
     .hero-images .phone-1 {
-        --phone-rot: -7deg;
-        --phone-translate-x: 18px;
+        --phone-rot: -6deg;
+        --phone-translate-x: 0px;
     }
 
     .hero-images .phone-2 {
         --phone-rot: 5deg;
-        --phone-translate-x: -18px;
+        --phone-translate-x: 0px;
     }
 
     .hero-images .phone-screen,
     .hero-images .phone-mockup-wrapper {
-        border-radius: 25px;
-    }
-
-    .hero-images .phone-mockup-wrapper::before {
-        width: 44px;
-        height: 12px;
-        top: 5px;
+        border-radius: 28px;
     }
 
     .arrow-decoration {
@@ -2045,20 +2023,22 @@ footer {
 
 @media (max-width: 380px) {
     .hero-images {
-        min-height: 300px;
-        height: 300px;
+        min-height: 0;
+        height: auto;
+        gap: 0.75rem;
+        padding-bottom: 2rem;
     }
 
     .hero-images .phone-mockup {
-        width: min(132px, 40vw);
+        width: min(168px, 46vw);
     }
 
     .hero-images .phone-1 {
-        --phone-translate-x: 14px;
+        --phone-translate-x: 0px;
     }
 
     .hero-images .phone-2 {
-        --phone-translate-x: -14px;
+        --phone-translate-x: 0px;
     }
 
     .features .phone-mockup-wrapper {
