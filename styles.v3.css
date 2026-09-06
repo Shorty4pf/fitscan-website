@@ -961,14 +961,15 @@ h2 {
 
 .phone-mockup-sticky .phone-screen img,
 .phone-mockup-sticky .phone-screenshot {
-    width: 112%;
-    height: 112%;
+    width: 128%;
+    height: 128%;
+    max-width: none;
     object-fit: cover;
-    object-position: center center;
+    object-position: center 42%;
     display: block;
     position: absolute;
-    left: -6%;
-    top: 5%;
+    left: -14%;
+    top: 8%;
     right: auto;
     bottom: auto;
     z-index: 1;
