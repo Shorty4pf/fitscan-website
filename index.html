@@ -11,7 +11,7 @@
     <!-- Preload Critical Assets -->
     <link rel="preload" href="styles.v3.css?v=1788662300" as="style">
     <link rel="preload" href="images/hero-norax-2560.png" as="image" imagesrcset="images/hero-norax-1920.png 1920w, images/hero-norax-2560.png 2560w, images/hero-norax-3840.png 3840w" imagesizes="(max-width: 768px) 100vw, (max-width: 1280px) 94vw, 1240px">
-    <link rel="preload" href="images/app/01-accueil.jpg?v=1788662200" as="image">
+    <link rel="preload" href="images/app/01-accueil.jpg?v=1788695000" as="image">
     <link rel="preconnect" href="https://tools.applemediaservices.com">
     
     <!-- PWA Manifest -->
@@ -172,7 +172,22 @@
                     <div class="phone-mockup-wrapper">
                         <div class="dynamic-island" aria-hidden="true"></div>
                         <div class="phone-screen">
-                            <img id="storyImage" src="images/app/01-accueil.jpg?v=1788662200" alt="Accueil NoraX" class="phone-screenshot loaded">
+                            <img id="storyImage" src="images/app/01-accueil.jpg?v=1788695000" alt="Accueil NoraX" class="phone-screenshot loaded">
+                            <script>
+                                (function() {
+                                    var lang = 'fr';
+                                    try { lang = localStorage.getItem('preferredLanguage'); } catch (e) {}
+                                    if (!lang) {
+                                        var browserLang = (navigator.language || 'en').split('-')[0];
+                                        lang = ['fr', 'en', 'es', 'it'].indexOf(browserLang) !== -1 ? browserLang : 'en';
+                                    }
+                                    if (lang !== 'en' && lang !== 'es') return;
+                                    var img = document.getElementById('storyImage');
+                                    if (!img) return;
+                                    img.src = 'images/app/01-accueil-' + lang + '.jpg?v=1788695000';
+                                    img.alt = lang === 'es' ? 'Inicio NoraX' : 'NoraX Home';
+                                })();
+                            </script>
                         </div>
                     </div>
                 </div>
@@ -620,6 +635,55 @@
             preload.src = heroImages[lang].src;
         });
 
+        const storyScreens = [
+            {
+                file: '01-accueil.jpg',
+                alts: { fr: 'Accueil NoraX', en: 'NoraX Home', es: 'Inicio NoraX', it: 'Home NoraX' }
+            },
+            {
+                file: '02-nutrition.jpg',
+                alts: { fr: 'Nutrition NoraX', en: 'NoraX Nutrition', es: 'Nutrición NoraX', it: 'Nutrizione NoraX' }
+            },
+            {
+                file: '03-scan.jpg',
+                alts: { fr: 'Scan NoraX', en: 'NoraX Scan', es: 'Escaneo NoraX', it: 'Scansione NoraX' }
+            },
+            {
+                file: '04-seance.jpg',
+                alts: { fr: 'Séance NoraX', en: 'NoraX Session', es: 'Sesión NoraX', it: 'Allenamento NoraX' }
+            },
+            {
+                file: '05-profil.jpg',
+                alts: { fr: 'Profil NoraX', en: 'NoraX Profile', es: 'Perfil NoraX', it: 'Profilo NoraX' }
+            }
+        ];
+        const storyImageVersion = '1788695000';
+        let currentFeatureIndex = 0;
+
+        function storyImagePath(lang, index) {
+            const file = storyScreens[index].file;
+            const suffix = (lang === 'en' || lang === 'es') ? '-' + lang : '';
+            return 'images/app/' + file.replace('.jpg', suffix + '.jpg') + '?v=' + storyImageVersion;
+        }
+
+        function preloadStoryImages(lang) {
+            storyScreens.forEach(function(_, index) {
+                const preload = new Image();
+                preload.src = storyImagePath(lang, index);
+            });
+        }
+
+        function updateStoryImages(lang) {
+            const img = document.getElementById('storyImage');
+            if (!img) return;
+            const index = currentFeatureIndex;
+            const src = storyImagePath(lang, index);
+            img.alt = storyScreens[index].alts[lang] || storyScreens[index].alts.fr;
+            if (img.getAttribute('src') !== src) {
+                img.src = src;
+            }
+        }
+
         // Function to update page content
         function updateContent(lang) {
             // Update all elements with data-lang attributes
@@ -650,6 +714,8 @@
             document.documentElement.lang = lang;
 
             updateHeroImage(lang);
+            updateStoryImages(lang);
+            preloadStoryImages(lang);
             
             // Save language preference
             localStorage.setItem('preferredLanguage', lang);
@@ -807,21 +873,10 @@
             const featureCards = document.querySelectorAll('.feature-card-block');
             const featureDots = document.querySelectorAll('.feature-dots .dot');
             const phoneWrapper = document.querySelector('.phone-mockup-sticky .phone-mockup');
-            let currentFeatureIndex = 0;
             let touchStartX = 0, touchEndX = 0, mouseStartX = 0, mouseEndX = 0, isDragging = false;
 
-            const storyImages = [
-                'images/app/01-accueil.jpg?v=1788662200',
-                'images/app/02-nutrition.jpg?v=1788662200',
-                'images/app/03-scan.jpg?v=1788662200',
-                'images/app/04-seance.jpg?v=1788662200',
-                'images/app/05-profil.jpg?v=1788662200'
-            ];
             const storyImageEl = document.getElementById('storyImage');
-            storyImages.forEach(function(src) {
-                const preload = new Image();
-                preload.src = src;
-            });
+            preloadStoryImages(localStorage.getItem('preferredLanguage') || 'fr');
             
             function setActiveFeature(index) {
                 if (index === currentFeatureIndex) return;
@@ -831,11 +886,13 @@
                 if (featureCards[index] && featureDots[index]) {
                     featureCards[index].classList.add('active');
                     featureDots[index].classList.add('active');
-                    if (storyImageEl && storyImages[index]) {
+                    if (storyImageEl && storyScreens[index]) {
+                        const storyLang = localStorage.getItem('preferredLanguage') || 'fr';
                         storyImageEl.classList.remove('slide-left', 'slide-right');
                         void storyImageEl.offsetWidth;
                         storyImageEl.classList.add('slide-' + direction);
-                        storyImageEl.src = storyImages[index];
+                        storyImageEl.src = storyImagePath(storyLang, index);
+                        storyImageEl.alt = storyScreens[index].alts[storyLang] || storyScreens[index].alts.fr;
                         storyImageEl.classList.add('loaded');
                         setTimeout(function() {
                             storyImageEl.classList.remove('slide-left', 'slide-right');
