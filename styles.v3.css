@@ -518,6 +518,7 @@ h2 {
     align-items: center;
     background: transparent;
     isolation: isolate;
+    overflow: visible;
 }
 
 .norax-hero-motion {
@@ -526,15 +527,17 @@ h2 {
     justify-content: center;
     background: transparent;
     animation: noraxHeroReveal 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+    overflow: visible;
 }
 
 .norax-hero-visual {
     display: block;
-    width: 100%;
-    max-width: 100%;
+    width: 118%;
+    max-width: none;
     height: auto;
-    margin: 0;
+    margin: 1.25rem 0 0 -9%;
     object-fit: contain;
+    transform: translateY(22px);
     user-select: none;
     pointer-events: none;
     background: transparent;
@@ -1340,10 +1343,6 @@ h2 {
 }
 
 .faq-header {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 3rem;
     margin-bottom: 1.25rem;
 }
 
@@ -1606,10 +1605,10 @@ footer {
     }
 
     .norax-hero-visual {
-        width: 90%;
-        max-width: 440px;
-        margin: 1.35rem auto 0;
-        transform: none;
+        width: 102%;
+        max-width: 500px;
+        margin: 1.6rem auto 0;
+        transform: translateY(14px);
     }
 
     .hero-text {
@@ -1779,7 +1778,6 @@ footer {
     }
 
     .faq-header {
-        gap: 1.25rem;
         margin-bottom: 1rem;
     }
 
@@ -2209,10 +2207,7 @@ footer {
     }
 
     .faq-header {
-        gap: 0.75rem;
         margin-bottom: 0.85rem;
-        flex-wrap: wrap;
-        justify-content: center;
     }
 
     .faq-subtitle {
@@ -2298,9 +2293,10 @@ footer {
 
 @media (max-width: 380px) {
     .norax-hero-visual {
-        width: 84%;
-        max-width: 300px;
-        margin-top: 1rem;
+        width: 96%;
+        max-width: 340px;
+        margin-top: 1.15rem;
+        transform: translateY(10px);
     }
 
     .phone-mockup-sticky .phone-mockup {
