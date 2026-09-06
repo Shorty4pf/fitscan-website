@@ -147,9 +147,9 @@
                         var img = document.getElementById('heroLangImage');
                         if (!img || lang === 'fr') return;
                         var sources = {
-                            en: { src: 'images/hero-norax-en.jpg', alt: 'NoraX turns a body scan into a personalized workout' },
-                            es: { src: 'images/hero-norax-es.jpg', alt: 'NoraX convierte un escaneo corporal en un entrenamiento personalizado' },
-                            it: { src: 'images/hero-norax-it.jpg', alt: 'NoraX trasforma una scansione corporea in un allenamento personalizzato' }
+                            en: { src: 'images/hero-norax-en.jpg?v=1788696600', alt: 'NoraX turns a body scan into a personalized workout' },
+                            es: { src: 'images/hero-norax-es.jpg?v=1788696600', alt: 'NoraX convierte un escaneo corporal en un entrenamiento personalizado' },
+                            it: { src: 'images/hero-norax-it.jpg?v=1788696600', alt: 'NoraX trasforma una scansione corporea in un allenamento personalizzato' }
                         };
                         var asset = sources[lang];
                         if (!asset) return;
@@ -181,11 +181,12 @@
                                         var browserLang = (navigator.language || 'en').split('-')[0];
                                         lang = ['fr', 'en', 'es', 'it'].indexOf(browserLang) !== -1 ? browserLang : 'en';
                                     }
-                                    if (lang !== 'en' && lang !== 'es') return;
+                                    var imageLang = lang === 'it' ? 'en' : lang;
+                                    if (imageLang !== 'en' && imageLang !== 'es') return;
                                     var img = document.getElementById('storyImage');
                                     if (!img) return;
-                                    img.src = 'images/app/01-accueil-' + lang + '.jpg?v=1788695000';
-                                    img.alt = lang === 'es' ? 'Inicio NoraX' : 'NoraX Home';
+                                    img.src = 'images/app/01-accueil-' + imageLang + '.jpg?v=1788695000';
+                                    img.alt = lang === 'es' ? 'Inicio NoraX' : lang === 'it' ? 'Home NoraX' : 'NoraX Home';
                                 })();
                             </script>
                         </div>
@@ -598,17 +599,17 @@
                 alt: 'NoraX transforme un scan corporel en séance personnalisée'
             },
             en: {
-                src: 'images/hero-norax-en.jpg',
+                src: 'images/hero-norax-en.jpg?v=1788696600',
                 srcset: '',
                 alt: 'NoraX turns a body scan into a personalized workout'
             },
             es: {
-                src: 'images/hero-norax-es.jpg',
+                src: 'images/hero-norax-es.jpg?v=1788696600',
                 srcset: '',
                 alt: 'NoraX convierte un escaneo corporal en un entrenamiento personalizado'
             },
             it: {
-                src: 'images/hero-norax-it.jpg',
+                src: 'images/hero-norax-it.jpg?v=1788696600',
                 srcset: '',
                 alt: 'NoraX trasforma una scansione corporea in un allenamento personalizzato'
             }
@@ -662,7 +663,8 @@
 
         function storyImagePath(lang, index) {
             const file = storyScreens[index].file;
-            const suffix = (lang === 'en' || lang === 'es') ? '-' + lang : '';
+            const imageLang = lang === 'it' ? 'en' : lang;
+            const suffix = (imageLang === 'en' || imageLang === 'es') ? '-' + imageLang : '';
             return 'images/app/' + file.replace('.jpg', suffix + '.jpg') + '?v=' + storyImageVersion;
         }
 
