@@ -2302,19 +2302,18 @@ footer {
     }
 
     .norax-hero-image {
-        width: 112vw;
-        max-width: none;
+        width: 100%;
+        max-width: 100%;
         height: auto;
-        margin-top: 28px;
-        margin-left: 50%;
-        transform: translateX(-50%);
+        margin: 28px auto 0;
+        transform: none;
         object-fit: contain;
     }
 }
 
 @media (max-width: 374px) {
     .norax-hero-image {
-        width: 108vw;
+        width: 100%;
         margin-top: 24px;
     }
 }
