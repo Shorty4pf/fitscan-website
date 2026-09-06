@@ -84,7 +84,7 @@ img[loading="lazy"].loaded {
         will-change: auto;
     }
 
-    .norax-hero-motion {
+    .norax-hero-media {
         animation: none;
     }
 
@@ -509,38 +509,35 @@ h2 {
 }
 
 /* NoraX hero montage */
-.norax-hero-section {
+.norax-hero-media {
     position: relative;
     width: 100%;
-    min-width: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     background: transparent;
-    isolation: isolate;
     overflow: visible;
-}
-
-.norax-hero-motion {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    background: transparent;
     animation: noraxHeroReveal 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
-    overflow: visible;
 }
 
-.norax-hero-visual {
+.norax-hero-image {
     display: block;
-    width: 118%;
-    max-width: none;
+    width: min(94vw, 1240px);
+    max-width: 1240px;
     height: auto;
-    margin: 1.25rem 0 0 -9%;
+    margin: 36px auto 0;
     object-fit: contain;
-    transform: translateY(22px);
+    background: transparent;
     user-select: none;
     pointer-events: none;
-    background: transparent;
+}
+
+@media (min-width: 969px) {
+    .norax-hero-image {
+        width: 100%;
+        max-width: 1240px;
+        margin: 0 auto;
+    }
 }
 
 @keyframes noraxHeroReveal {
@@ -1597,18 +1594,19 @@ footer {
         min-width: 0;
     }
 
-    .norax-hero-section {
+    .norax-hero-media {
         width: 100%;
         max-width: 100%;
         margin: 0 auto;
         overflow: hidden;
     }
 
-    .norax-hero-visual {
-        width: 102%;
-        max-width: 500px;
-        margin: 1.6rem auto 0;
-        transform: translateY(14px);
+    .norax-hero-image {
+        width: min(94vw, 1240px);
+        max-width: 1240px;
+        height: auto;
+        margin: 36px auto 0;
+        object-fit: contain;
     }
 
     .hero-text {
@@ -2292,14 +2290,31 @@ footer {
 }
 
 @media (max-width: 380px) {
-    .norax-hero-visual {
-        width: 96%;
-        max-width: 340px;
-        margin-top: 1.15rem;
-        transform: translateY(10px);
-    }
-
     .phone-mockup-sticky .phone-mockup {
         width: min(200px, 74vw);
+    }
+}
+
+@media (max-width: 768px) {
+    .norax-hero-media {
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .norax-hero-image {
+        width: 112vw;
+        max-width: none;
+        height: auto;
+        margin-top: 28px;
+        margin-left: 50%;
+        transform: translateX(-50%);
+        object-fit: contain;
+    }
+}
+
+@media (max-width: 374px) {
+    .norax-hero-image {
+        width: 108vw;
+        margin-top: 24px;
     }
 }
