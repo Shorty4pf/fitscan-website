@@ -546,8 +546,8 @@ h2 {
 /* Phone Mockups */
 
 .phone-mockup {
-    width: 288px;
-    height: 590px;
+    width: 304px;
+    height: 622px;
     background: #1a1a1c;
     border-radius: 48px;
     padding: 7px;
@@ -909,8 +909,8 @@ h2 {
 
 /* Même chassis iPhone que le hero */
 .phone-mockup-sticky .phone-mockup {
-    width: 288px;
-    height: 590px;
+    width: 304px;
+    height: 622px;
     animation: none;
     --phone-rot: 0deg;
     --phone-translate-x: 0px;
@@ -1573,7 +1573,7 @@ footer {
     }
 
     .phone-mockup-sticky .phone-mockup {
-        width: min(240px, 68vw);
+        width: min(255px, 70vw);
         height: auto;
         aspect-ratio: 9 / 19.2;
         margin: 0 auto;
@@ -1819,7 +1819,7 @@ footer {
     }
 
     .phone-mockup-sticky .phone-mockup {
-        width: min(210px, 64vw);
+        width: min(222px, 66vw);
         height: auto;
         aspect-ratio: 9 / 19.2;
         margin: 0 auto 0;
@@ -2116,6 +2116,6 @@ footer {
     }
 
     .phone-mockup-sticky .phone-mockup {
-        width: min(190px, 72vw);
+        width: min(200px, 74vw);
     }
 }
