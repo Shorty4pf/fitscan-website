@@ -3,10 +3,23 @@
     "apps": [],
     "details": [
       {
-        "appID": "5MUUGKCN3Y.com.noraxai.norax",
+        "appID": "H9SHK335D9.app.noraxai.norax",
         "paths": [
           "/universallink",
           "/universallink/*"
+        ],
+        "appIDs": [
+          "H9SHK335D9.app.noraxai.norax"
+        ],
+        "components": [
+          {
+            "/": "/universallink",
+            "comment": "Lien de connexion e-mail NoraX"
+          },
+          {
+            "/": "/universallink/*",
+            "comment": "Lien de connexion e-mail NoraX"
+          }
         ]
       }
     ]
