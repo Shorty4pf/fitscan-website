@@ -1,6 +1,6 @@
 {
-  "name": "NoraX",
-  "short_name": "NoraX",
+  "name": "NoraX AI",
+  "short_name": "NoraX AI",
   "description": "Votre transformation fitness commence avec un simple scan IA",
   "start_url": "/",
   "display": "standalone",
